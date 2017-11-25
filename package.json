@@ -7,11 +7,15 @@
   "dependencies": {
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
+    "browser-sync": "^2.18.13",
     "gulp": "gulpjs/gulp.git#4.0",
     "gulp-metalsmith": "^1.1.0",
+    "gulp-watch": "^4.3.11",
     "handlebars": "^4.0.11",
     "metalsmith-auto-collections": "^0.1.1",
+    "metalsmith-drafts": "^0.0.1",
     "metalsmith-layouts": "^1.8.1",
+    "metalsmith-metallic": "^2.0.2",
     "metalsmith-pandoc": "^1.0.0",
     "metalsmith-permalinks": "^0.5.0",
     "metalsmith-register-helpers": "^0.4.0"
