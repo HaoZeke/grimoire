@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import ms from 'gulp-metalsmith';
 import mspmd from 'metalsmith-pandoc';
-import msc from 'metalsmith-collections';
+import msc from 'metalsmith-auto-collections';
 import mslay from 'metalsmith-layouts';
 import mshelp from 'metalsmith-register-helpers';
 
@@ -16,6 +16,9 @@ const paths = {
 	layouts: {
 		src: 'layouts',
 		helpers: 'helpers'
+	},
+	collections: {
+		articles: 'content/articles/**/*.md'
 	}
 };
 
@@ -33,7 +36,8 @@ return gulp.src('src/content/**')
       	frontmatter: true,
       // Metalsmith plugins to use: 
 	    use: [
-   	  // Pandoc Markdown
+
+   	  	// Pandoc Markdown
         mspmd({
         	from: 'markdown+smart',
 		    to:   'html5',
@@ -42,10 +46,17 @@ return gulp.src('src/content/**')
 			pattern: '**/*.md', // multimatch
 			ext: '.html' // extension for output file
 			}),
+
+	    // Collections
+	    msc({
+	    	pattern: ['**/*.html', '!*.html']
+	    }),
+
         // Helper registration
         mshelp({
         	directory: paths.layouts.helpers
         }),
+
         // Template engine
         mslay({
         	engine: 'handlebars',

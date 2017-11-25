@@ -2,16 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{{ title }} - {{ site.name }}</title>
-    <meta name="description" content="{{ blurb }}" />
+    <title>{{ site.name }}</title>
+    <meta name="description" content="{{ site.description }}" />
   </head>
   <body>
-    <article>
-      <h1>{{ title }}</h1>
-      <div class="meta">
-          {{#if date}}Published: {{ date }}{{/if}}
-      </div>
-      {{{ contents }}}
-    </article>
+    <h1>{{ site.name }}</h1>
+
+    <ul class="recent">
+    {{#each articles }}
+      <li>
+        <div class="title"><a href="{{ path }}">{{ title }}</a></div>
+        <div class="date">{{ date }}</div>
+      </li>
+    {{/each}}
+    </ul>
+
   </body>
 </html>
