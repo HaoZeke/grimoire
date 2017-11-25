@@ -5,6 +5,10 @@ import imagemin from 'gulp-imagemin';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import newer from 'gulp-newer';
+import tap from 'gulp-tap';
+import gutil from 'gulp-util';
+import buffer from 'gulp-buffer';
+import uglify from 'gulp-uglify';
 import postcss from 'gulp-postcss';
 import ap from 'autoprefixer';
 import postscss from 'postcss-scss';
@@ -18,6 +22,7 @@ import msperma from 'metalsmith-permalinks';
 import drafts from 'metalsmith-drafts';
 import metallic from 'metalsmith-metallic';
 import bs from 'browser-sync';
+import browserify from 'browserify';
 
 const paths = {
 	ms: {
@@ -35,6 +40,10 @@ const paths = {
 	images: {
 	  src: 'src/assets/images/**/*.{jpg,jpeg,png}',
 	  dest: 'dist/img/'
+	},
+	scripts: {
+	  src: 'src/assets/js/main.js',
+	  dest: 'dist/js/'
 	},
 	layouts: {
 		src: 'layouts',
@@ -161,6 +170,39 @@ export function images() {
     .pipe(bs.stream());
 };
 
+export function scripts() {
+
+  return gulp.src(paths.scripts.src, {read: false}) // no need of reading file because browserify does.
+
+    // transform file objects using gulp-tap plugin
+    .pipe(newer(paths.scripts.dest))
+    .pipe(tap(function (file) {
+
+      gutil.log('bundling ' + file.path);
+
+      // replace file contents with browserify's bundle stream
+      file.contents = browserify(file.path, {
+        debug: true,
+        // transform: ["rollupify", "babelify" ]
+      }).bundle();
+
+    }))
+
+    // transform streaming contents into buffer contents (because gulp-sourcemaps does not support streaming contents)
+    .pipe(buffer())
+
+    // load and init sourcemaps
+    .pipe(sourcemaps.init({loadMaps: true}))
+
+    .pipe(uglify())
+
+    // write sourcemaps
+    .pipe(sourcemaps.write('./'))
+
+    .pipe(gulp.dest(paths.scripts.dest))
+    .pipe(bs.stream());
+};
+
 // Rerun the task when a file changes
 export function watch() {
   bs.init({
@@ -168,7 +210,7 @@ export function watch() {
   });
   watcher(paths.styles.src, gulp.series('mkcss'));
   watcher(paths.images.src, gulp.series('images'));
-  // watcher(paths.scripts.src, gulp.series('scripts'));
+  watcher(paths.scripts.src, gulp.series('scripts'));
   watcher([
     paths.ms.src + paths.layouts.src,
     paths.ms.src +  paths.layouts.partials,
@@ -179,4 +221,4 @@ export function watch() {
 };
 
 
-export default gulp.series(gulp.parallel(metal, mkcss, images));
+export default gulp.series(gulp.parallel(metal, mkcss, images, scripts));
