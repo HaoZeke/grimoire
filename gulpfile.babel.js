@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import ms from 'gulp-metalsmith';
 import watcher from 'gulp-watch';
+import imagemin from 'gulp-imagemin';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import newer from 'gulp-newer';
@@ -27,10 +28,14 @@ const paths = {
 		src: 'src/content/',
 		dest: 'dist/'
 	},
-  styles: {
-    src: 'src/assets/styles/**/*.scss',
-    dest: 'dist/css/'
-  },
+	styles: {
+	 src: 'src/assets/styles/**/*.scss',
+	 dest: 'dist/css/'
+	},
+	images: {
+	  src: 'src/assets/images/**/*.{jpg,jpeg,png}',
+	  dest: 'dist/img/'
+	},
 	layouts: {
 		src: 'layouts',
 		partials: 'partials',
@@ -143,13 +148,26 @@ export function mkcss() {
       .pipe(bs.stream());
 };
 
+export function images() {
+  return gulp.src(paths.images.src)
+    .pipe(newer(paths.images.dest))  // pass through newer images only
+    .pipe(imagemin({
+      interlaced: true,
+      progressive: true,
+      optimizationLevel: 5,
+      svgoPlugins: [{removeViewBox: true}]
+    }))
+    .pipe(gulp.dest(paths.images.dest))
+    .pipe(bs.stream());
+};
+
 // Rerun the task when a file changes
 export function watch() {
   bs.init({
     server: paths.ms.dest
   });
   watcher(paths.styles.src, gulp.series('mkcss'));
-  // watcher(paths.images.src, gulp.series('images'));
+  watcher(paths.images.src, gulp.series('images'));
   // watcher(paths.scripts.src, gulp.series('scripts'));
   watcher([
     paths.ms.src + paths.layouts.src,
@@ -161,4 +179,4 @@ export function watch() {
 };
 
 
-export default gulp.series(gulp.parallel(metal,mkcss));
+export default gulp.series(gulp.parallel(metal, mkcss, images));

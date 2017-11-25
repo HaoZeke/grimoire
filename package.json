@@ -13,6 +13,7 @@
     "breakpoint-slicer": "^2.0.0",
     "browser-sync": "^2.18.13",
     "gulp": "gulpjs/gulp.git#4.0",
+    "gulp-imagemin": "^4.0.0",
     "gulp-metalsmith": "^1.1.0",
     "gulp-newer": "^1.3.0",
     "gulp-postcss": "^7.0.0",
