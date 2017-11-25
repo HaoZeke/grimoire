@@ -4297,6 +4297,12 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+katex@^0.9.0-alpha1:
+  version "0.9.0-alpha1"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.9.0-alpha1.tgz#95e2899fa2aac9927f7e3bc2744d39670dfd8cc5"
+  dependencies:
+    match-at "^0.1.1"
+
 kew@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/kew/-/kew-0.7.0.tgz#79d93d2d33363d6fdd2970b335d9141ad591d79b"
@@ -4686,6 +4692,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+match-at@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/match-at/-/match-at-0.1.1.tgz#25d040d291777704d5e6556bbb79230ec2de0540"
+
 matchdep@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/matchdep/-/matchdep-1.0.1.tgz#a57a33804491fbae208aba8f68380437abc2dca5"
@@ -4829,6 +4839,12 @@ metalsmith-register-helpers@^0.4.0:
   resolved "https://registry.yarnpkg.com/metalsmith-register-helpers/-/metalsmith-register-helpers-0.4.0.tgz#32be03f992502b9d99a69299f71daa1771a3f58a"
   dependencies:
     extend "^3.0.1"
+
+metalsmith-rootpath@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/metalsmith-rootpath/-/metalsmith-rootpath-1.0.4.tgz#0250274e98dbcd75c9f383b5dc3643168370b4ae"
+  dependencies:
+    needle-string "^1.0.0"
 
 micromatch@2.3.11, micromatch@^2.1.5, micromatch@^2.3.11, micromatch@^2.3.7:
   version "2.3.11"
@@ -5024,6 +5040,10 @@ nanomatch@^1.2.5:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
+
+needle-string@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/needle-string/-/needle-string-1.0.0.tgz#cab7c6267558f92df0357e16a1c9b202d05f101b"
 
 negotiator@0.6.1:
   version "0.6.1"

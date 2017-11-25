@@ -21,6 +21,7 @@ import mshelp from 'metalsmith-register-helpers';
 import msperma from 'metalsmith-permalinks';
 import drafts from 'metalsmith-drafts';
 import metallic from 'metalsmith-metallic';
+import msroot from 'metalsmith-rootpath';
 import bs from 'browser-sync';
 import browserify from 'browserify';
 
@@ -92,6 +93,9 @@ return gulp.src('src/content/**')
 	    	relative: false,
 	    	pattern: ':title'
 	    }),
+
+        // Use a pathroot
+        msroot(),
 
         // Helper registration
         mshelp({
