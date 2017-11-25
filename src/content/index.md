@@ -1,3 +1,3 @@
 ---
-layout: default.hbs
+layout: index.hbs
 ---

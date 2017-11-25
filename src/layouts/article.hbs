@@ -1,17 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>{{ title }} - {{ site.name }}</title>
-    <meta name="description" content="{{ blurb }}" />
+    {{> head }}
   </head>
   <body>
-    <article>
+    <main class="mainGrid page">
+      {{> header }}
+      {{> nav }}
+      <article class="gridBody">
+        {{> toc }}
+        <div class="content">
       <h1>{{ title }}</h1>
       <div class="meta">
           {{#if date}}Published: {{ date }}{{/if}}
       </div>
-      {{{ contents }}}
+      {{{ contents }}} 
+        </div>
     </article>
+    </main>
+    <script src="js/main.js"></script>
   </body>
 </html>

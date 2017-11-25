@@ -1,0 +1,14 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{{path.dir}}/css/main.css">
+{{#if code}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night-eighties.min.css">
+{{/if}}
+{{#if blurb}}
+<title>{{ title }} - {{ site.name }}</title>
+<meta name="description" content="{{ blurb }}" />
+{{else}}
+<title>{{ site.name }}</title>
+<meta name="description" content="{{ site.description }}" />
+{{/if}}

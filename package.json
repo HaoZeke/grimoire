@@ -27,6 +27,8 @@
     "gulp-watch": "^4.3.11",
     "hamburgers": "^0.9.1",
     "handlebars": "^4.0.11",
+    "handlebars-helpers": "^0.10.0",
+    "helper-markdown": "^1.0.0",
     "highlightjs": "^9.10.0",
     "metalsmith-auto-collections": "^0.1.1",
     "metalsmith-drafts": "^0.0.1",

@@ -12,9 +12,17 @@
 <div class="navList">
 {{#each collections}}
 				<div class="navItem">
-					<a href="{{this.0.path}}">{{@key}}</a>					
+					<a href="{{this.0.path}}">{{capitalize @key}}</a>					
 				</div>
 {{/each}}
+    <ul class="recent">
+    {{#each articles }}
+      <li>
+        <div class="title"><a href="{{ path }}">{{ title }}</a></div>
+        <div class="date">{{ date }}</div>
+      </li>
+    {{/each}}
+    </ul>
 <!-- navList -->
 <!-- menu closed -->
 </div>
@@ -22,7 +30,7 @@
 </div>
 </div>
 
-
+{{#if pdf}}
 <div class="gridBadges sticky-top">
 	<div class="badgeList">
 		<a class="pdf">
@@ -30,3 +38,4 @@
 		</a>			
 	</div>
 </div>
+{{/if}}
