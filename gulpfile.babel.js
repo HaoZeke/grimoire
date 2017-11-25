@@ -2,6 +2,8 @@ import gulp from 'gulp';
 import ms from 'gulp-metalsmith';
 import mspmd from 'metalsmith-pandoc';
 import msc from 'metalsmith-collections';
+import mslay from 'metalsmith-layouts';
+import mshelp from 'metalsmith-register-helpers';
 
 const paths = {
 	ms: {
@@ -10,6 +12,10 @@ const paths = {
 	md: {
 		src: 'src/content/',
 		dest: 'dist/'
+	},
+	layouts: {
+		src: 'layouts',
+		helpers: 'helpers'
 	}
 };
 
@@ -36,6 +42,24 @@ return gulp.src('src/content/**')
 			pattern: '**/*.md', // multimatch
 			ext: '.html' // extension for output file
 			}),
+        // Helper registration
+        mshelp({
+        	directory: paths.layouts.helpers
+        }),
+        // Template engine
+        mslay({
+        	engine: 'handlebars',
+        	directory: paths.layouts.src,
+        	default: 'default.hbs'
+        }),
+        function(files, ms, done) {
+        	console.log('Files: ');
+        	console.log(files);
+        	console.log();
+        	console.log('Metalsmith ');
+        	console.log(ms);
+        	done();
+        }
       ],
       // Initial Metalsmith metadata, defaults to {} 
       metadata: {
