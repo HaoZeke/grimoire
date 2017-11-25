@@ -2,6 +2,9 @@
   "dependencies": {
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
-    "gulp": "gulpjs/gulp.git#4.0"
+    "gulp": "gulpjs/gulp.git#4.0",
+    "gulp-metalsmith": "^1.1.0",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-pandoc": "^1.0.0"
   }
 }
