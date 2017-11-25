@@ -4,6 +4,7 @@ import mspmd from 'metalsmith-pandoc';
 import msc from 'metalsmith-auto-collections';
 import mslay from 'metalsmith-layouts';
 import mshelp from 'metalsmith-register-helpers';
+import msperma from 'metalsmith-permalinks';
 
 const paths = {
 	ms: {
@@ -50,6 +51,11 @@ return gulp.src('src/content/**')
 	    // Collections
 	    msc({
 	    	pattern: ['**/*.html', '!*.html']
+	    }),
+
+	    msperma({
+	    	relative: false,
+	    	pattern: ':title'
 	    }),
 
         // Helper registration
