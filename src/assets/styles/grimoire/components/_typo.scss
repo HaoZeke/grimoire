@@ -1,0 +1,567 @@
+//colors
+$nord_frost: darken(#8FBCBB, 20%);
+$black_59: hsla(0,0%,0%,0.59);
+$black_73: hsla(0,0%,0%,0.73);
+$black_90: hsla(0,0%,0%,0.9);
+$black_4: hsla(0,0%,0%,0.04);
+$black_20: hsla(0,0%,0%,0.2);
+$black_50: hsla(0,0%,0%,0.5);
+$black_12: hsla(0,0%,0%,0.12);
+$white: #fff;
+
+//fonts
+$font_0: Vollkorn;
+$font_1: serif;
+$font_2: Rosario;
+$font_3: sans-serif;
+$font_4: SFMono-Regular;
+$font_5: Consolas;
+$font_6: Roboto Mono;
+$font_7: Droid Sans Mono;
+$font_8: Liberation Mono;
+$font_9: Menlo;
+$font_10: Courier;
+$font_11: monospace;
+
+html {
+	font: 171.25%/1.5em $font_0, $font_1;
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: border-box;
+	overflow-y: scroll;
+}
+* {
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: inherit;
+	&:before {
+		//Instead of the line below you could use @include box-sizing($bs)
+		box-sizing: inherit;
+	}
+	&:after {
+		//Instead of the line below you could use @include box-sizing($bs)
+		box-sizing: inherit;
+	}
+}
+body {
+	color: $black_73;
+	font-family: $font_0, $font_1;
+	font-weight: 400;
+	word-wrap: break-word;
+	font-kerning: normal;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+}
+img {
+	max-width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+}
+h1 {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	color: $black_90;
+	font-family: $font_2, $font_3;
+	font-weight: 700;
+	text-rendering: optimizeLegibility;
+	font-size: 2.5rem;
+	line-height: 1.2;
+	margin-top: 2.25rem;
+	margin-bottom: 0.75rem;
+}
+h2 {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	color: $black_90;
+	font-family: $font_2, $font_3;
+	font-weight: 700;
+	text-rendering: optimizeLegibility;
+	font-size: 2.01572rem;
+	line-height: 1.1;
+	margin-top: 2.25rem;
+	margin-bottom: 0.75rem;
+}
+h3 {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	color: $black_90;
+	font-family: $font_2, $font_3;
+	font-weight: 700;
+	text-rendering: optimizeLegibility;
+	font-size: 1.81951rem;
+	line-height: 1.1;
+	margin-top: 2.25rem;
+	margin-bottom: 0.75rem;
+}
+h4 {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	color: $black_90;
+	font-family: $font_2, $font_3;
+	font-weight: 700;
+	text-rendering: optimizeLegibility;
+	font-size: 1.5rem;
+	line-height: 1.1;
+	margin-top: 2.25rem;
+	margin-bottom: 0.75rem;
+}
+h5 {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	color: $black_90;
+	font-family: $font_2, $font_3;
+	font-weight: 700;
+	text-rendering: optimizeLegibility;
+	font-size: 1.37055rem;
+	line-height: 1.1;
+	margin-top: 2.25rem;
+	margin-bottom: 0.75rem;
+}
+h6 {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	color: $black_90;
+	font-family: $font_2, $font_3;
+	font-weight: 700;
+	text-rendering: optimizeLegibility;
+	font-size: 1.31225rem;
+	line-height: 1.1;
+	margin-top: 2.25rem;
+	margin-bottom: 0.75rem;
+}
+hgroup {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+}
+ul {
+	margin-left: 1.5rem;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	list-style-position: outside;
+	list-style-image: none;
+	margin-left: 1rem;
+	li {
+		padding-left: 0;
+	}
+}
+ol {
+	margin-left: 1.5rem;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	list-style-position: outside;
+	list-style-image: none;
+	margin-left: 1rem;
+	li {
+		padding-left: 0;
+	}
+}
+dl {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+}
+dd {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+}
+p {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	*:last-child {
+		margin-bottom: 0;
+	}
+}
+figure {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+}
+pre {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	font-size: 0.85rem;
+	line-height: 1.42;
+	background: $black_4;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 3px;
+	overflow: auto;
+	word-wrap: normal;
+	padding: 1.5rem;
+	code {
+		background: none;
+		line-height: 1.42;
+		&:before {
+			content: "";
+		}
+		&:after {
+			content: "";
+		}
+	}
+	tt {
+		&:before {
+			content: "";
+		}
+		&:after {
+			content: "";
+		}
+	}
+}
+table {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	border-collapse: collapse;
+	width: 100%;
+}
+fieldset {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+}
+blockquote {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 1.21875rem;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+	font-size: 1.1487rem;
+	line-height: 1.5rem;
+	border-left: 0.28125rem solid $nord_frost;
+	color: $black_59;
+	font-style: italic;
+	cite {
+		font-size: 1rem;
+		line-height: 1.5rem;
+		color: $black_73;
+		font-style: normal;
+		font-weight: 400;
+		&:before {
+			content: "— ";
+		}
+	}
+	*:last-child {
+		margin-bottom: 0;
+	}
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+form {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+}
+noscript {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+}
+iframe {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+}
+hr {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: calc(1.5rem - 1px);
+	background: $black_20;
+	border: none;
+	height: 1px;
+}
+address {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.5rem;
+}
+b {
+	font-weight: 600;
+}
+strong {
+	font-weight: 600;
+}
+dt {
+	font-weight: 600;
+}
+th {
+	font-weight: 600;
+	text-align: left;
+	border-bottom: 1px solid $black_12;
+	font-feature-settings: "tnum";
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.75rem;
+	padding-bottom: calc(0.75rem - 1px);
+	&:first-child {
+		padding-left: 0;
+	}
+	&:last-child {
+		padding-right: 0;
+	}
+}
+li {
+	margin-bottom: calc(1.5rem / 2);
+	> ol {
+		margin-left: 1.5rem;
+		margin-bottom: calc(1.5rem / 2);
+		margin-top: calc(1.5rem / 2);
+		margin-left: 1rem;
+		margin-bottom: 0;
+	}
+	> ul {
+		margin-left: 1.5rem;
+		margin-bottom: calc(1.5rem / 2);
+		margin-top: calc(1.5rem / 2);
+		margin-left: 1rem;
+		margin-bottom: 0;
+	}
+	> p {
+		margin-bottom: calc(1.5rem / 2);
+	}
+	*:last-child {
+		margin-bottom: 0;
+	}
+}
+code {
+	font-size: 0.85rem;
+	line-height: 1.5rem;
+	background-color: $black_4;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 3px;
+	font-family: $font_4, $font_5, $font_6, $font_7, $font_8, $font_9, $font_10, $font_11;
+	padding: 0;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	&:before {
+		letter-spacing: -0.2em;
+		content: " ";
+	}
+	&:after {
+		letter-spacing: -0.2em;
+		content: " ";
+	}
+}
+kbd {
+	font-size: 0.85rem;
+	line-height: 1.5rem;
+}
+samp {
+	font-size: 0.85rem;
+	line-height: 1.5rem;
+}
+abbr {
+	border-bottom: 1px dotted $black_50;
+	cursor: help;
+}
+acronym {
+	border-bottom: 1px dotted $black_50;
+	cursor: help;
+}
+abbr[title] {
+	border-bottom: 1px dotted $black_50;
+	cursor: help;
+	text-decoration: none;
+}
+thead {
+	text-align: left;
+}
+td {
+	text-align: left;
+	border-bottom: 1px solid $black_12;
+	font-feature-settings: "tnum";
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.75rem;
+	padding-bottom: calc(0.75rem - 1px);
+	&:first-child {
+		padding-left: 0;
+	}
+	&:last-child {
+		padding-right: 0;
+	}
+}
+tt {
+	background-color: $black_4;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 3px;
+	font-family: $font_4, $font_5, $font_6, $font_7, $font_8, $font_9, $font_10, $font_11;
+	padding: 0;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	&:before {
+		letter-spacing: -0.2em;
+		content: " ";
+	}
+	&:after {
+		letter-spacing: -0.2em;
+		content: " ";
+	}
+}
+a {
+	color: $nord_frost;
+	text-decoration: none;
+	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	text-shadow: .03em 0 $white,-.03em 0 $white,0 .03em $white,0 -.03em $white,.06em 0 $white,-.06em 0 $white,.09em 0 $white,-.09em 0 $white,.12em 0 $white,-.12em 0 $white,.15em 0 $white,-.15em 0 $white;
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, $nord_frost 1px, $nord_frost 2px, rgba(0, 0, 0, 0) 2px);
+	&:hover {
+		//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		text-shadow: none;
+		background-image: none;
+	}
+	&:active {
+		//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		text-shadow: none;
+		background-image: none;
+	}
+}
+@media only screen and(max-width:480px) {
+	html {
+		font-size: 118.75%;
+		line-height: 1.57105em;
+	}
+
+	h1 {
+		font-size: 164%;
+	}
+
+	h2 {
+		font-size: 144%;
+	}
+
+
+	blockquote {
+		border-left: 0.28125rem solid $nord_frost;
+		color: $black_59;
+		padding-left: 0.84375rem;
+		font-style: italic;
+		margin-left: -1.125rem;
+		margin-right: 0;
+	}
+}
+
+
+
+

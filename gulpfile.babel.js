@@ -1,6 +1,14 @@
 import gulp from 'gulp';
 import ms from 'gulp-metalsmith';
 import watcher from 'gulp-watch';
+import sass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
+import newer from 'gulp-newer';
+import postcss from 'gulp-postcss';
+import ap from 'autoprefixer';
+import postscss from 'postcss-scss';
+import rucksack from 'rucksack-css';
+import fontMagician from 'postcss-font-magician';
 import mspmd from 'metalsmith-pandoc';
 import msc from 'metalsmith-auto-collections';
 import mslay from 'metalsmith-layouts';
@@ -19,6 +27,10 @@ const paths = {
 		src: 'src/content/',
 		dest: 'dist/'
 	},
+  styles: {
+    src: 'src/assets/styles/**/*.scss',
+    dest: 'dist/css/'
+  },
 	layouts: {
 		src: 'layouts',
 		partials: 'partials',
@@ -101,12 +113,42 @@ return gulp.src('src/content/**')
 cb();
 };
 
+// Compile sass into CSS & auto-inject into browsers
+export function mkcss() {
+    return gulp.src(paths.styles.src)
+      .pipe(newer(paths.styles.dest))
+      .pipe(sourcemaps.init())
+      .pipe(postcss([
+        rucksack(),
+        ap({
+          browsers: ['last 2 versions']
+        }),
+        fontMagician()
+      ], {syntax: postscss}))
+      .pipe(sass({
+        includePaths: [
+        'node_modules',
+        'node_modules/breakpoint-sass/stylesheets/',
+        'node_modules/breakpoint-slicer/stylesheets/',
+        'node_modules/typi/scss/',
+        'node_modules/animate-sass/',
+        'node_modules/normalize.scss/',
+        'node_modules/highlightjs/styles/',
+        'node_modules/hamburgers/_sass/hamburgers/'
+        ],
+        outputStyle: 'expanded'
+      }).on('error', sass.logError))
+      .pipe(sourcemaps.write('./'))
+      .pipe(gulp.dest(paths.styles.dest))
+      .pipe(bs.stream());
+};
+
 // Rerun the task when a file changes
 export function watch() {
   bs.init({
     server: paths.ms.dest
   });
-  // watcher(paths.styles.src, gulp.series('mkcss'));
+  watcher(paths.styles.src, gulp.series('mkcss'));
   // watcher(paths.images.src, gulp.series('images'));
   // watcher(paths.scripts.src, gulp.series('scripts'));
   watcher([
@@ -119,4 +161,4 @@ export function watch() {
 };
 
 
-export default gulp.series(metal);
+export default gulp.series(gulp.parallel(metal,mkcss));
