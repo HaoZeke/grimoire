@@ -22,6 +22,7 @@ import msperma from 'metalsmith-permalinks';
 import drafts from 'metalsmith-drafts';
 import metallic from 'metalsmith-metallic';
 import msroot from 'metalsmith-rootpath';
+import msmath from 'metalsmith-mathjax';
 import bs from 'browser-sync';
 import browserify from 'browserify';
 
@@ -78,11 +79,14 @@ return gulp.src('src/content/**')
         mspmd({
         	from: 'markdown+smart',
 		    to:   'html5',
-		    args: ['--katex'],
+		    args: ['--mathjax','--filter','pandoc-eqnos'],
 			opts: {},
 			pattern: '**/*.md', // multimatch
 			ext: '.html' // extension for output file
 			}),
+
+      // Try Math rendering
+      msmath(),
 
 	    // Collections
 	    msc({
@@ -120,7 +124,7 @@ return gulp.src('src/content/**')
       ],
       // Initial Metalsmith metadata, defaults to {} 
       metadata: {
-        title: 'Sample static site'
+        site_name: 'Grimoire'
       },
       // List of JSON files that contain page definitions 
       // true means "all JSON files", see the section below 

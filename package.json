@@ -34,6 +34,7 @@
     "metalsmith-auto-collections": "^0.1.1",
     "metalsmith-drafts": "^0.0.1",
     "metalsmith-layouts": "^1.8.1",
+    "metalsmith-mathjax": "^0.0.7",
     "metalsmith-metallic": "^2.0.2",
     "metalsmith-pandoc": "^1.0.0",
     "metalsmith-permalinks": "^0.5.0",

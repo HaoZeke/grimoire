@@ -44,6 +44,10 @@ $color_shadow_green_approx: #8fbcbb;
   --navPercentSize: 5%;
 }
 
+span {
+  position: relative;
+}
+
 body {
   background-color: $colorBackground;
   color: $colorText;
