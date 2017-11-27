@@ -3,7 +3,7 @@ title: "Viscous Stress Tensor"
 subtitle: "Components in Various Coordinate Systems"
 author: [Rohit Goswami]
 date: 2017-10-23
-tags: [Pandoc, Transport-Phenomena]
+tags: [Pandoc, Transport Phenomena]
 fontsize: 20pt
 smart: On
 cleveref: On

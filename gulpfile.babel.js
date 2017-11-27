@@ -57,9 +57,8 @@ const paths = {
 	}
 };
 
-nun.configure(['./src/layouts','./src/partials'], {watch: false});
-
 export function metal(cb) {
+  nun.configure(['./src/layouts','./src/partials'], {watch: false});
 return gulp.src('src/content/**')
   .pipe(
     ms({
@@ -100,8 +99,14 @@ return gulp.src('src/content/**')
 
 	    // Collections
 	    msc({
-	    	pattern: ['**/*.html', '!*.html']
+	    	pattern: ['**/*.html', '!*.html'],
 	    }),
+	    
+      msperma({
+	    	relative: false,
+	    	pattern: ':title'
+	    }),
+
 
       // Tags
       mstags({
@@ -131,11 +136,6 @@ return gulp.src('src/content/**')
         slug: {mode: 'rfc3986'}
       }),
 
-	    msperma({
-	    	relative: false,
-	    	pattern: ':title'
-	    }),
-
         // Use a pathroot
         msroot(),
 
@@ -144,14 +144,14 @@ return gulp.src('src/content/**')
         	engine: 'nunjucks',
         	default: 'default.njk'
         }),
-        function(files, ms, done) {
-        	console.log('Files: ');
-        	console.log(files);
-        	console.log();
-        	console.log('Metalsmith ');
-        	console.log(ms);
-        	done();
-        }
+        // function(files, ms, done) {
+        // 	console.log('Files: ');
+        // 	console.log(files);
+        // 	console.log();
+        // 	console.log('Metalsmith ');
+        // 	console.log(ms);
+        // 	done();
+        // }
       ],
       // Initial Metalsmith metadata, defaults to {} 
       metadata: {
@@ -253,7 +253,6 @@ export function watch() {
   watcher([
     paths.ms.src + paths.layouts.src,
     paths.ms.src +  paths.layouts.partials,
-    paths.ms.src +  paths.layouts.helpers,
     paths.md.src
     ],
     gulp.series('metal'));

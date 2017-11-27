@@ -16,15 +16,28 @@
 
 {% block main %}
 
-    <ul class="recent">
-    {% for post in articles %}
-      <li>
-        <div class="title"><a href="{{ post.path }}">{{ post.title }}</a></div>
-        <div class="date">{{ post.date }}</div>
+<h4> Structure </h4>
+
+The site is divided into a multitude of collections, tags may be accessed from the left navbar.
+
+<h4> Rationale </h4>
+
+Each collection represents a coherent subject wise layout, while tags are meant to showcase the interdisciplinary aspects of each post.
+
+
+  <ul>
+      {% for name,data in collections | dictsort %}
+    <h6>{{ name | capitalize }}</h6>
+    {% for page in data %}
+        <li>
+        <a href="{{rootPath}}/{{page.path}}/index.html" title="{{page.title}}">
+          <strong>{{page.title}}</strong>
+        </a>
+          <div class="date">{{ page.blurb }}</div>
       </li>
     {% endfor %}
-    </ul>
-
+    {% endfor %}
+  </ul>
 {% endblock %}
 
 </div>

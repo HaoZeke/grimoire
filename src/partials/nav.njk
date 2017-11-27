@@ -6,29 +6,24 @@
 </div>
 <!-- gridNav -->
 </div>
-
-<div class="gridMenu">
+<nav class="gridMenu">
 <div class="menu closed">
 <div class="navList">
-{% for item in collections %}
-				<div class="navItem">
-					<a href="{{rootPath}}/{{item.path}}">{{item.title}}</a>
-				</div>
+	<div class="navItem">
+		<a href="{{rootPath}}/">Home</a>
+	</div>
+{% for name,obj in category|dictsort %}
+		<div class="navItem">
+			<a href="{{rootPath}}/topics/{{name | lower | replace(" ","-")}}">{{name | replace("-"," ")}}</a>
+		</div>
 {% endfor %}
-    <ul class="recent">
-    {% for article in articles %}
-      <li>
-        <div class="title"><a href="/{{rootPath}}{{ article.path }}">{{ article.title }}</a></div>
-        <div class="date">{{ article.date }}</div>
-      </li>
-    {% endfor %}
-    </ul>
+
 <!-- navList -->
 <!-- menu closed -->
 </div>
 <!-- gridMenu -->
 </div>
-</div>
+</nav>
 
 {%if pdf %}
 <div class="gridBadges sticky-top">

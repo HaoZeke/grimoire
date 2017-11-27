@@ -2,6 +2,7 @@
 title: "Metalsmith Math"
 date: 2016-10-12
 blurb: Various math rendering methods in metalsmith
+tags: [Math]
 layout: article
 ---
 
