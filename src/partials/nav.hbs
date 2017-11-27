@@ -12,13 +12,13 @@
 <div class="navList">
 {{#each collections}}
 				<div class="navItem">
-					<a href="{{rootPath}}{{this.0.path}}">{{capitalize @key}}</a>					
+					<a href="{{rootPath}}/{{this.0.path}}">{{capitalize @key}}</a>
 				</div>
 {{/each}}
     <ul class="recent">
     {{#each articles }}
       <li>
-        <div class="title"><a href="{{rootPath}}{{ path }}">{{ title }}</a></div>
+        <div class="title"><a href="/{{rootPath}}{{ path }}">{{ title }}</a></div>
         <div class="date">{{ date }}</div>
       </li>
     {{/each}}

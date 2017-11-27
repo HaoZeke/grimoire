@@ -3359,12 +3359,22 @@ hamburgers@^0.9.1:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/hamburgers/-/hamburgers-0.9.1.tgz#49bc3bca667a693a8458388c9ef265ae611348d5"
 
+handlebars-dateformat@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/handlebars-dateformat/-/handlebars-dateformat-1.1.1.tgz#874cc225d1cea1d2f28897b107795def8928b32f"
+  dependencies:
+    moment "^2.18.1"
+
 handlebars-helper-create-frame@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/handlebars-helper-create-frame/-/handlebars-helper-create-frame-0.1.0.tgz#8aa51d10aeb6408fcc6605d40d77356288487a03"
   dependencies:
     create-frame "^1.0.0"
     isobject "^3.0.0"
+
+handlebars-helper-equal@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/handlebars-helper-equal/-/handlebars-helper-equal-1.0.0.tgz#40c0078e7266da4b0692d8934bfe3e910b0a7a58"
 
 handlebars-helpers@^0.10.0:
   version "0.10.0"
@@ -5009,6 +5019,12 @@ metalsmith-rootpath@^1.0.4:
   resolved "https://registry.yarnpkg.com/metalsmith-rootpath/-/metalsmith-rootpath-1.0.4.tgz#0250274e98dbcd75c9f383b5dc3643168370b4ae"
   dependencies:
     needle-string "^1.0.0"
+
+metalsmith-tags@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/metalsmith-tags/-/metalsmith-tags-2.0.0.tgz#81a09877a703664c4155944dd946b7b8bfab0cfd"
+  dependencies:
+    slug "^0.9.1"
 
 micromatch@2.3.11, micromatch@^2.1.5, micromatch@^2.3.11, micromatch@^2.3.7:
   version "2.3.11"
@@ -6691,6 +6707,12 @@ slug-component@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/slug-component/-/slug-component-1.1.0.tgz#224290a04591bf9ac08b9c622d3a14f43e3a0df7"
 
+slug@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/slug/-/slug-0.9.1.tgz#af08f608a7c11516b61778aa800dce84c518cfda"
+  dependencies:
+    unicode ">= 0.3.1"
+
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/snapdragon-node/-/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"
@@ -7527,6 +7549,10 @@ undertaker@^1.0.0:
     object.defaults "^1.0.0"
     object.reduce "^1.0.0"
     undertaker-registry "^1.0.0"
+
+"unicode@>= 0.3.1":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/unicode/-/unicode-10.0.0.tgz#e5d51c1db93b6c71a0b879e0b0c4af7e6fdf688e"
 
 union-value@^1.0.0:
   version "1.0.0"

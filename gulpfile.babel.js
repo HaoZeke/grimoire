@@ -23,6 +23,7 @@ import drafts from 'metalsmith-drafts';
 import metallic from 'metalsmith-metallic';
 import msroot from 'metalsmith-rootpath';
 import msmath from 'metalsmith-mathjax';
+import mstags from 'metalsmith-tags';
 import bs from 'browser-sync';
 import browserify from 'browserify';
 
@@ -80,9 +81,9 @@ return gulp.src('src/content/**')
         	from: 'markdown+smart',
 		    to:   'html5',
 		    args: ['--mathjax','--filter','pandoc-eqnos'],
-			opts: {},
-			pattern: '**/*.md', // multimatch
-			ext: '.html' // extension for output file
+			  opts: {},
+			  pattern: '**/*.md', // multimatch
+			  ext: '.html' // extension for output file
 			}),
 
       // Try Math rendering
@@ -92,6 +93,34 @@ return gulp.src('src/content/**')
 	    msc({
 	    	pattern: ['**/*.html', '!*.html']
 	    }),
+
+      // Tags
+      mstags({
+        // yaml key for tag list in you pages
+        handle: 'tags',
+        path: "topics/:tag/index.html",
+        pathPage: "topics/:tag/:num/index.html",
+        perPage: 2,
+        // path for result pages
+        // path:'topics/:tag.html',
+        // layout to use for tag listing
+        layout:'tags.hbs',
+        // provide posts sorted by 'date' (optional)
+        sortBy: 'date',
+        // sort direction (optional)
+        reverse: true,
+        // skip updating metalsmith's metadata object.
+        // useful for improving performance on large blogs
+        // (optional)
+        skipMetadata: false,
+        // Use a non-default key in the metadata. Useful if you you want to
+        // have two sets of tags in different sets with metalsmith-branch.
+        metadataKey: "category",
+        // Any options you want to pass to the [slug](https://github.com/dodo/node-slug) package.
+        // Can also supply a custom slug function.
+        // slug: function(tag) { return tag.toLowerCase() }
+        slug: {mode: 'rfc3986'}
+      }),
 
 	    msperma({
 	    	relative: false,
