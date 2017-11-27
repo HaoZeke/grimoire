@@ -1,0 +1,16 @@
+{% extends 'default.njk' %}
+
+{% block main %}
+<section>
+  <h3>Tag: <strong>{{tag}}</strong></h3>
+  <ul>
+    {% for page in pagination.files %}
+      <li>
+        <a href="{{rootPath}}/{{page.path}}/index.html" title="{{page.title}}">
+          <h5>{{page.title}}</h5>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

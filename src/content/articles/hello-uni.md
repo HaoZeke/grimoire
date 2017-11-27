@@ -2,7 +2,7 @@
 title: "Hello World"
 date: 2016-10-12
 blurb: An introduction to Grimoire
-layout: article.hbs
+layout: article.njk
 ---
 
 ## Welcome to Grimoire

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+{% include 'head.njk' %}
+{% block head %} {% endblock %}
+</head>
+
+<body>
+<main class="mainGrid page">
+{% include 'header.njk' %}
+{% include 'nav.njk' %}
+<article class="gridBody">
+<div class="content">
+
+{% include 'toc.njk' %}
+
+{% block main %}
+
+    <ul class="recent">
+    {% for post in articles %}
+      <li>
+        <div class="title"><a href="{{ post.path }}">{{ post.title }}</a></div>
+        <div class="date">{{ post.date }}</div>
+      </li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
+
+</div>
+</article>
+ 
+{% include 'footer.njk' %}
+</main>
+
+{% block scripts %} {% endblock %}
+<script src="{{ rootPath }}js/main.js"></script>
+</body>
+</html>

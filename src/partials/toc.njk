@@ -1,0 +1,11 @@
+{% if toc %}
+<section class="gridToc sticky">
+	<ul>
+		{% for head in toc %}
+		<li>
+		   <a class="toc-item" href="#{{head.id}}">{{head.text}}</a>
+		</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endif %}

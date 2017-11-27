@@ -10,18 +10,18 @@
 <div class="gridMenu">
 <div class="menu closed">
 <div class="navList">
-{{#each collections}}
+{% for item in collections %}
 				<div class="navItem">
-					<a href="{{rootPath}}/{{this.0.path}}">{{capitalize @key}}</a>
+					<a href="{{rootPath}}/{{item.path}}">{{item.title}}</a>
 				</div>
-{{/each}}
+{% endfor %}
     <ul class="recent">
-    {{#each articles }}
+    {% for article in articles %}
       <li>
-        <div class="title"><a href="/{{rootPath}}{{ path }}">{{ title }}</a></div>
-        <div class="date">{{ date }}</div>
+        <div class="title"><a href="/{{rootPath}}{{ article.path }}">{{ article.title }}</a></div>
+        <div class="date">{{ article.date }}</div>
       </li>
-    {{/each}}
+    {% endfor %}
     </ul>
 <!-- navList -->
 <!-- menu closed -->
@@ -30,7 +30,7 @@
 </div>
 </div>
 
-{{#if pdf}}
+{%if pdf %}
 <div class="gridBadges sticky-top">
 	<div class="badgeList">
 		<a class="pdf">
@@ -38,4 +38,4 @@
 		</a>			
 	</div>
 </div>
-{{/if}}
+{% endif %}

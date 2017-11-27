@@ -17,7 +17,6 @@ import fontMagician from 'postcss-font-magician';
 import mspmd from 'metalsmith-pandoc';
 import msc from 'metalsmith-auto-collections';
 import mslay from 'metalsmith-layouts';
-import mshelp from 'metalsmith-register-helpers';
 import msperma from 'metalsmith-permalinks';
 import drafts from 'metalsmith-drafts';
 import metallic from 'metalsmith-metallic';
@@ -26,6 +25,8 @@ import msmath from 'metalsmith-mathjax';
 import mstags from 'metalsmith-tags';
 import bs from 'browser-sync';
 import browserify from 'browserify';
+import nun from 'nunjucks';
+import nunMark from 'nunjucks-markdown';
 
 const paths = {
 	ms: {
@@ -49,11 +50,13 @@ const paths = {
 	  dest: 'dist/js/'
 	},
 	layouts: {
-		src: 'layouts',
-		partials: 'partials',
-		helpers: 'helpers'
+		src: 'layouts/',
+		partials: 'partials/',
+		helpers: 'src/helpers/'
 	}
 };
+
+nun.configure(['./src/layouts','./src/partials'], {watch: false});
 
 export function metal(cb) {
 return gulp.src('src/content/**')
@@ -104,7 +107,7 @@ return gulp.src('src/content/**')
         // path for result pages
         // path:'topics/:tag.html',
         // layout to use for tag listing
-        layout:'tags.hbs',
+        layout:'tags.njk',
         // provide posts sorted by 'date' (optional)
         sortBy: 'date',
         // sort direction (optional)
@@ -130,17 +133,10 @@ return gulp.src('src/content/**')
         // Use a pathroot
         msroot(),
 
-        // Helper registration
-        mshelp({
-        	directory: paths.layouts.helpers
-        }),
-
         // Template engine
         mslay({
-        	engine: 'handlebars',
-        	directory: paths.layouts.src,
-        	partials: paths.layouts.partials,
-        	default: 'default.hbs'
+        	engine: 'nunjucks',
+        	default: 'default.njk'
         }),
         function(files, ms, done) {
         	console.log('Files: ');
