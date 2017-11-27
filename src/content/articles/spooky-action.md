@@ -1,7 +1,7 @@
 ---
 title: "Spooky Action"
 date: 2016-10-14
-layout: article.njk
+layout: article
 blurb: "What would Einstein make of quantum entanglement today?"
 ---
 

@@ -2,7 +2,7 @@
 title: "Metalsmith Math"
 date: 2016-10-12
 blurb: Various math rendering methods in metalsmith
-layout: article.njk
+layout: article
 ---
 
 ## MathJax

@@ -5,7 +5,7 @@ author: [Rohit Goswami, Prof. Debabrata Goswami]
 date: 2017-02-20
 tags: [Pandoc, Biology]
 draft: false
-layout: article.njk
+layout: article
 autotoc: true
 ...
 # JGEEBILS Writeup

@@ -23,6 +23,7 @@ import metallic from 'metalsmith-metallic';
 import msroot from 'metalsmith-rootpath';
 import msmath from 'metalsmith-mathjax';
 import mstags from 'metalsmith-tags';
+import msaddExt from 'metalsmith-layouts-add-extension';
 import bs from 'browser-sync';
 import browserify from 'browserify';
 import nun from 'nunjucks';
@@ -73,6 +74,11 @@ return gulp.src('src/content/**')
       // Metalsmith plugins to use: 
 	    use: [
 
+        // Add ext
+        msaddExt({
+          layout_extension: '.njk',
+        }),
+
         // Drafts
         drafts(),
 
@@ -103,7 +109,7 @@ return gulp.src('src/content/**')
         handle: 'tags',
         path: "topics/:tag/index.html",
         pathPage: "topics/:tag/:num/index.html",
-        perPage: 2,
+        perPage: 6,
         // path for result pages
         // path:'topics/:tag.html',
         // layout to use for tag listing

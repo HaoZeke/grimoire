@@ -1,7 +1,7 @@
 ---
 title: Grimoire
 draft: false
-layout: article.njk
+layout: article
 date: 2017-12-24
 autotoc: true
 ---

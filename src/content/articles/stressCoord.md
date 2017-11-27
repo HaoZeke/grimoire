@@ -15,7 +15,7 @@ header-includes:
     - \numberwithin{equation}{section}
     - \numberwithin{table}{section}
 draft: false
-layout: article.njk
+layout: article
 katex: true
 autotoc: true
 ...
