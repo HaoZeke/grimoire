@@ -10,6 +10,8 @@ import gutil from 'gulp-util';
 import buffer from 'gulp-buffer';
 import uglify from 'gulp-uglify';
 import postcss from 'gulp-postcss';
+import typeset from 'gulp-typeset';
+import typogr from 'gulp-typogr';
 import ap from 'autoprefixer';
 import postscss from 'postcss-scss';
 import rucksack from 'rucksack-css';
@@ -168,6 +170,8 @@ return gulp.src('src/content/**')
       // true means "all JSON files", see the section below 
       //json: ['src/pages.json']
     }))
+    .pipe(typeset())
+    .pipe(typogr())
   	.pipe(gulp.dest(paths.md.dest))
   	.pipe(bs.stream());
 cb();

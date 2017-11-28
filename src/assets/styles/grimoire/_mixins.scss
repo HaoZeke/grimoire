@@ -66,6 +66,8 @@
     text-overflow: ellipsis;
 }
 
+// Borrowed from https://www.fourkitchens.com/blog/article/responsive-multi-column-lists-flexbox/
+
 @mixin n-columns($min-width, $gutter, $last-equal: false, $max-cols: 5) {
   .items {
     display: flex;

@@ -1,6 +1,7 @@
 @include n-columns(200px,  10px, true, 2);
 
 .items {
+ 	margin-right: 1.8em;
   .item {
     background: $blueGrey;
     color: white;
