@@ -3,6 +3,7 @@ title: Grimoire
 draft: false
 layout: article
 date: 2017-12-24
+tags: [Readme, Temporary]
 autotoc: true
 ---
 

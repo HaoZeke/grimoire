@@ -89,7 +89,7 @@ body {
 .gridMenu {
   order: 2;
   grid-column: 1;
-  grid-row: 2 / 5;  // Making this span would prevent the slight scrolling with open nav bar from the top
+  grid-row: 2 / 4;  // Making this span would prevent the slight scrolling with open nav bar from the top
   transition: all 1s;
 
   .showMenu {
@@ -109,7 +109,7 @@ body {
   }
   align-self: center;
   grid-column: 2;
-  grid-row: 3;
+  grid-row: 2;
   justify-self: center;
   margin: 0 1.4em;
   min-height: 100vh; // Heading Style
@@ -117,21 +117,15 @@ body {
 }
 
 .gridToc {
-  @include between('s', 'xl') {
-    max-width: 50vw;
-  }
   align-self: center;
-  grid-column: 2;
-  grid-row: 2;
-  justify-self: center;
-  margin: 0 1.4em;
-  transition: all 1s;
+  grid-column: 1/4;
+  grid-row: 4;
 }
 
 .gridBadges {
   align-self: start;
   grid-column: 3;
-  grid-row: 3;
+  grid-row: 2;
   justify-self: end;
   transition: all 1s;
   a {
@@ -144,6 +138,10 @@ body {
     top: 0;
 }
 
+.noColor {
+  background: none;
+}
+
 .page {
   footer {
   @include between('s', 'xl') {
@@ -151,7 +149,7 @@ body {
   }
     align-self: center;
     grid-column: 2;
-    grid-row: 4;
+    grid-row: 3;
     justify-self: center;
     margin: .5rem;
     padding: .25rem;

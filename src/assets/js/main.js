@@ -2,5 +2,5 @@
 
 // PDF Linker
 require('./pandLinks');
-// Side Nav
-require('./sideNav');
+// Nav
+require('./siteNav');

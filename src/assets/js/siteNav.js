@@ -15,3 +15,9 @@ u(document).on('click',"#toggle, .gridMenu", function() {
 	document.documentElement.style.setProperty("--navColSize", ".05fr");
 }
 });
+
+// Luxbar enhancement (dead for now)
+// u(document).on('click',".luxbar-header", function(){
+// 	console.log("Hi I run!")
+//   u('#luxbar-input').click();
+// });

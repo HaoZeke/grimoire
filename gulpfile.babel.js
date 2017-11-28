@@ -23,6 +23,7 @@ import metallic from 'metalsmith-metallic';
 import msroot from 'metalsmith-rootpath';
 import msmath from 'metalsmith-mathjax';
 import mstags from 'metalsmith-tags';
+import msatoc from 'metalsmith-autotoc';
 import msaddExt from 'metalsmith-layouts-add-extension';
 import bs from 'browser-sync';
 import browserify from 'browserify';
@@ -93,6 +94,12 @@ return gulp.src('src/content/**')
 			  pattern: '**/*.md', // multimatch
 			  ext: '.html' // extension for output file
 			}),
+
+        // TOC JSON for headings
+        msatoc({
+          selector: "h2, h3, h4, h5, h6",
+          headerIDPrefix: 'subhead'
+        }),
 
       // Try Math rendering
       msmath(),
@@ -187,6 +194,7 @@ export function mkcss() {
         'node_modules/animate-sass/',
         'node_modules/normalize.scss/',
         'node_modules/highlightjs/styles/',
+        'node_modules/luxbar/scss/',
         'node_modules/hamburgers/_sass/hamburgers/'
         ],
         outputStyle: 'expanded'

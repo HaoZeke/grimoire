@@ -1,6 +1,8 @@
 ---
 title: Grimoire Collections
 layout: collections
+tags: [Navigation]
+autotoc: true
 ---
 
 # Collections

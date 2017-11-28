@@ -29,6 +29,7 @@
     "highlightjs": "^9.10.0",
     "jstransformer-nunjucks": "^0.5.0",
     "katex": "^0.9.0-alpha1",
+    "luxbar": "^0.3.2",
     "metalsmith-auto-collections": "^0.1.1",
     "metalsmith-autotoc": "^0.1.5",
     "metalsmith-drafts": "^0.0.1",

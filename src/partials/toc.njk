@@ -1,11 +1,33 @@
 {% if toc %}
-<section class="gridToc sticky">
-	<ul>
-		{% for head in toc %}
+<div id="luxbar" class="gridToc luxbar-fixed-bottom">
+    <input type="checkbox" class="luxbar-checkbox" id="luxbar-checkbox"/>
+    <div class="luxbar-menu luxbar-menu-right luxbar-menu-material-bluegrey">
+        <ul class="luxbar-navigation">
+            <li class="luxbar-header">
+                <label class="luxbar-hamburger luxbar-hamburger-doublespin" 
+                id="luxbar-hamburger" for="luxbar-checkbox"> <span></span> </label>
+            </li>
+            {% for head in toc %}
+            <li class="luxbar-item">
+            	<a class="tocItem" href="#{{head.id}}">{{head.text}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{# <section class="gridToc sticky-top">
+	<ul class="postNav">
 		<li>
-		   <a class="toc-item" href="#{{head.id}}">{{head.text}}</a>
+			Contents
+			<ul>
+				{% for head in toc %}
+				<li>
+				   <a class="toc-item" href="#{{head.id}}">{{head.text}}</a>
+				</li>
+				{% endfor %}
+			</ul>
 		</li>
-		{% endfor %}
 	</ul>
-</section>
+</section> #}
 {% endif %}
+

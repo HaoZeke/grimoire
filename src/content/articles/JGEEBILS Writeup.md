@@ -21,7 +21,8 @@ The analysis of (relatively) long timescale dynamics, such as, those found in bi
 Also of interest to me are the cognitive aspects of the human brain and the use of stochastic probabilities to simulate neural activity. There have only been theoretical descriptions of such work till date.
 
 
-## Photosynthesis (Quantum Studies and Simulations)
+## Photosynthesis 
+**(Quantum Studies and Simulations)**
 Quantum mechanical analysis of several highly energetic systems will also be beneficial for simulation theories. Although simulations are classical, coarse-graining allows for accurate theories to arise from classical systems.
 
 Specifically, the response of computationally coarse-grained bacteria to light sources is of interest to me on longer timescales (e.g., rare events, structural changes). Such a model could also be gainfully compared to a multilevel quantum heat engine [](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.91.023816).

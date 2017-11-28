@@ -7,13 +7,11 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ title }}</h1>
+{#     <h1>{{ title }}</h1>
       <div class="meta">
         {% if date %}Published: {{ date }}{% endif %}
-      </div>
+      </div> #}
       {{ contents | safe}}
-
-      {{collection}}
 {% endblock %}
 
 
