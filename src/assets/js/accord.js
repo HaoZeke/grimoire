@@ -1,0 +1,1 @@
+module.exports = require('van11y-accessible-accordion-aria');

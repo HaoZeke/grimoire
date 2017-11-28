@@ -34,10 +34,6 @@ $typi: (
 // @include typi-init;
 // @include typi-create-classes;
 
-//colors
-$color_half_baked_approx: #88c0d0;
-$color_shadow_green_approx: #8fbcbb;
-
 // CSS Variables
 :root {
   --navColSize: .05fr;
@@ -78,6 +74,7 @@ body {
 }
 
 .gridNav {
+  background-color: $blueGrey;
   // align-self: center;
   grid-column: 1;
   grid-row: 1 / 5;
@@ -205,3 +202,7 @@ code.hasJax {
     justify-self: end;
 }
 
+.footP {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}

@@ -2,7 +2,7 @@
 .menu {
   position: sticky;
   top: 3em;
-  max-height: 80vh;
+  height: 80vh;
   overflow-y: auto;
 
   .navList {
@@ -34,7 +34,6 @@
 
 #toggle {
   background-color: #2E3440;
-  height: 100%;
 
   &:hover {
     cursor: pointer;
@@ -74,3 +73,147 @@
   transform: rotate(224deg);
 }
 
+
+.minimalist-accordion__header {
+  display: block;
+  background: $blueGrey;
+  color: white;
+  font-size: 1.2em;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+  line-height: 1.8462;
+  margin: 0;
+  padding: .25em 0;
+  text-align: left;
+  width: 100%;
+  font-weight: normal;
+  &:focus {
+   box-shadow: -18px 1px 5px -8px rgba(49,181,196,0.65);
+  }
+}
+.minimalist-noanim-accordion__header {
+  display: block;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 2em;
+  line-height: 1.8462;
+  margin: 0;
+  padding: .25em 0;
+  text-align: left;
+  width: 100%;
+  font-weight: normal;
+  &:focus {
+    box-shadow: -18px 1px 5px -8px rgba(49,181,196,0.65);
+  }
+}
+.minimalist-accordion__header::before {
+  content: '';
+  display: inline-block;
+  width: .5em;
+  height: .5em;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  margin-right: .25em;
+}
+.minimalist-noanim-accordion__header::before {
+  content: '';
+  display: inline-block;
+  width: .75em;
+  height: .75em;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  margin-right: .25em;
+}
+[aria-expanded="true"] {
+  &.minimalist-accordion__header {
+    background: $nord_frost;
+  }
+  &.minimalist-accordion__header::before {
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(90deg);
+    //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+    transform-origin: 50% 50%;
+  }
+  &.minimalist-noanim-accordion__header::before {
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(90deg);
+    //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+    transform-origin: 50% 50%;
+  }
+}
+.minimalist-accordion__title {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.minimalist-noanim-accordion__title {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.minimalist-accordion__panel {
+  display: block;
+  overflow: hidden;
+  opacity: 1;
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: visibility 0s ease, max-height 1s ease, opacity 1s ease;
+  max-height: 100em;
+  visibility: visible;
+  //Instead of the line below you could use @include transition-delay($delay-1, $delay-2, $delay-3, $delay-4, $delay-5, $delay-6, $delay-7, $delay-8, $delay-9, $delay-10)
+  transition-delay: 0s;
+  margin: 0;
+  padding: 0;
+}
+[aria-hidden=true] {
+  &.minimalist-accordion__panel {
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    //Instead of the line below you could use @include transition-delay($delay-1, $delay-2, $delay-3, $delay-4, $delay-5, $delay-6, $delay-7, $delay-8, $delay-9, $delay-10)
+    transition-delay: 1s, 0s, 0s;
+    margin: 0;
+    padding: 0;
+  }
+  &.minimalist-noanim-accordion__panel {
+    display: none;
+  }
+}
+.minimalist-noanim-accordion__panel {
+  display: block;
+}
+// .minimalist-accordion__header[aria-selected="true"]:after {
+//   content: "";
+//   position: relative;
+//   border-bottom: .4em solid transparent;
+//   border-top: .4em solid transparent;
+//   margin-left: .5em;
+//   top: .1em;
+//   border-left: .7em solid;
+//   display: inline-block;
+//   speak: none;
+// }
+// .minimalist-noanim-accordion__header[aria-selected="true"]:after {
+//   content: "";
+//   position: relative;
+//   border-bottom: .4em solid transparent;
+//   border-top: .4em solid transparent;
+//   margin-left: .5em;
+//   top: .1em;
+//   border-left: .7em solid;
+//   display: inline-block;
+//   speak: none;
+// }

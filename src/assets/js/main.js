@@ -4,3 +4,7 @@
 require('./pandLinks');
 // Nav
 require('./siteNav');
+// Analytics
+require('./analytics');
+// Accordion
+require('./accord');

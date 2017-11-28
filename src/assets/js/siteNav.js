@@ -4,9 +4,10 @@ var u = require('umbrellajs').u;
 var htmlStyles = window.getComputedStyle(document.querySelector("html"));
 var rowNum = parseInt(htmlStyles.getPropertyValue("--navColSize"));
 
-u(document).on('click',"#toggle, .gridMenu", function() {
+u(document).on('click',"#toggle", function() {
   u("#toggle").toggleClass("closed");
   u(".menu").toggleClass("closed");
+  u('.js-accordion minimalist-accordion').off('click');
   u('.burger').toggleClass('openBurger');
   u('.gridMenu').toggleClass('showMenu');
   if (u("#toggle").hasClass("closed")) {
