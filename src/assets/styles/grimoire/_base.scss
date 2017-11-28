@@ -117,6 +117,9 @@ body {
 }
 
 .gridToc {
+  @include between('s', 'xl') {
+    font-size: .6em;
+  }
   align-self: center;
   grid-column: 1/4;
   grid-row: 4;
