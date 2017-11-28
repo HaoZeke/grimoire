@@ -170,7 +170,9 @@ return gulp.src('src/content/**')
       // true means "all JSON files", see the section below 
       //json: ['src/pages.json']
     }))
-    .pipe(typeset())
+    .pipe(typeset({
+      ignore: '.math'
+    }))
     .pipe(typogr())
   	.pipe(gulp.dest(paths.md.dest))
   	.pipe(bs.stream());
