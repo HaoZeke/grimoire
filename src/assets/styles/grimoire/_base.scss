@@ -57,6 +57,12 @@ body {
   }
 }
 
+.pLeft {
+  p {
+    text-align: left;
+  }
+}
+
 @supports not (display: grid) {
   .grid {
     margin: 0 auto;
