@@ -1,0 +1,19 @@
+@include n-columns(200px,  10px, true, 2);
+
+.items {
+  .item {
+    background: $blueGrey;
+    color: white;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.postItem {
+	a {
+		color: white;
+		text-shadow: none;
+		background: none;
+	}
+}

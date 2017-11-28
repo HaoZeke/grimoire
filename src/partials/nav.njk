@@ -10,15 +10,18 @@
 <div class="menu closed">
 <div class="navList">
 	<div class="navItem">
-		<a href="{{rootPath}}/">Home</a>
+		<a href="{{rootPath}}">Home</a>
 	</div>
+  <div class="navItem">
+    <a href="{{rootPath}}tag-index">Tag Index</a>
+  </div>
 <div class="js-accordion" data-accordion-multiselectable="none" data-accordion-prefix-classes="minimalist">
  {% for name,data in collections | dictsort %}
  <h2 class="js-accordion__header sideHead">{{ name | capitalize }}</h2>
  <div class="js-accordion__panel">
     {% for page in data %}
         <div class="navItem subNavItem">
-        <a href="{{rootPath}}/{{page.path}}/index.html" title="{{page.title}}">
+        <a href="{{rootPath}}{{page.path}}/index.html" title="{{page.title}}">
           <strong>{{page.title}}</strong>
         </a>
       </div>

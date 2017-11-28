@@ -16,13 +16,9 @@
 {% block main %}
 
 <h4> Structure </h4>
-
 The site is divided into a multitude of collections, tags may be accessed from the left navbar.
-
 <h4> Rationale </h4>
-
 Each collection represents a coherent subject wise layout, while tags are meant to showcase the interdisciplinary aspects of each post.
-
 
   <ul>
       {% for name,data in collections | dictsort %}
@@ -38,6 +34,7 @@ Each collection represents a coherent subject wise layout, while tags are meant 
     {% endfor %}
   </ul>
 {% endblock %}
+
 </div>
 
 </article>
@@ -47,6 +44,5 @@ Each collection represents a coherent subject wise layout, while tags are meant 
 
 {% block scripts %} {% endblock %}
 <script src="{{ rootPath }}js/main.js"></script>
-<!--<script src="https://cdn.jsdelivr.net/npm/van11y-accessible-accordion-aria@2.0.1/dist/van11y-accessible-accordion-aria.min.js"></script>-->
 </body>
 </html>

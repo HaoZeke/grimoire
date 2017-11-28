@@ -1,0 +1,18 @@
+{% extends 'default.njk' %}
+
+{% block main %}
+
+{{contents | safe }}
+
+<section>
+  <div class="items">
+    {% for name,obj in category|dictsort %}
+      <div class="postItem item">
+        <a href="{{rootPath}}topics/{{name | lower | replace(" ","-")}}">
+        {{name | replace("-"," ")}}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
