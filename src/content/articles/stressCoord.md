@@ -5,7 +5,6 @@ author: [Rohit Goswami]
 date: 2017-10-23
 tags: [Pandoc, Transport Phenomena]
 fontsize: 20pt
-smart: On
 cleveref: On
 # HTML section wise numbering
 xnos-number-sections: On
