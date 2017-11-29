@@ -89,7 +89,7 @@ return gulp.src('src/content/**')
 
    	  	// Pandoc Markdown
         mspmd({
-        	from: 'markdown+smart',
+        	from: 'markdown',
 		    to:   'html5',
 		    args: ['--mathjax','--filter','pandoc-eqnos'],
 			  opts: {},
