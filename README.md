@@ -8,6 +8,11 @@ My personal take on educational notes.
 
 Built with metalsmith.
 
+## Writing
+All bibliography files under content will be processed and available for citation purposes.
+
+**DO NOT** add anything to `refs.bib`, as this is over-written at every build.
+
 ## Acknowledgments
 This software is built on the following:
 

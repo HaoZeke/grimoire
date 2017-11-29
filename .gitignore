@@ -231,3 +231,6 @@ build/
 
 # node
 node_modules/
+
+# Generated files
+src/refs.bib

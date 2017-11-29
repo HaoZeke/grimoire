@@ -12,6 +12,9 @@ import uglify from 'gulp-uglify';
 import postcss from 'gulp-postcss';
 import typeset from 'gulp-typeset';
 import typogr from 'gulp-typogr';
+import gap from 'gulp-append-prepend';
+import insert from 'gulp-insert';
+import concat from 'gulp-concat';
 import ap from 'autoprefixer';
 import postscss from 'postcss-scss';
 import rucksack from 'rucksack-css';
@@ -53,12 +56,22 @@ const paths = {
 	  src: 'src/assets/js/main.js',
 	  dest: 'dist/js/'
 	},
+  refs: 'src/refs.bib',
 	layouts: {
 		src: 'layouts/',
 		partials: 'partials/',
 		helpers: 'src/helpers/'
 	}
 };
+
+
+// Workaround to processing each .bib file
+export function refs() {
+  return gulp.src('./src/content/**/*.bib')
+    .pipe(newer(paths.refs))
+    .pipe(concat('refs.bib'))
+    .pipe(gulp.dest('src/'))
+}
 
 export function metal(cb) {
   nun.configure(['./src/layouts','./src/partials'], {watch: false});
@@ -91,7 +104,7 @@ return gulp.src('src/content/**')
         mspmd({
         	from: 'markdown',
 		    to:   'html5',
-		    args: ['--mathjax','--filter','pandoc-eqnos'],
+		    args: ['--katex','--filter','pandoc-eqnos','--filter','pandoc-citeproc','--bibliography',paths.refs],
 			  opts: {},
 			  pattern: '**/*.md', // multimatch
 			  ext: '.html' // extension for output file
@@ -269,8 +282,8 @@ export function watch() {
     paths.ms.src +  paths.layouts.partials,
     paths.md.src
     ],
-    gulp.series('metal'));
+    gulp.series(refs, metal));
 };
 
 
-export default gulp.series(gulp.parallel(metal, mkcss, images, scripts));
+export default gulp.series(refs, gulp.parallel(metal, mkcss, images, scripts));
