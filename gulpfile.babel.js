@@ -15,6 +15,7 @@ import typogr from 'gulp-typogr';
 import gap from 'gulp-append-prepend';
 import insert from 'gulp-insert';
 import concat from 'gulp-concat';
+import gcopy from 'gulp-copy';
 import ap from 'autoprefixer';
 import postscss from 'postcss-scss';
 import rucksack from 'rucksack-css';
@@ -71,6 +72,14 @@ export function refs() {
     .pipe(newer(paths.refs))
     .pipe(concat('refs.bib'))
     .pipe(gulp.dest('src/'))
+}
+
+
+// Workaround to processing each image
+export function preimg() {
+  return gulp.src('./src/content/**/*.{jpg,jpeg,png}')
+    .pipe(gcopy('./src/assets/images/',{ prefix: 9 }))
+    .pipe(gulp.dest('./src/assets/images/'))
 }
 
 export function metal(cb) {
@@ -286,4 +295,4 @@ export function watch() {
 };
 
 
-export default gulp.series(refs, gulp.parallel(metal, mkcss, images, scripts));
+export default gulp.series(refs, preimg, gulp.parallel(metal, mkcss, images, scripts));
