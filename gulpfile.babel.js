@@ -36,59 +36,89 @@ import browserify from 'browserify';
 import nun from 'nunjucks';
 import nunMark from 'nunjucks-markdown';
 
+// Paths for futureproof directory changes
 const paths = {
-	ms: {
-		src: 'src/',
-		dest: 'dist/'
-	},
-	md: {
-		src: 'src/content/',
-		dest: 'dist/'
-	},
-	styles: {
-	 src: 'src/assets/styles/**/*.scss',
-	 dest: 'dist/css/'
-	},
-	images: {
-	  src: 'src/assets/images/**/*.{jpg,jpeg,png}',
-	  dest: 'dist/img/'
-	},
-	scripts: {
-	  src: 'src/assets/js/main.js',
-	  dest: 'dist/js/'
-	},
-  refs: 'src/refs.bib',
-	layouts: {
-		src: 'layouts/',
-		partials: 'partials/',
-		helpers: 'src/helpers/'
-	}
-};
-
+  contentFrom: {
+    root: 'src/',
+    src: 'src/md/',
+    conf: 'src/conf/',
+    tex: 'src/tex/',
+    js: 'src/assets/js/',
+    images: 'src/assets/images/',
+    templates: 'src/templates/',
+    layouts: {
+      fullPath: 'src/layouts/',
+      ms: 'layouts/'
+    },
+    helpers: {
+      fullPath: 'src/helpers/',
+      ms: 'helpers/'
+    },
+    partials: {
+      fullPath: 'src/partials/',
+      ms: 'partials/'
+    }
+  },
+  outputTo: {
+    root: 'dist/',
+    src: 'src/',
+    images: {
+      pre: 'src/assets/images/',
+      post: 'dist/img/'
+    },
+    pdf: 'dist/pdf/',
+    doc: 'dist/doc/',
+    js: 'dist/js/',
+    styles: 'dist/css/',
+    tex: 'src/tex/',
+    ref: 'src/refs.bib'
+  },
+  watchFor: {
+    md: 'src/content/**/*.md',
+    conf: 'src/conf/**/*.yml',
+    filters: 'src/filters/**/*.py',
+    layouts: 'src/layouts/**/*',
+    partials: 'src/partials/**/*',
+    refs: 'src/content/**/*.bib',
+    tex: 'src/tex/**/*.tex',
+    latexmkConf: 'src/conf/.latexmkrc',
+    styles: 'src/assets/styles/**/*.scss',
+    js: {
+      main: 'src/assets/js/main.js',
+      bundle: 'src/assets/js/**/*.js'
+    },
+    images: {
+      pre: 'src/content/**/*.{jpg,jpeg,png}',
+      post: 'src/assets/images/**/*.{jpg,jpeg,png}'
+    },
+    gulp: 'src/content/**/*',
+    static: 'src/assets/static/**/*'
+  }
+}
 
 // Workaround to processing each .bib file
 export function refs() {
-  return gulp.src('./src/content/**/*.bib')
-    .pipe(newer(paths.refs))
+  return gulp.src(paths.watchFor.refs)
+    .pipe(newer(paths.outputTo.ref))
     .pipe(concat('refs.bib'))
-    .pipe(gulp.dest('src/'))
+    .pipe(gulp.dest(paths.outputTo.src))
 }
 
 
 // Workaround to processing each image
 export function preimg() {
-  return gulp.src('./src/content/**/*.{jpg,jpeg,png}')
-    .pipe(gcopy('./src/assets/images/',{ prefix: 9 }))
-    .pipe(gulp.dest('./src/assets/images/'))
+  return gulp.src(paths.watchFor.images.pre)
+    .pipe(gcopy(paths.contentFrom.images,{ prefix: 9 }))
 }
 
 export function metal(cb) {
-  nun.configure(['./src/layouts','./src/partials'], {watch: false});
-return gulp.src('src/content/**')
+  nun.configure([paths.contentFrom.layouts.fullPath,
+    paths.contentFrom.partials.fullPath], {watch: false});
+return gulp.src(paths.watchFor.gulp)
   .pipe(
     ms({
       // Metalsmith's root directory, for example for locating templates, defaults to CWD 
-      	root: paths.ms.src,
+      	root: paths.contentFrom.root,
       // Don't delete stuff
       	clean: false,
       // Files to exclude from the build 
@@ -113,7 +143,10 @@ return gulp.src('src/content/**')
         mspmd({
         	from: 'markdown',
 		    to:   'html5',
-		    args: ['--katex','--filter','pandoc-eqnos','--filter','pandoc-citeproc','--bibliography',paths.refs],
+		    args: ['--katex',
+        '--filter','pandoc-eqnos',
+        '--filter','pandoc-citeproc',
+        '--bibliography',paths.outputTo.ref],
 			  opts: {},
 			  pattern: '**/*.md', // multimatch
 			  ext: '.html' // extension for output file
@@ -137,7 +170,6 @@ return gulp.src('src/content/**')
 	    	relative: false,
 	    	pattern: ':title'
 	    }),
-
 
       // Tags
       mstags({
@@ -196,15 +228,15 @@ return gulp.src('src/content/**')
       ignore: '.math'
     }))
     .pipe(typogr())
-  	.pipe(gulp.dest(paths.md.dest))
+  	.pipe(gulp.dest(paths.outputTo.root))
   	.pipe(bs.stream());
 cb();
 };
 
 // Compile sass into CSS & auto-inject into browsers
 export function mkcss() {
-    return gulp.src(paths.styles.src)
-      .pipe(newer(paths.styles.dest))
+    return gulp.src(paths.watchFor.styles)
+      .pipe(newer(paths.outputTo.styles))
       .pipe(sourcemaps.init())
       .pipe(postcss([
         rucksack(),
@@ -228,29 +260,28 @@ export function mkcss() {
         outputStyle: 'expanded'
       }).on('error', sass.logError))
       .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest(paths.styles.dest))
+      .pipe(gulp.dest(paths.outputTo.styles))
       .pipe(bs.stream());
 };
 
 export function images() {
-  return gulp.src(paths.images.src)
-    .pipe(newer(paths.images.dest))  // pass through newer images only
+  return gulp.src(paths.watchFor.images.post)
+    .pipe(newer(paths.outputTo.images.post))  // pass through newer images only
     .pipe(imagemin({
       interlaced: true,
       progressive: true,
       optimizationLevel: 5,
       svgoPlugins: [{removeViewBox: true}]
     }))
-    .pipe(gulp.dest(paths.images.dest))
+    .pipe(gulp.dest(paths.outputTo.images.post))
     .pipe(bs.stream());
 };
 
-export function scripts() {
-
-  return gulp.src(paths.scripts.src, {read: false}) // no need of reading file because browserify does.
+export function js() {
+  return gulp.src(paths.watchFor.js.main, {read: false}) // no need of reading file because browserify does.
 
     // transform file objects using gulp-tap plugin
-    .pipe(newer(paths.scripts.dest))
+    .pipe(newer(paths.outputTo.js))
     .pipe(tap(function (file) {
 
       gutil.log('bundling ' + file.path);
@@ -274,25 +305,26 @@ export function scripts() {
     // write sourcemaps
     .pipe(sourcemaps.write('./'))
 
-    .pipe(gulp.dest(paths.scripts.dest))
+    .pipe(gulp.dest(paths.outputTo.js))
     .pipe(bs.stream());
 };
 
 // Rerun the task when a file changes
 export function watch() {
   bs.init({
-    server: paths.ms.dest
+    server: paths.outputTo.root
   });
-  watcher(paths.styles.src, gulp.series('mkcss'));
-  watcher(paths.images.src, gulp.series('images'));
-  watcher(paths.scripts.src, gulp.series('scripts'));
+  watcher(paths.watchFor.styles, gulp.series(mkcss));
+  watcher(paths.watchFor.images.pre, gulp.series(preimg, images));
+  watcher(paths.watchFor.js.bundle, gulp.series(js));
   watcher([
-    paths.ms.src + paths.layouts.src,
-    paths.ms.src +  paths.layouts.partials,
-    paths.md.src
+    paths.watchFor.md,
+    paths.watchFor.partials,
+    paths.watchFor.layouts,
+    paths.watchFor.conf
     ],
     gulp.series(refs, metal));
 };
 
 
-export default gulp.series(refs, preimg, gulp.parallel(metal, mkcss, images, scripts));
+export default gulp.series(refs, preimg, gulp.parallel(metal, mkcss, images, js));
