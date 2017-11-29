@@ -30,7 +30,7 @@ install:
   - sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
 script:
-  - yarn && gulp
+  - yarn && yarn gulp
 
 deploy:
   - provider: surge
