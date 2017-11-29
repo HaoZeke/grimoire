@@ -24,7 +24,8 @@ before_install:
   - source ./scripts/TeXLive.sh
 
 install:
-  - sudo easy_install -U setuptools
+  - sudo pip3 install setuptools --upgrade
+  - sudo python3 -m easy_install -U setuptools
   - sudo pip3 install panflute pandoc-eqnos
   - sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
