@@ -1,0 +1,16 @@
+box: haozeke/docker_zenyodaarchlinux
+# Build definition
+build:
+    steps:
+      - script:
+          name: build targets
+          code: yarn && gulp
+    after-steps:
+        - script:
+            name: install surge
+            code: yarn global add surge
+        - script:
+            name: deploy to surge
+            code: |
+              # Uses the API Keys already Setup
+              surge docs grimoire.surge.sh
