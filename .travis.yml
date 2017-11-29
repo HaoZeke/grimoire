@@ -12,7 +12,6 @@ cache:
    - $HOME/save
 
 before_install:
-  - sudo apt-add-repository 'deb http://ppa.launchpad.net/anatol/tup/ubuntu precise main'
   - sudo apt-get install python-software-properties
   - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
   - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -25,6 +24,7 @@ before_install:
   - source ./scripts/TeXLive.sh
 
 install:
+  - sudo easy_install -U setuptools
   - sudo pip3 install panflute pandoc-eqnos
   - sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
