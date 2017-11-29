@@ -12,7 +12,7 @@
         {% if date %}Published: {{ date }}{% endif %}
       </div> -->
       #}
-      This is part of the {{collection | string | capitalize }} collection.
+      This is part of the <strong>{{collection | string | replace('-',' ') }}</strong> collection.
       {{ contents | safe}}
 {% endblock %}
 

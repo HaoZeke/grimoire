@@ -22,7 +22,7 @@ Each collection represents a coherent subject wise layout, while tags are meant 
 
   <ul>
       {% for name,data in collections | dictsort %}
-    <h6>{{ name | capitalize }}</h6>
+    <h6>{{ name | replace('-', ' ') | capitalize }}</h6>
     {% for page in data %}
         <li>
         <a href="{{rootPath}}/{{page.path}}/index.html" title="{{page.title}}">

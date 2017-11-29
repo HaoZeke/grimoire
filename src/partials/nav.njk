@@ -17,7 +17,7 @@
   </div>
 <div class="js-accordion" data-accordion-multiselectable="none" data-accordion-prefix-classes="minimalist">
  {% for name,data in collections | dictsort %}
- <h2 class="js-accordion__header sideHead">{{ name | capitalize }}</h2>
+ <h2 class="js-accordion__header sideHead">{{ name | replace('-',' ') | capitalize }}</h2>
  <div class="js-accordion__panel">
     {% for page in data %}
         <div class="navItem subNavItem">
