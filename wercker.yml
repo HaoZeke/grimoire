@@ -1,4 +1,4 @@
-box: haozeke/docker_zenyodaarchlinux
+box: HaoZeke/docker_zenYodaArchLinux
 # Build definition
 build:
     steps:
