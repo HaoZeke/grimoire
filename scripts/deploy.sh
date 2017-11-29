@@ -4,7 +4,7 @@ set -o errexit -o nounset
 
 rev=$(git rev-parse --short HEAD)
 
-cd public
+cd dist
 #rm -rf .git
 
 git init
