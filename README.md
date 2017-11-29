@@ -1,4 +1,4 @@
-# Grimoire  [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://www.paypal.me/HaoZeke/) [![Build Status](https://travis-ci.org/HaoZeke/zenYoda.svg?branch=master)](https://travis-ci.org/HaoZeke/zenYoda)  
+# Grimoire  [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://www.paypal.me/HaoZeke/) [![Build Status](https://travis-ci.org/HaoZeke/zenYoda.svg?branch=master)](https://travis-ci.org/HaoZeke/zenYoda) [![Build Status](https://semaphoreci.com/api/v1/haozeke/grimoire/branches/master/badge.svg)](https://semaphoreci.com/haozeke/grimoire) 
 
 > Copyright (C) 2017  Rohit Goswami <rohit1995@mail.ru>
 
