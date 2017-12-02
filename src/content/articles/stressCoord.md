@@ -26,7 +26,7 @@ $$ \tau=-\mu(\nabla \mathbf{v}+(\nabla \mathbf{v})^\intercal)+\left(\frac{2}{3}\
 
 $\delta$ is the **unit tensor** with components $\delta_{ij}$.
 
-$\nabla \mathbf{v}$ is the **velocity gradient tensor** with components $\dfrac{\partial}{\partial x_j}v_{ij}$.
+$\nabla \mathbf{v}$ is the **velocity gradient tensor** with components $\dfrac{\partial}{\partial{x_j}}v_{ij}$.
 
 $\nabla\cdot\vec v$ is the **divergence** of the velocity vector.
 

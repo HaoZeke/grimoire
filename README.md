@@ -13,6 +13,10 @@ All bibliography files under content will be processed and available for citatio
 
 **DO NOT** add anything to `refs.bib`, as this is over-written at every build.
 
+As the site runs through typogr, write fractions as \frac{x{s}}{2} instead of \frac{x s}{2} when inlined.
+
+ie. no spaces in inlined elements.
+
 ## Flags
 
 ```bash
