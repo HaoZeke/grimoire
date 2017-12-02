@@ -19,6 +19,7 @@ import gfilter from 'gulp-filter';
 import htmlMin from 'gulp-html-minifier';
 import csso from 'gulp-csso';
 import postcss from 'gulp-postcss';
+import fontmin from 'gulp-fontmin';
 import uncss from 'uncss';
 import ap from 'autoprefixer';
 import postscss from 'postcss-scss';
@@ -173,6 +174,13 @@ export function refs() {
     .pipe(newer(paths.outputTo.ref))
     .pipe(concat('refs.bib'))
     .pipe(gulp.dest(paths.outputTo.src))
+}
+
+// Get fonts
+export function fonts () {
+  return gulp.src('node_modules/font-awesome/fonts/*.ttf')
+    .pipe(fontmin())
+    .pipe(gulp.dest('dist/fonts/'));
 }
 
 
@@ -331,6 +339,7 @@ export function mkcss() {
         'node_modules/normalize.scss/',
         'node_modules/highlightjs/styles/',
         'node_modules/luxbar/scss/',
+        'node_modules/font-awesome/scss/',
         'node_modules/hamburgers/_sass/hamburgers/'
         ],
       }).on('error', sass.logError))
