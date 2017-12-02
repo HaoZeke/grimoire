@@ -13,6 +13,15 @@ All bibliography files under content will be processed and available for citatio
 
 **DO NOT** add anything to `refs.bib`, as this is over-written at every build.
 
+## Flags
+
+```bash
+-u, --uncss
+#Runs uncss (needs html to be generated previously)
+-p, --prod
+#Doesn't write sourcemaps and uglifies 
+```
+
 ## Acknowledgments
 This software is built on the following:
 
