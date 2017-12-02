@@ -5,6 +5,6 @@ require('./pandLinks');
 // Nav
 require('./siteNav');
 // Analytics
-require('./analytics');
+// require('./analytics');
 // Accordion
 require('./accord');
