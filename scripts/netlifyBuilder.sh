@@ -29,5 +29,6 @@ echo "DIR is '$DIR'"
 # Run the requisite scripts
 
 bash $DIR/noRootPandoc.sh
+export PATH=$HOME/.local/bin:$PATH
 pip install pandoc-eqnos pandoc-fignos
 gulp -p -u
