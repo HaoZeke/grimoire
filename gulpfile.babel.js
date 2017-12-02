@@ -8,7 +8,6 @@ import newer from 'gulp-newer';
 import tap from 'gulp-tap';
 import gutil from 'gulp-util';
 import buffer from 'gulp-buffer';
-import uglify from 'gulp-uglify';
 import typeset from 'gulp-typeset';
 import typogr from 'gulp-typogr';
 import gap from 'gulp-append-prepend';
@@ -36,12 +35,17 @@ import msmath from 'metalsmith-mathjax';
 import mstags from 'metalsmith-tags';
 import msatoc from 'metalsmith-autotoc';
 import msaddExt from 'metalsmith-layouts-add-extension';
+import webpackStream from 'webpack-stream';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import babelMinify from 'babel-minify-webpack-plugin';
 import nun from 'nunjucks';
 import nunMark from 'nunjucks-markdown';
 import bs from 'browser-sync';
 import browserify from 'browserify';
 import yargs from 'yargs';
-
+import path from 'path';
 
 const arg = yargs
 // Production Flag
@@ -115,6 +119,53 @@ const paths = {
     static: 'src/assets/static/**/*'
   }
 }
+
+var webpackSettings = {
+  entry: {
+    app: [
+      'webpack/hot/dev-server',
+      'webpack-hot-middleware/client',
+      path.join(process.cwd(), paths.contentFrom.js, 'main.js')
+      ],
+  },
+  output: {
+    path: path.join(process.cwd(), paths.outputTo.js),
+    publicPath: '/js/',
+    filename: 'bundle.js'
+},
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+  module: {
+    rules: [
+      { test: /\.jsx?$/, exclude: /node_modules/, use: 'babel-loader' },
+      // { test: /\.ts$/, use: 'ts-loader' }
+    ]
+  }
+};
+
+var webpackerSettings = {
+  entry: {
+    app: [
+      path.join(process.cwd(), paths.contentFrom.js, 'main.js')
+      ],
+  },
+  output: {
+    path: path.join(process.cwd(), paths.outputTo.js),
+    publicPath: '/js/',
+    filename: 'bundle.js'
+},
+  plugins: [
+    new babelMinify(),
+    new webpack.NoEmitOnErrorsPlugin(),
+  ],
+};
+
+const bundler = webpack(webpackSettings);
 
 // Workaround to processing each .bib file
 export function refs() {
@@ -241,7 +292,7 @@ return gulp.src(paths.watchFor.gulp)
       ],
       // Initial Metalsmith metadata, defaults to {} 
       metadata: {
-        site_name: 'Grimoire'
+        site_name: 'Grimoire',
       },
       // List of JSON files that contain page definitions 
       // true means "all JSON files", see the section below 
@@ -310,46 +361,29 @@ export function images() {
     .pipe(bs.stream());
 };
 
-export function js() {
-  return gulp.src(paths.watchFor.js.main, {read: false}) // no need of reading file because browserify does.
-
-    // transform file objects using gulp-tap plugin
- //   .pipe(newer(paths.outputTo.js))
-    .pipe(tap(function (file) {
-
-      gutil.log('bundling ' + file.path);
-
-      // replace file contents with browserify's bundle stream
-      file.contents = browserify(file.path, {
-        debug: true,
-        // transform: ["rollupify", "babelify" ]
-      }).bundle();
-
-    }))
-
-    // transform streaming contents into buffer contents (because gulp-sourcemaps does not support streaming contents)
-    .pipe(buffer())
-
-    // load and init sourcemaps
-    .pipe(gif(arg.p != true, sourcemaps.init({loadMaps: true})))
-
-    .pipe(gif(arg.p == true,uglify()))
-
-    // write sourcemaps
-    .pipe(gif(arg.p != true, sourcemaps.write('./')))
-
+export function webpacker() {
+  return gulp.src(paths.watchFor.js.main)
+    .pipe(webpackStream(webpackerSettings))
     .pipe(gulp.dest(paths.outputTo.js))
-    .pipe(bs.stream());
-};
+}
 
 // Rerun the task when a file changes
 export function watch() {
-  bs.init({
-    server: paths.outputTo.root
+  bs({
+    server: {
+      baseDir: paths.outputTo.root,
+      middleware: [
+        webpackDevMiddleware(bundler, {
+          publicPath: webpackSettings.output.publicPath,
+          stats: {colors: true}
+        }),
+        webpackHotMiddleware(bundler)
+        ]
+    }
   });
   watcher(paths.watchFor.styles, gulp.series(mkcss));
   watcher(paths.watchFor.images.pre, gulp.series(preimg, images));
-  watcher(paths.watchFor.js.bundle, gulp.series(js));
+  // watcher(paths.watchFor.js.bundle, gulp.series(webpacker, browserReload));
   watcher([
     paths.watchFor.md,
     paths.watchFor.partials,
@@ -359,5 +393,8 @@ export function watch() {
     gulp.series(refs, metal));
 };
 
+export function browserReload () {
+  return bs.reload()
+}
 
-export default gulp.series(gulp.parallel(refs, preimg), gulp.parallel(metal, images, js), mkcss);
+export default gulp.series(gulp.parallel(refs, preimg), gulp.parallel(metal, images, webpacker), mkcss);

@@ -8,3 +8,7 @@ require('./siteNav');
 // require('./analytics');
 // Accordion
 require('./accord');
+
+if (module.hot) {
+  module.hot.accept();
+}
