@@ -35,4 +35,4 @@ mkdir -p $HOME/.local/
 
 mv -f $HOME/save/pandoc-$VERSION/* $HOME/.local
 
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$HOME/.local/bin:$PATH
