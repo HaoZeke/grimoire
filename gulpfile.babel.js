@@ -135,7 +135,7 @@ export function metal(cb) {
   nun.configure([paths.contentFrom.layouts.fullPath,
     paths.contentFrom.partials.fullPath], {watch: false});
 
-const htmlOnly = gfilter(['**/*.html'], {restore:true});
+const htmlOnly = gfilter(['**/*.html'], {restore:false});
 
 return gulp.src(paths.watchFor.gulp)
   .pipe(
@@ -253,7 +253,6 @@ return gulp.src(paths.watchFor.gulp)
     }))
     .pipe(typogr())
     .pipe(gif(arg.p == true, htmlMin({collapseWhitespace: true})))
-    .pipe(htmlOnly.restore)
   	.pipe(gulp.dest(paths.outputTo.root))
   	.pipe(bs.stream());
 cb();
