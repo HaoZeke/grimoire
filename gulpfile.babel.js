@@ -352,4 +352,4 @@ export function watch() {
 };
 
 
-export default gulp.series(refs, preimg, gulp.parallel(metal, mkcss, images, js));
+export default gulp.series(gulp.parallel(refs, preimg), gulp.parallel(metal, images, js), mkcss);
