@@ -16,6 +16,8 @@ import insert from 'gulp-insert';
 import concat from 'gulp-concat';
 import gcopy from 'gulp-copy';
 import gif from 'gulp-if';
+import gfilter from 'gulp-filter';
+import htmlMin from 'gulp-html-minifier';
 import csso from 'gulp-csso';
 import postcss from 'gulp-postcss';
 import uncss from 'uncss';
@@ -34,11 +36,12 @@ import msmath from 'metalsmith-mathjax';
 import mstags from 'metalsmith-tags';
 import msatoc from 'metalsmith-autotoc';
 import msaddExt from 'metalsmith-layouts-add-extension';
-import bs from 'browser-sync';
-import browserify from 'browserify';
 import nun from 'nunjucks';
 import nunMark from 'nunjucks-markdown';
+import bs from 'browser-sync';
+import browserify from 'browserify';
 import yargs from 'yargs';
+
 
 const arg = yargs
 // Production Flag
@@ -131,6 +134,9 @@ export function preimg() {
 export function metal(cb) {
   nun.configure([paths.contentFrom.layouts.fullPath,
     paths.contentFrom.partials.fullPath], {watch: false});
+
+const htmlOnly = gfilter(['**/*.html'], {restore:true});
+
 return gulp.src(paths.watchFor.gulp)
   .pipe(
     ms({
@@ -241,10 +247,13 @@ return gulp.src(paths.watchFor.gulp)
       // true means "all JSON files", see the section below 
       //json: ['src/pages.json']
     }))
+    .pipe(htmlOnly)
     .pipe(typeset({
       ignore: '.math'
     }))
     .pipe(typogr())
+    .pipe(gif(arg.p == true, htmlMin({collapseWhitespace: true})))
+    .pipe(htmlOnly.restore)
   	.pipe(gulp.dest(paths.outputTo.root))
   	.pipe(bs.stream());
 cb();
