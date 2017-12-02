@@ -1,5 +1,7 @@
 if [ ! -f $HOME/save/$TAR ]; then
 
+# With some inputs from https://github.com/pandoc-extras/pandoc-portable
+
 	# Make the folder
 	mkdir -p $HOME/save
 
