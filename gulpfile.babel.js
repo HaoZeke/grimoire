@@ -9,13 +9,16 @@ import tap from 'gulp-tap';
 import gutil from 'gulp-util';
 import buffer from 'gulp-buffer';
 import uglify from 'gulp-uglify';
-import postcss from 'gulp-postcss';
 import typeset from 'gulp-typeset';
 import typogr from 'gulp-typogr';
 import gap from 'gulp-append-prepend';
 import insert from 'gulp-insert';
 import concat from 'gulp-concat';
 import gcopy from 'gulp-copy';
+import gif from 'gulp-if';
+import csso from 'gulp-csso';
+import postcss from 'gulp-postcss';
+import uncss from 'uncss';
 import ap from 'autoprefixer';
 import postscss from 'postcss-scss';
 import rucksack from 'rucksack-css';
@@ -35,6 +38,20 @@ import bs from 'browser-sync';
 import browserify from 'browserify';
 import nun from 'nunjucks';
 import nunMark from 'nunjucks-markdown';
+import yargs from 'yargs';
+
+const arg = yargs
+// Production Flag
+.alias('p', 'production')
+  .describe('p', 'optimize and generate pdfs')
+//  .choices('i', ['peanut-butter', 'jelly', 'banana', 'pickles'])
+  .help('help')
+.alias('u', 'uncss')
+  .describe('u', 'runs uncss')
+//  .choices('i', ['peanut-butter', 'jelly', 'banana', 'pickles'])
+  .help('help')
+  .argv;
+
 
 // Paths for futureproof directory changes
 const paths = {
@@ -237,7 +254,7 @@ cb();
 export function mkcss() {
     return gulp.src(paths.watchFor.styles)
       .pipe(newer(paths.outputTo.styles))
-      .pipe(sourcemaps.init())
+      .pipe(gif(arg.p != true, sourcemaps.init()))
       .pipe(postcss([
         rucksack(),
         ap({
@@ -257,9 +274,17 @@ export function mkcss() {
         'node_modules/luxbar/scss/',
         'node_modules/hamburgers/_sass/hamburgers/'
         ],
-        outputStyle: 'expanded'
       }).on('error', sass.logError))
-      .pipe(sourcemaps.write('./'))
+      .pipe(gif(arg.u == true, (postcss([
+        uncss.postcssPlugin({
+        html: ['dist/**/*.html'],
+        ignore: ['.openBurger','.burger',
+        '[aria-expanded="true"].minimalist-accordion__header',
+        'luxbar-hamburger-doublespin']
+      })
+        ]))))
+      .pipe(csso())
+      .pipe(gif(arg.p != true, sourcemaps.write('./')))
       .pipe(gulp.dest(paths.outputTo.styles))
       .pipe(bs.stream());
 };
@@ -281,7 +306,7 @@ export function js() {
   return gulp.src(paths.watchFor.js.main, {read: false}) // no need of reading file because browserify does.
 
     // transform file objects using gulp-tap plugin
-    .pipe(newer(paths.outputTo.js))
+ //   .pipe(newer(paths.outputTo.js))
     .pipe(tap(function (file) {
 
       gutil.log('bundling ' + file.path);
@@ -298,12 +323,12 @@ export function js() {
     .pipe(buffer())
 
     // load and init sourcemaps
-    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(gif(arg.p != true, sourcemaps.init({loadMaps: true})))
 
-    .pipe(uglify())
+    .pipe(gif(arg.p == true,uglify()))
 
     // write sourcemaps
-    .pipe(sourcemaps.write('./'))
+    .pipe(gif(arg.p != true, sourcemaps.write('./')))
 
     .pipe(gulp.dest(paths.outputTo.js))
     .pipe(bs.stream());
