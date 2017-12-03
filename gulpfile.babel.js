@@ -36,6 +36,7 @@ import msmath from 'metalsmith-mathjax';
 import mstags from 'metalsmith-tags';
 import msatoc from 'metalsmith-autotoc';
 import msaddExt from 'metalsmith-layouts-add-extension';
+import mslogger from 'metalsmith-logger';
 import webpackStream from 'webpack-stream';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
@@ -240,6 +241,9 @@ return gulp.src(paths.watchFor.gulp)
           headerIDPrefix: 'subhead'
         }),
 
+      // Check the autotoc
+      mslogger(['title', 'tags', 'toc']),
+      
       // Try Math rendering
       msmath(),
 
@@ -289,6 +293,7 @@ return gulp.src(paths.watchFor.gulp)
         	engine: 'nunjucks',
         	default: 'default.njk'
         }),
+
         // function(files, ms, done) {
         // 	console.log('Files: ');
         // 	console.log(files);
