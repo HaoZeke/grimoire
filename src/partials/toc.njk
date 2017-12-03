@@ -9,12 +9,12 @@
             </li>
             {% for head in toc %}
             <li class="luxbar-item">
-            	<a class="tocItem" href="#{{head.id}}">{{head.text}} {{head.children.toc.id}}</a>
-                    {% for subhead in head.children %}
+            	<a class="tocItem" href="#{{head.id}}">{{head.text}}</a>
+ {#                    {% for subhead in head.children %}
                     {% for subhead in toc %}
                         <a class="tocItem" href="#{{subhead.id}}">{{subhead.text}}</a>
                     {% endfor %}
-                    {% endfor %}
+                    {% endfor %} #}
             </li>
             {% endfor %}
         </ul>
