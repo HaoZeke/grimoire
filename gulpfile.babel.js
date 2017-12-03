@@ -243,7 +243,7 @@ return gulp.src(paths.watchFor.gulp)
 
       // Check the autotoc
       mslogger(['title', 'tags', 'toc']),
-      
+
       // Try Math rendering
       msmath(),
 
@@ -352,7 +352,8 @@ export function mkcss() {
       .pipe(gif(arg.u == true, (postcss([
         uncss.postcssPlugin({
         html: ['dist/**/*.html'],
-        ignore: ['.openBurger','.burger',
+        ignore: ['.is-active', '.hamburger--collapse', '.hamburger-inner',
+        '.hamburger--collapse-r.is-active', '.hamburger--collapse.is-active', '.hamburger-inner',
         '[aria-expanded="true"].minimalist-accordion__header',
         'luxbar-hamburger-doublespin']
       })
@@ -405,7 +406,7 @@ export function watch() {
     paths.watchFor.layouts,
     paths.watchFor.conf
     ],
-    gulp.series(refs, metal));
+    gulp.series(refs, metal, browserReload));
 };
 
 export function browserReload () {

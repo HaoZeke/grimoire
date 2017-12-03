@@ -8,7 +8,7 @@ u(document).on('click',"#toggle", function() {
   u("#toggle").toggleClass("closed");
   u(".menu").toggleClass("closed");
   u('.js-accordion minimalist-accordion').off('click');
-  u('.burger').toggleClass('openBurger');
+  u('.hamburger').toggleClass('is-active');
   u('.gridMenu').toggleClass('showMenu');
   if (u("#toggle").hasClass("closed")) {
 	document.documentElement.style.setProperty("--navColSize", ".4fr");

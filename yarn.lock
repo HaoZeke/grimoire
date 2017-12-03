@@ -5736,6 +5736,13 @@ metalsmith-drafts@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/metalsmith-drafts/-/metalsmith-drafts-0.0.1.tgz#727858ba266934a37a287013beca9b6033272f77"
 
+metalsmith-headings-identifier@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/metalsmith-headings-identifier/-/metalsmith-headings-identifier-0.0.11.tgz#74bbeff52a8f8c7b700ee481476549b7dbe8da8b"
+  dependencies:
+    cheerio "^0.19.0"
+    lodash "^3.10.1"
+
 metalsmith-layouts-add-extension@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/metalsmith-layouts-add-extension/-/metalsmith-layouts-add-extension-1.0.0.tgz#93f2d4c2dc448464ec40c191ee4c2ed9518be1ee"
@@ -5752,6 +5759,10 @@ metalsmith-layouts@^1.8.1:
     is-utf8 "^0.2.0"
     lodash.omit "^4.0.2"
     multimatch "^2.0.0"
+
+metalsmith-logger@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/metalsmith-logger/-/metalsmith-logger-0.0.3.tgz#fde05dc1e413c7cb62068de1db9283e4d0753c2c"
 
 metalsmith-mathjax@^0.0.7:
   version "0.0.7"
