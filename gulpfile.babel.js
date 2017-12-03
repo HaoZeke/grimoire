@@ -340,7 +340,8 @@ export function mkcss() {
         'node_modules/highlightjs/styles/',
         'node_modules/luxbar/scss/',
         'node_modules/font-awesome/scss/',
-        'node_modules/hamburgers/_sass/hamburgers/'
+        'node_modules/hamburgers/_sass/hamburgers/',
+        'node_modules/reflex-grid/scss/'
         ],
       }).on('error', sass.logError))
       .pipe(gif(arg.u == true, (postcss([
