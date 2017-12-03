@@ -406,4 +406,4 @@ export function browserReload () {
   return bs.reload()
 }
 
-export default gulp.series(gulp.parallel(refs, preimg), gulp.parallel(metal, images, webpacker), mkcss);
+export default gulp.series(gulp.parallel(refs, preimg), gulp.parallel(metal, images, fonts, webpacker), mkcss);
