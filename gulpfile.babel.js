@@ -352,8 +352,8 @@ export function mkcss() {
       .pipe(gif(arg.u == true, (postcss([
         uncss.postcssPlugin({
         html: ['dist/**/*.html'],
-        ignore: ['.is-active', '.hamburger--collapse', '.hamburger-inner',
-        '.hamburger--collapse-r.is-active', '.hamburger--collapse.is-active', '.hamburger-inner',
+        ignore: ['.is-active', '.hamburger--collapse', '.hamburger-inner', '.hamburger', '.hamburger-box',
+        '.hamburger--collapse-r.is-active', '.hamburger--collapse.is-active',
         '[aria-expanded="true"].minimalist-accordion__header',
         'luxbar-hamburger-doublespin']
       })
