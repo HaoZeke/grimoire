@@ -4,7 +4,7 @@ draft: false
 katex: true
 title: PMS Basics (HBTU)
 subtitle: "Reused and rehashed."
-blurb: Only relevant for HBTU students.
+blurb: Process modeling and simulation equations. 
 tags: [local, HBTU, college, semester, syllabus]
 author: [Rohit Goswami]
 date: 3-12-2017
@@ -33,12 +33,12 @@ The general form is
 $$ y_1=y_0+k $$
 <!-- {#eq:rkGen} -->
 
-### RK I
+### Runge Kutta I
 
 $$ k=hf(x_0,y_0) $$
 <!-- {#eq:rk1k} -->
 
-### RK II
+### Runge Kutta II
 
 $$ k_1=hf(x_0,y_0) $$
 <!-- {#eq:rk2k1} -->
@@ -49,7 +49,7 @@ $$ k_2=hf(x_0,y_0+k_1) $$
 $$ k=\frac{1}{2}(k_1+k_2) $$
 <!-- {#eq:rk2k} -->
 
-### RK III
+### Runge Kutta III
 
 $$ k_1=hf(x_0,y_0) $$
 <!-- {#eq:rk3k1} -->
@@ -66,7 +66,7 @@ $$ k_3=hf(x_0+h,y_0+k') $$
 $$ k=\frac{1}{6}(k_1+4k_2+k_3) $$
 <!-- {#eq:rk3k} -->
 
-### RK IV
+### Runge Kutta IV
 
 $$ k_1=hf(x_0,y_0) $$
 <!-- {#eq:rk4k1} -->
