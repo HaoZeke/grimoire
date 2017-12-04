@@ -13,6 +13,7 @@ import typogr from 'gulp-typogr';
 import gap from 'gulp-append-prepend';
 import insert from 'gulp-insert';
 import concat from 'gulp-concat';
+import gfavicon from 'gulp-real-favicon';
 import gcopy from 'gulp-copy';
 import gif from 'gulp-if';
 import gfilter from 'gulp-filter';
@@ -48,6 +49,7 @@ import bs from 'browser-sync';
 import browserify from 'browserify';
 import yargs from 'yargs';
 import path from 'path';
+import fs from 'fs';
 
 const arg = yargs
 // Production Flag
@@ -72,6 +74,8 @@ const paths = {
     js: 'src/assets/js/',
     images: 'src/assets/images/',
     templates: 'src/templates/',
+    faviconData: 'faviconData.json',
+    faviconImage: 'src/assets/static/girmoire.jpg',
     layouts: {
       fullPath: 'src/layouts/',
       ms: 'layouts/'
@@ -109,6 +113,7 @@ const paths = {
     tex: 'src/tex/**/*.tex',
     latexmkConf: 'src/conf/.latexmkrc',
     styles: 'src/assets/styles/**/*.scss',
+    html: 'dist/**/*.html',
     js: {
       main: 'src/assets/js/main.js',
       bundle: 'src/assets/js/**/*.js'
@@ -383,6 +388,96 @@ export function webpacker() {
     .pipe(gulp.dest(paths.outputTo.js))
 }
 
+// Generate the icons. This task takes a few seconds to complete.
+// You should run it at least once to create the icons. Then,
+// you should run it whenever RealFaviconGenerator updates its
+// package (see the check-for-favicon-update task below).
+export function favicons (done) {
+  if (arg.p === true ) {
+    gfavicon.generateFavicon({
+    masterPicture: paths.contentFrom.faviconImage,
+    dest: paths.outputTo.root,
+    iconsPath: '/',
+    design: {
+      ios: {
+        pictureAspect: 'noChange',
+        assets: {
+          ios6AndPriorIcons: false,
+          ios7AndLaterIcons: false,
+          precomposedIcons: false,
+          declareOnlyDefaultIcon: true
+        }
+      },
+      desktopBrowser: {},
+      windows: {
+        pictureAspect: 'noChange',
+        backgroundColor: '#2b5797',
+        onConflict: 'override',
+        assets: {
+          windows80Ie10Tile: false,
+          windows10Ie11EdgeTiles: {
+            small: false,
+            medium: true,
+            big: false,
+            rectangle: false
+          }
+        }
+      },
+      androidChrome: {
+        pictureAspect: 'noChange',
+        themeColor: '#ffffff',
+        manifest: {
+          display: 'standalone',
+          orientation: 'notSet',
+          onConflict: 'override',
+          declared: true
+        },
+        assets: {
+          legacyIcon: false,
+          lowResolutionIcons: false
+        }
+      }
+    },
+    settings: {
+      scalingAlgorithm: 'Mitchell',
+      errorOnImageTooSmall: false
+    },
+    markupFile: paths.contentFrom.faviconData
+  }, function() {
+    done();
+  });
+  };
+ return  done();
+};
+
+// Inject the favicon markups in your HTML pages. You should run
+// this task whenever you modify a page. You can keep this task
+// as is or refactor your existing HTML pipeline.
+export function injectFavicons (done) {
+  if (arg.p === true) {
+    gulp.src(paths.watchFor.html)
+    .pipe(gfavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(paths.contentFrom.faviconData)).favicon.html_code))
+    .pipe(gulp.dest(paths.outputTo.root));  
+  };
+  return done();
+}
+
+// Check for updates on RealFaviconGenerator (think: Apple has just
+// released a new Touch icon along with the latest version of iOS).
+// Run this task from time to time. Ideally, make it part of your
+// continuous integration system.
+export function updateFavicons (done) {
+  if (arg.p === true) {
+      var currentVersion = JSON.parse(fs.readFileSync(paths.contentFrom.faviconData)).version;
+ gfavicon.checkForUpdates(currentVersion, function(err) {
+    if (err) {
+      throw err;
+    }
+  });
+};
+return done();
+}
+
 // Rerun the task when a file changes
 export function watch() {
   bs({
@@ -413,4 +508,5 @@ export function browserReload () {
   return bs.reload()
 }
 
-export default gulp.series(gulp.parallel(refs, preimg), gulp.parallel(metal, images, fonts, webpacker), mkcss);
+export default gulp.series(gulp.parallel(refs, preimg), gulp.parallel(metal, images, fonts, webpacker), mkcss, favicons, updateFavicons, favicons, injectFavicons);
+
