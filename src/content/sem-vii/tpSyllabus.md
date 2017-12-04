@@ -4,7 +4,7 @@ draft: false
 katex: true
 title: TP Syllabus (HBTU)
 subtitle: "Only relevant for HBTU students."
-blurb: Only relevant for HBTU students. (transport phenomenon) 
+blurb: Semester VII Transport Phenomena Syllabus,
 tags: [local, HBTU, college, semester, syllabus]
 author: [Rohit Goswami]
 date: 3-12-2017

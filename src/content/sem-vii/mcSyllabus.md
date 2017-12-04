@@ -4,7 +4,7 @@ draft: false
 katex: true
 title: MC Syllabus (HBTU)
 subtitle: "Only relevant for HBTU students."
-blurb: Only relevant for HBTU students. (mobile communication) 
+blurb: Mobile communication syllabus.
 tags: [local, HBTU, college, semester, syllabus]
 author: [Rohit Goswami]
 date: 3-12-2017
