@@ -69,7 +69,7 @@ The main coursebook is by @schiller2003mobile.
 ### Mobile Transport Layer
 
 * Traditional TCP
-* CLassical TCP improvement
+* Classical TCP improvement
 * TCP over wireless network
 * Performance enhancing proxies
 
