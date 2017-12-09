@@ -20,8 +20,10 @@ autotoc: true
 From @husain1986chemical and @grewal2014numerical.
 
 * Introduction to mathematical modeling
-* Advantages and limitations of models and applications of process
-models of stand-alone unit operations and unit processes
+* Advantages and limitations of models
+* Applications of process models of
+    - Stand-alone unit operations
+    - Unit processes
 * Classification of models:
     - Linear vs. Non linear
     - Lumped parameter vs. Distributed parameter
