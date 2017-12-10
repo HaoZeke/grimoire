@@ -12,7 +12,7 @@ cleveref: On
 xnos-number-sections: On
 autotoc: true
 nocite: |
-    @2006separation,@hewitt1994process,@kern1950process,@ludwig1977applied,@coker2011ludwig,@serth2014process
+  @2006separation, @hewitt1994process, @kern1950process, @ludwig1977applied, @coker2011ludwig, @serth2014process
 ...
 
 ### Plant Design and Economics
