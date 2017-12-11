@@ -17,7 +17,9 @@ nocite: |
 
 ### Plant Design and Economics
 
-Most of this course is from @sinnott2009chemical and @peters2004plant.
+Most of this course is from @sinnott2009chemical or @coker2011ludwig and @peters2004plant.
+
+
 Additionally the freely available [I.S. 4503-1967](https://archive.org/details/gov.in.is.4503.1967) for Indian Standard Specification for Shell and Tube Type Heat Exchangers is to be used.
 
 ### Unit I
