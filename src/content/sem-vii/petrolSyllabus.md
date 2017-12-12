@@ -31,7 +31,7 @@ The course is comprehensively covered by @prasad2017petroleum, with some referen
 * Quality Control of Petroleum Products
 * Classification of laboratory tests
     - Distillation
-    - Vapour pressure
+    - Vapor pressure
     - Flash and fire points
     - Octane number
     - Performance number
@@ -50,7 +50,7 @@ The course is comprehensively covered by @prasad2017petroleum, with some referen
     - Induction period of gasoline
     - Thermal stability of jet fuels
     - Gum content
-    - Total Sulphur
+    - Total Sulfur
     - Acidity and Alkalinity
     - Copper Strip Corrosion Test
     - Silver Strip Corrosion Test for ATF
@@ -58,7 +58,7 @@ The course is comprehensively covered by @prasad2017petroleum, with some referen
     - Carbon Residue
         + Conradson method
         + Ramsbottom method
-    - Colour
+    - Color
     - Density and Specific gravity
     - Refractive index of hydrocarbon liquids
     - Water separation index (modified) (WSIM)
@@ -72,7 +72,7 @@ The course is comprehensively covered by @prasad2017petroleum, with some referen
         + LPG
         + Naphthas
         + Motor spirit
-        + Kerosine
+        + Kerosene
         + Aviation Turbine Fuels
         + Diesel Fuels
         + Fuel Oils
@@ -88,21 +88,21 @@ The course is comprehensively covered by @prasad2017petroleum, with some referen
 * Thermal Conversion Process:
     - Thermal Cracking Reactions
     - Thermal Cracking
-    - Visbreaking
+    - Vis-breaking
         + Conventional
         + Soaker
     - Coking
         + Delayed Coking
         + Fluid Coking
-        + Flexicoking
+        + Flexi-coking
     - Calcination of Green Coke
 
 ### Unit IV
 
-* Catalytic Converson Process:
+* Catalytic Conversion Process:
     - Fluid catalytic cracking
     - Catalytic reforming
-    - Hydrocracking
+    - Hydro-cracking
     - Catalytic Alkylation
     - Catalytic Isomerization
     - Catalytic Polymerization
@@ -123,28 +123,83 @@ The course is comprehensively covered by @prasad2017petroleum, with some referen
         + Edeleanu process
         + Udex process
         + Sulfolane process
-    - Hydrotreating processes
+    - Hydro-treating processes
 
 ### Unit V
 
 * Lube Oil Manufacturing Process
     - Evaluation of crude oils for lube oil base stocks
     - Vacuum distillation
-    - Solvent deasphalting
+    - Solvent de-asphalting
     - Solvent extraction of lube oil fractions
         + Furfural
         + NMP
         + Phenol
-    - Solvent dewaxing
-    - Hydrofinshing
+    - Solvent de-waxing
+    - Hydro-finishing
 * Manufacture of petroleum waxes
     - Wax sweating
-    - Solvent deoiling
+    - Solvent de-oiling
 * Manufacture of Bitumens
     - Selection of crude oil
     - Methods of manufacturing bitumens:
         + Distillation
         + Solvent precipitation
         + Air blowing
+
+### Specifics
+
+These 16 topics are from @prasad2017petroleum and have been earmarked for importance.
+
+* Atmospheric Distillation of Crude Oil
+    - Page 183
+    - Figure 6.3
+* Vacuum Distillation Process
+    - Page 185
+    - Figure 6.4
+* Thermal Cracking
+    - Page 195
+    - Figure 7.2
+* Soaker Vis-breaking
+    - Page 202
+    - Figure 7.6
+* Delayed Coking
+    - Page 206
+    - Figure 7.8
+* Fluid Catalytic Cracking
+    - Page 231
+    - Figure 8.4
+* Catalytic Reforming
+    - Page 240
+    - Figure 8.6
+* HF Alkylation Processes
+    - Page 255
+    - Figure 8.12
+* Claus Process
+    - Page 272
+    - Figure 9.2
+* Lube Oil Complex
+    - Page 297
+    - Figure 10.1
+* Lube Distillates
+    - Page 298
+    - Figure 10.2
+* Ketone De-waxing
+    - Page 308
+    - Figure 10.5
+* Dilchil De-waxing Process
+    - Page 310
+    - Figure 10.7
+* Solvent De-oiling
+    - Page 315
+    - Figure 10.10
+* Production of Bitumen
+    - Page 322
+    - Figure 11.1
+* Air Blowing Process
+    - Page 324
+    - Figure 11.3
+
+
 
 ### References
