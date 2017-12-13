@@ -147,9 +147,9 @@ The course is comprehensively covered by @prasad2017petroleum, with some referen
         + Solvent precipitation
         + Air blowing
 
-### Specifics
+### Specific Figures
 
-These 16 topics are from @prasad2017petroleum and have been earmarked for importance.
+These 16 flowsheets and their theory are from @prasad2017petroleum and have been earmarked for importance.
 
 * Atmospheric Distillation of Crude Oil
     - Page 183
@@ -200,6 +200,29 @@ These 16 topics are from @prasad2017petroleum and have been earmarked for import
     - Page 324
     - Figure 11.3
 
+### Specific Topics
 
+These 9 theory topics are important for the later units. 
+
+* Vis-breaking
+	- Page 196
+* Fluid Coking 
+	- Page 210
+* Catalytic Reforming
+	- Page 238
+* Hydrocracking
+	- Page 244
+* Catalytic Isomerization
+	- Page 256
+* Catalytic Polymerization
+	- Page 260
+* Claus Process
+	- Page 271
+* Sweetening Process 
+	- Page 276
+* Solvent Extraction of Lube Oil Fractions
+	- Page 302
+* Solvent Dewaxing Process
+	- Page 307
 
 ### References
