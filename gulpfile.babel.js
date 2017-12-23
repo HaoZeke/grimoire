@@ -189,7 +189,6 @@ export function fonts () {
     .pipe(gulp.dest('dist/fonts/'));
 }
 
-
 // Workaround to processing each image
 export function preimg() {
   return gulp.src(paths.watchFor.images.pre)
@@ -200,7 +199,7 @@ export function metal(cb) {
   nun.configure([paths.contentFrom.layouts.fullPath,
     paths.contentFrom.partials.fullPath], {watch: false});
 
-const htmlOnly = gfilter(['**/*.html'], {restore:false});
+const htmlOnly = gfilter(['**/*.html','**/keybase.txt'], {restore:false});
 
 return gulp.src(paths.watchFor.gulp)
   .pipe(
