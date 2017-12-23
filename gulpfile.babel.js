@@ -199,7 +199,10 @@ export function metal(cb) {
   nun.configure([paths.contentFrom.layouts.fullPath,
     paths.contentFrom.partials.fullPath], {watch: false});
 
-const htmlOnly = gfilter(['**/*.html','**/keybase.txt'], {restore:false});
+const htmlOnly = gfilter(['**/*.html'], {restore:false});
+
+gulp.src('src/keybase.txt')
+  .pipe(gulp.dest(paths.outputTo.root))
 
 return gulp.src(paths.watchFor.gulp)
   .pipe(
