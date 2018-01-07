@@ -39,7 +39,7 @@
     "gulp-typeset": "^0.0.2",
     "gulp-typogr": "^1.0.0",
     "gulp-util": "^3.0.8",
-    "gulp-watch": "^4.3.11",
+    "gulp-watch": "^5.0.0",
     "gulper": "^0.1.3",
     "hamburgers": "^0.9.1",
     "highlightjs": "^9.10.0",
