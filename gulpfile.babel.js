@@ -511,5 +511,5 @@ export function browserReload () {
   return bs.reload()
 }
 
-export default gulp.series(gulp.parallel(refs, preimg), gulp.parallel(metal, images, fonts, webpacker), mkcss, updateFavicons, favicons, injectFavicons);
+export default gulp.series(gulp.parallel(refs, preimg), gulp.parallel(metal, images, fonts, webpacker), mkcss, favicons, injectFavicons);
 
