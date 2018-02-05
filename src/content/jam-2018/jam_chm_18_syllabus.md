@@ -81,8 +81,7 @@ I found the [official syllabus](http://jam.iitb.ac.in/cy_syl.html) hard to read 
   ~ General concepts on group relationships and gradation in properties; structure of electron deficient compounds involving main group elements.
 
 **Transition Metals (d block)**
-  ~ Characteristics of 3d elements; oxide, hydroxide and salts of first row metals; coordination complexes
-  ~ structure, isomerism, reaction mechanism and electronic spectra; VB, MO and Crystal Field theoretical approaches for structure, color and magnetic properties of metal complexes; organometallic compounds having ligands with back bonding capabilities such as metal carbonyls, carbenes, nitrosyls and metallocenes; homogenous catalysis.
+  ~ Characteristics of 3d elements; oxide, hydroxide and salts of first row metals; coordination complexes structure, isomerism, reaction mechanism and electronic spectra; VB, MO and Crystal Field theoretical approaches for structure, color and magnetic properties of metal complexes; organometallic compounds having ligands with back bonding capabilities such as metal carbonyls, carbenes, nitrosyls and metallocenes; homogenous catalysis.
 
 **Bioinorganic Chemistry**
   ~ Essentials and trace elements of life; basic reactions in the biological systems and the role of metal ions, especially Fe2+, Fe3+, Cu2+ and Zn2+; structure and function of hemoglobin and myoglobin and carbonic anhydrase.
