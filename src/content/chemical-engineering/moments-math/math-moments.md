@@ -104,7 +104,7 @@ Skewness
 
   Mathematically: $$ \gamma_1=\frac{\mu_3}{(\mu_2)^{1.5}}$$
 
-![Relationship of the distribution curve and the asymmetry coefficient.](../img/skew.png){#fig:skew}
+![Relationship of the distribution curve and the asymmetry coefficient.](img/skew.png){#fig:skew}
 
 Kurtosis
 
