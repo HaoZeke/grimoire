@@ -236,6 +236,7 @@ return gulp.src(paths.watchFor.gulp)
 		    args: ['--katex',
         '--filter','pandoc-eqnos',
         '--filter','pandoc-citeproc',
+        '--filter','pandoc-fignos',
         '--bibliography',paths.outputTo.ref],
 			  opts: {},
 			  pattern: '**/*.md', // multimatch

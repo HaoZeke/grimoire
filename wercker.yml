@@ -4,7 +4,7 @@ build:
     steps:
       - script:
           name: build targets
-          code: pip install --user pandoc-eqnos && yarn && yarn gulp
+          code: pip install --user pandoc-eqnos pandoc-fignos && yarn && yarn gulp
     after-steps:
         - script:
             name: manually deploy to netlify
