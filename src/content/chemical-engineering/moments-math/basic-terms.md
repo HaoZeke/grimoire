@@ -92,14 +92,13 @@ The variance characterizes the spread in values of the random variable $X$ about
 
 ## Graphical Preliminaries
 
-Having introduced the density function and the distribution function, it is trivial to interpret the following curves in figure @fig:quartProb and note, that the probability $P(X\leq x)=F(x)$ may be represented as an area between the density function $f(t)$ and the $x$-axis on the interval $-\infty<t\leq x$
+Having introduced the density function and the distribution function, it is trivial to interpret the following curves in the figure below and note, that the probability $P(X\leq x)=F(x)$ may be represented as an area between the density function $f(t)$ and the $x$-axis on the interval $-\infty<t\leq x$
 
-![Probability as an area.^[@bronshtein2015handbook]](img/probArea.png){#fig:quartProb} 
+![Probability as an area.^[@bronshtein2015handbook]](img/probArea.png)
 
 Often there is given (frequently in \%) a probability value $\alpha$. 
 
 If $P(X > x) = \alpha$ holds, the corresponding value of the abscissa $x = x_\alpha$ is called the quantile or the fractile of order $\alpha$
-(Figure @fig:quartProb b). 
 
 This means the area under the density function $f(t)$ to the right of $x = x_\alpha$ is equal to $\alpha$.
 
