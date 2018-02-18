@@ -1,7 +1,7 @@
 ---
 layout: article
 draft: false
-katex: true
+mathjax: true
 title: Mathematical Preliminaries
 subtitle: "Common Statistical Definitions"
 blurb: A summary of basic probability for statistical design of experiments.
@@ -49,11 +49,11 @@ On the basis of the above concepts, we now quantify random variables as:
 \marginpar{$p(x)$ is the probability density function.}
 $$
 X \to
-\begin{dcases*}
+\begin{cases}
 F(x)=P\{X < x\}=\sum_{x_n<x}p_n
  & Discrete \\
 \int\limits_{-\infty}^{x} p(z)\, dz \text{ OR } p(x)=F^\prime(x) & Continuous 
-\end{dcases*}
+\end{cases}
 $$ {#eq:typeVar}
 
 ## Expectation
@@ -61,11 +61,11 @@ $$ {#eq:typeVar}
 The expectation (expected value) $E(X)$ of  a discrete or continuous random variable $X$ is mathematically defined by:
 $$
 E\{X\}=
-\begin{dcases*}
+\begin{cases}
 \sum_i x_i p_i
  & Discrete \\
 \int\limits_{-\infty}^{\infty} x p(x)\, dx & Continuous
-\end{dcases*}
+\end{cases}
 $$ {#eq:expvar}
 
 For the continuous case, it is necessary that the integral or it's corresponding series converges absolutely.
@@ -76,11 +76,11 @@ Similarly, due to the similarity of functions describing random variables and ra
 
 $$
 E\{Y\}=E\{\phi(X)\}=
-\begin{dcases*}
+\begin{cases}
 \sum_i \phi(x_i) p_i
  & Discrete \\
 \int\limits_{-\infty}^{\infty} \phi(x) p(x)\, dx & Continuous
-\end{dcases*}
+\end{cases}
 $$ {#eq:expfunc}
 
 ## Variance

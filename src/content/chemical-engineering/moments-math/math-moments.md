@@ -1,7 +1,7 @@
 ---
 layout: article
 draft: false
-katex: true
+mathjax: true
 title: Moments and their Interpretation
 subtitle: "Mathematical Treatment"
 blurb: A brief mathematical overview and some basic interpretations.
@@ -32,10 +32,10 @@ Moments about zero are often referred to as the moments of a random variable or 
 The $k^{th}$ moment satisfies the relation:
 $$
 \alpha_k=E\{X^k\}=
-\begin{dcases*}
+\begin{cases}
 \sum_i x_i^k p_i & Discrete \\
 \int\limits_{-\infty}^{\infty} x^k p(x)\, dx & Continuous
-\end{dcases*}
+\end{cases}
 $$ {#eq:initMom}
 
 
@@ -47,10 +47,10 @@ The $k^{th}$ central moment satisfies the relation:
 
 $$
 \mu_k=E\{(X-E\{X\})^k\}=
-\begin{dcases*}
+\begin{cases}
 \sum_i (x_i-E\{X\})^k p_i & Discrete \\
 \int\limits_{-\infty}^{\infty} (x-E\{X\})^k p(x)\, dx & Continuous
-\end{dcases*}
+\end{cases}
 $$ {#eq:centMom}
 
 **Remark:** We note that $\mu_0=1$ and $\mu_1=0$ for random variables.

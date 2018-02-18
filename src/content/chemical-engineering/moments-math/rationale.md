@@ -1,7 +1,7 @@
 ---
 layout: article
 draft: false
-katex: true
+mathjax: true
 title: Rationalizing the Study of Moments
 subtitle: "Collection Overview"
 blurb: A rationale for understanding statistics for engineering.
