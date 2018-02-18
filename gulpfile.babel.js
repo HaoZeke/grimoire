@@ -38,6 +38,9 @@ import mstags from 'metalsmith-tags';
 import msatoc from 'metalsmith-autotoc';
 import msaddExt from 'metalsmith-layouts-add-extension';
 import mslogger from 'metalsmith-logger';
+import msmap from 'metalsmith-sitemap';
+import mscanon from 'metalsmith-canonical';
+import msrobot from 'metalsmith-robots';
 import webpackStream from 'webpack-stream';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
@@ -300,6 +303,21 @@ return gulp.src(paths.watchFor.gulp)
         mslay({
         	engine: 'nunjucks',
         	default: 'default.njk'
+        }),
+
+        // Add a canonical url
+        mscanon({
+          "hostname": "https://grimoire.science"
+        }),
+
+        // Add a sitemap
+        msmap({
+          "hostname": "https://grimoire.science"
+        }),
+
+        // Add robots
+        msrobot({
+          "sitemap": "https://grimoire.science/sitemap.xml"
         }),
 
         // function(files, ms, done) {
