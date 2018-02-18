@@ -17,7 +17,7 @@ import gfavicon from 'gulp-real-favicon';
 import gcopy from 'gulp-copy';
 import gif from 'gulp-if';
 import gfilter from 'gulp-filter';
-import htmlMin from 'gulp-html-minifier';
+import htmlMin from 'gulp-htmlmin';
 import csso from 'gulp-csso';
 import postcss from 'gulp-postcss';
 import fontmin from 'gulp-fontmin';
