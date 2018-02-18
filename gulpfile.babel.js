@@ -332,6 +332,7 @@ return gulp.src(paths.watchFor.gulp)
       // Initial Metalsmith metadata, defaults to {} 
       metadata: {
         site_name: 'Grimoire',
+        site_description: 'A pseudo magic collection of thoughts and ideas.',
       },
       // List of JSON files that contain page definitions 
       // true means "all JSON files", see the section below 
