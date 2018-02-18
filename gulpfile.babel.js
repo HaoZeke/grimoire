@@ -202,7 +202,9 @@ export function metal(cb) {
   nun.configure([paths.contentFrom.layouts.fullPath,
     paths.contentFrom.partials.fullPath], {watch: false});
 
-const htmlOnly = gfilter(['**/*.html','**/*.xml'], {restore:false});
+const htmlOnly = gfilter(['**/*.html'], {restore:true});
+// const seoFiles = gfilter(['**/*.xml','**/robots.txt'], {restore:true});
+const fullSite = gfilter(['**/*.html','**/*.xml','**/robots.txt'], {restore:false});
 
 gulp.src('src/keybase.txt')
   .pipe(gulp.dest(paths.outputTo.root))
@@ -331,19 +333,21 @@ return gulp.src(paths.watchFor.gulp)
       ],
       // Initial Metalsmith metadata, defaults to {} 
       metadata: {
-        site_name: 'Grimoire',
-        site_description: 'A pseudo magic collection of thoughts and ideas.',
+        name: 'Grimoire',
+        description: 'A pseudo magic collection of thoughts and ideas.',
       },
       // List of JSON files that contain page definitions 
       // true means "all JSON files", see the section below 
       //json: ['src/pages.json']
     }))
-    .pipe(htmlOnly)
     .pipe(typeset({
       ignore: '.math'
     }))
     .pipe(typogr())
+    .pipe(htmlOnly)
     .pipe(gif(arg.p == true, htmlMin({collapseWhitespace: true})))
+    .pipe(htmlOnly.restore)
+    .pipe(fullSite)
   	.pipe(gulp.dest(paths.outputTo.root))
   	.pipe(bs.stream());
 cb();
