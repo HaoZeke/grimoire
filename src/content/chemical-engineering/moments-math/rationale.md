@@ -27,4 +27,11 @@ Additionally, the study of moments forms the cornerstone of a generalized study 
 
 This collection is largely inspired from @bronshtein2015handbook, @polyanin2006handbook and @polyanin2010concise.
 
+## Articles
+
+This series consists of:
+
+* [Mathematical preliminaries](https://grimoire.science/mathematical-preliminaries/)
+* [Moments and their interpretations](https://grimoire.science/moments-and-their-interpretation/)
+
 ## References
