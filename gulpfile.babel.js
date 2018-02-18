@@ -340,11 +340,11 @@ return gulp.src(paths.watchFor.gulp)
       // true means "all JSON files", see the section below 
       //json: ['src/pages.json']
     }))
+    .pipe(htmlOnly)
     .pipe(typeset({
       ignore: '.math'
     }))
     .pipe(typogr())
-    .pipe(htmlOnly)
     .pipe(gif(arg.p == true, htmlMin({collapseWhitespace: true})))
     .pipe(htmlOnly.restore)
     .pipe(fullSite)
