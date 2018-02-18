@@ -334,7 +334,7 @@ return gulp.src(paths.watchFor.gulp)
       // Initial Metalsmith metadata, defaults to {} 
       metadata: {
         name: 'Grimoire',
-        description: 'A pseudo magic collection of thoughts and ideas.',
+        description: 'A pseudo magic collection of thoughts and ideas. Mainly focused on code and chemical engineering.',
       },
       // List of JSON files that contain page definitions 
       // true means "all JSON files", see the section below 
