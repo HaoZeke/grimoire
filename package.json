@@ -70,7 +70,7 @@
     "postcss-scss": "^1.0.2",
     "reflex-grid": "^2.0.1",
     "rucksack-css": "^1.0.2",
-    "surge": "^0.19.0",
+    "surge": "^0.20.0",
     "typi": "^3.1.2",
     "umbrellajs": "^2.9.0",
     "uncss": "^0.16.1",
