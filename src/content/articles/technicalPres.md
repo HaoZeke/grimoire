@@ -137,9 +137,11 @@ This is actually a bit of a living (evolving) guide (insofar as non binding sugg
 **Rohit Goswami**
  
 *BTech Year IV | HBTU Kanpur | ChemE Dept.*
- 
-S: rohit.646
 
-E: rohit.goswami[at]aol.com
+<p align="left">
+S: rohit.646<br>
+E: r95g10[at]gmail.com
+</p> 
+
  
  
