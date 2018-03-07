@@ -15,7 +15,7 @@ All bibliography files under content will be processed and available for citatio
 
 As the site runs through typogr, write fractions as \frac{x{s}}{2} instead of \frac{x s}{2} when inlined.
 
-ie. no spaces in inlined elements.
+ie. no spaces in in-lined elements.
 
 ## Flags
 
@@ -55,7 +55,7 @@ The site is built with:
 ## Contributions
 Pull requests welcome!
 
-Please add yourself to the Contributors file as well, with a summary and contact details (optinal).
+Please add yourself to the Contributors file as well, with a summary and contact details (optional).
 
 ## Issues
 Bug tracking is done with [waffle.io](https://waffle.io/)
