@@ -142,6 +142,3 @@ This is actually a bit of a living (evolving) guide (insofar as non binding sugg
 S: rohit.646<br>
 E: r95g10[at]gmail.com
 </p> 
-
- 
- 
