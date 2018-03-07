@@ -3,7 +3,7 @@ title: "On Technical Presentations"
 subtitle: "A living guide"
 blurb: "Seminar and short presentation tactics"
 author: [Rohit Goswami]
-date: 7-3-17
+date: 7-3-18
 tags: [Powerpoint, Presentations, Mendeley]
 fontsize: 20pt
 cleveref: On
