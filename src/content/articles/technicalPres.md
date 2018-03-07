@@ -1,8 +1,9 @@
 ---
-title: "On Technical Presentions"
-subtitle: "Seminar and short presentation tactics"
+title: "On Technical Presentations"
+subtitle: "A living guide"
+blurb: "Seminar and short presentation tactics"
 author: [Rohit Goswami]
-date: 2017-10-23
+date: 7-3-17
 tags: [Powerpoint, Presentations, Mendeley]
 fontsize: 20pt
 cleveref: On
@@ -17,6 +18,7 @@ draft: false
 layout: article
 katex: true
 autotoc: true
+metaTitle: true
 ...
 
 
@@ -121,7 +123,7 @@ Furthermore I ought to stress the avoidance of the following:
 
 * Googling (unless as a last resort)
 
-Google above refers to the base search including crap like quora, stackexchange etc. Google only when you don't know the field to search
+Google above refers to the base search including crap like Quora, StackExchange etc. Google only when you don't know the field to search
 
 Also in general:
 
@@ -130,13 +132,14 @@ Also in general:
 * Don't hype old tech
 * Celebrate tech maturity instead
 
-This is actually a bit of a living (evolving) guide (insofar as nonbinding suggestions are a guide).
+This is actually a bit of a living (evolving) guide (insofar as non binding suggestions are a guide).
 
-Rohit Goswami
+**Rohit Goswami**
  
-BTech Year IV | HBTU Kanpur | ChemE Dept.
+*BTech Year IV | HBTU Kanpur | ChemE Dept.*
  
 S: rohit.646
+
 E: rohit.goswami[at]aol.com
  
  
