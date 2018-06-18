@@ -63,8 +63,13 @@ If you need to add more references then you need to search on Google Scholar and
 
 In case you decide to go for a Powerpoint presentation, you can find some nice free templates [here on SlidesCarnival](https://www.slidescarnival.com/).
 
-In that case you'll want to either manually add the references by choosing one of the text styles with google scholar (I prefer the APA but they're all good).
+In that case you'll want to either manually add the references by choosing one of the text styles with google scholar (I prefer the APA but they're all good**.
 
+*Please* ensure you learn how to use the **align** submenu of the
+**arrange**button. [Home tab]
+
+*Always* keep the **ruler** and **gridlines** on during the design phase.
+[View tab]
 
 ### Mendeley
 
