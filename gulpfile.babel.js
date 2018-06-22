@@ -1,5 +1,6 @@
 import gulp from 'gulp';
-import ms from 'gulp-metalsmith';
+import ms from 'gulpsmith';
+import metalsmith from 'metalsmith';
 import watcher from 'gulp-watch';
 import imagemin from 'gulp-imagemin';
 import sass from 'gulp-sass';
@@ -211,31 +212,37 @@ gulp.src('src/keybase.txt')
 
 return gulp.src(paths.watchFor.gulp)
   .pipe(
-    ms({
+    ms(
       // Metalsmith's root directory, for example for locating templates, defaults to CWD 
-      	root: paths.contentFrom.root,
+      	// root: 
+      paths.contentFrom.root)
+      // List of JSON files that contain page definitions 
+      // true means "all JSON files", see the section below 
+      //json: ['src/pages.json']
       // Don't delete stuff
-      	clean: false,
+      	// clean: false,
       // Files to exclude from the build 
-      	ignore: ['src/*.tmp'],
+      	// ignore: ['src/*.tmp'],
       // Parsing frontmatter, defaults to true 
-      	frontmatter: true,
+      	// frontmatter: true})
+      // Initial Metalsmith metadata, defaults to {} 
+    .metadata({
+        name: 'Grimoire',
+        description: 'A pseudo magic collection of thoughts and ideas. Mainly focused on code and chemical engineering.',
+      })
       // Metalsmith plugins to use: 
-	    use: [
-
-        // Add ext
-        msaddExt({
+	    .use(msaddExt({
           layout_extension: '.njk',
-        }),
+        }))
 
         // Drafts
-        drafts(),
+        .use(drafts())
 
         // Synatax Highlighting
-        metallic(),
+        .use(metallic())
 
    	  	// Pandoc Markdown
-        mspmd({
+        .use(mspmd({
         	from: 'markdown',
 		    to:   'html5',
 		    args: ['--katex',
@@ -246,32 +253,32 @@ return gulp.src(paths.watchFor.gulp)
 			  opts: {},
 			  pattern: '**/*.md', // multimatch
 			  ext: '.html' // extension for output file
-			}),
+			}))
 
         // TOC JSON for headings
-        msatoc({
+        .use(msatoc({
           selector: "h2, h3, h4, h5, h6",
           headerIDPrefix: 'subhead'
-        }),
+        }))
 
       // Check the autotoc
-      mslogger(['title', 'tags', 'toc']),
+      .use(mslogger(['title', 'tags', 'toc']))
 
       // Try Math rendering
-      msmath(),
+      .use(msmath())
 
 	    // Collections
-	    msc({
+	    .use(msc({
 	    	pattern: ['**/*.html', '!*.html'],
-	    }),
+	    }))
 	    
-      msperma({
+      .use(msperma({
 	    	relative: false,
 	    	pattern: ':title'
-	    }),
+	    }))
 
       // Tags
-      mstags({
+      .use(mstags({
         // yaml key for tag list in you pages
         handle: 'tags',
         path: "topics/:tag/index.html",
@@ -296,31 +303,31 @@ return gulp.src(paths.watchFor.gulp)
         // Can also supply a custom slug function.
         // slug: function(tag) { return tag.toLowerCase() }
         slug: {mode: 'rfc3986'}
-      }),
+      }))
 
         // Use a pathroot
-        msroot(),
+        .use(msroot())
 
         // Template engine
-        mslay({
+        .use(mslay({
         	engine: 'nunjucks',
         	default: 'default.njk'
-        }),
+        }))
 
         // Add a canonical url
-        mscanon({
+        .use(mscanon({
           "hostname": "https://grimoire.science"
-        }),
+        }))
 
         // Add a sitemap
-        msmap({
+        .use(msmap({
           "hostname": "https://grimoire.science"
-        }),
+        }))
 
         // Add robots
-        msrobot({
+        .use(msrobot({
           "sitemap": "https://grimoire.science/sitemap.xml"
-        }),
+        }))
 
         // function(files, ms, done) {
         // 	console.log('Files: ');
@@ -330,16 +337,7 @@ return gulp.src(paths.watchFor.gulp)
         // 	console.log(ms);
         // 	done();
         // }
-      ],
-      // Initial Metalsmith metadata, defaults to {} 
-      metadata: {
-        name: 'Grimoire',
-        description: 'A pseudo magic collection of thoughts and ideas. Mainly focused on code and chemical engineering.',
-      },
-      // List of JSON files that contain page definitions 
-      // true means "all JSON files", see the section below 
-      //json: ['src/pages.json']
-    }))
+    )
     .pipe(htmlOnly)
     .pipe(typeset({
       ignore: '.math'
