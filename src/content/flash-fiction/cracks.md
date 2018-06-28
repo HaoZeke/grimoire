@@ -10,6 +10,8 @@ cleveref: On
 xnos-number-sections: On
 ...
 
+# Cracks
+
 ![](/img/cracksWood.jpg)
 
 I don't know how to explain what it's like to have slipped through the cracks in the world.
