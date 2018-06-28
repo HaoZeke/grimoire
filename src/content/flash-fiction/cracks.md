@@ -1,6 +1,7 @@
 ---
 title: Cracks
-date: 21-06-2018
+metaTitle: true
+date: Fri Jun 21 2018 
 blurb: Slipping through a fractured reality.
 tags: [flash-fiction, musings, writing]
 author: [Rohit Goswami]
@@ -9,8 +10,6 @@ autotoc: true
 cleveref: On
 xnos-number-sections: On
 ...
-
-# Cracks
 
 ![](/img/cracksWood.jpg)
 
