@@ -42,7 +42,7 @@ not flush with ambition.
 
 *Misery.*
 
-It has probably already began. My living embalming. My memories pickled safely.
+It has probably already begun. My living embalming. My memories pickled safely.
 My organs protected against the ravages of times below the cracked mosaic of
 reality.
 
