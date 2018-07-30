@@ -12,7 +12,7 @@ draft: false
 xnos-number-sections: On
 ...
 
-## About
+### About
 A while ago to ease my transitions from system to system, before I decided to
 use a fully fledged configuration manager and
 [pug](https://github.com/HaoZeke/pug "Link to pug")(my fork of [the AUR one](https://github.com/Ventto/pug "Link to AUR pug") adapted to be used on
@@ -78,26 +78,26 @@ Doesn't require admin. I never need this. Usually reverse proxies over `ssh` wor
 well enough.
 
 ### stack
- The Haskell Tool Stack. `nuff said.
+The Haskell Tool Stack. `` `nuff`` said.
  
- ### streamlink
- A lifesaver.
+### streamlink
+A lifesaver.
  
- ### Trillian
- Weirdly I bought this for my google hangouts needs.
+### Trillian
+Weirdly I bought this for my google hangouts needs.
  
- ### tsocks
- Another transparent proxy thing. Never got the hang of it. Proxychains is
- better.
+### tsocks
+Another transparent proxy thing. Never got the hang of it. Proxychains is
+better.
  
- ### uGet
- FOSS over IDM!
+### uGet
+FOSS over IDM!
  
- ### uGet Integrator
- Another reason to stick to standard browsers.
+### uGet Integrator
+Another reason to stick to standard browsers.
  
- ### VLC
- Installed this for trying to work with network streams, but `mpv` with
- `smplayer` is much better.
+### VLC
+Installed this for trying to work with network streams, but `mpv` with
+`smplayer` is much better.
  
  
