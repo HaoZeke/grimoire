@@ -79,9 +79,9 @@ for more GUI goodness. Other `askpass` programs and helpers may also be used,
 like the popular
 [x11-ssh-askpass](https://github.com/sigmavirus24/x11-ssh-askpass) program.
 
-## Implementation
+## Program Structure
 
-Our basic layout is simple.
+Our basic structure is simple.
 
 1. An encrypted folder is mounted
 2. The application is run
