@@ -67,7 +67,7 @@ The requirements are:
   require only the base program itself, new users would probably benefit from
   having one of the GUI interfaces to `encfs` as well. I prefer [Gnome Encfs Manager](https://launchpad.net/gencfsm).
 
-ASKPASS program
+An ASKPASS program
 
 : These are most famously known for weird `ssh` errors. However, here we will
   focus on [zenity](https://www.wikiwand.com/en/Zenity) and [git](https://git-scm.com/) as a fallback.
