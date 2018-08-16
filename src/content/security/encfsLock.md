@@ -134,6 +134,8 @@ unlockString="Unlock $1"
 Because scripts can quickly get clunky without intending too, we will first add
 a simple variable which is suitable for running the external authentication.
 
+![Zenity Prompt](img/zenityPrompt.png)
+
 ```bash
 askPass="zenity --password --title=$unlockString"
 ```
@@ -144,6 +146,8 @@ fallback.
 
 [Git](https://git-scm.com/) is more or less available everywhere, and it just so
 happens to have a pretty neat `askpass` tool as well.
+
+![Git Askpass Prompt](img/gitPrompt.png)
 
 ```bash
 askPass="/usr/lib/git-core/git-gui--askpass $unlockString"
