@@ -95,7 +95,7 @@ Additionally we would like the following features:
 
 ### Preliminaries
 
-Before getting to the creation of a script, I first like to experiment with the
+Before getting to the creation of a script, I like to experiment with the
 native shell. In this case this simply involved checking the following:
 
 ```bash
