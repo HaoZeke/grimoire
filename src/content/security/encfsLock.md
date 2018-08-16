@@ -122,13 +122,20 @@ the top of the file.
 #!/usr/bin/bash
 ```
 
+### Setting Variables
+Initially we might simply set an unlock string as follows:
+
+```bash
+unlockString="Unlock $1"
+```
+
 ### Choosing an ASKPASS program
 
 Because scripts can quickly get clunky without intending too, we will first add
 a simple variable which is suitable for running the external authentication.
 
 ```bash
-askPass='zenity --password --title="Unlock Thunderbird"'
+askPass="zenity --password --title=$unlockString"
 ```
 
 As mentioned previously, [zenity](https://www.wikiwand.com/en/Zenity) is the
@@ -139,7 +146,7 @@ fallback.
 happens to have a pretty neat `askpass` tool as well.
 
 ```bash
-askPass='/usr/lib/git-core/git-gui--askpass "Unlock Thunderbird"'
+askPass="/usr/lib/git-core/git-gui--askpass $unlockString"
 ```
 
 However, it would be better to wrap them both up in a way to pick one or the
@@ -147,9 +154,9 @@ other based on the availability. So, we write a simple test.
 
 ```bash
 if which zenity >/dev/null 2>&1; then
-    askPass='zenity --password --title="Unlock Thunderbird"'
+    askPass="zenity --password --title=$unlockString"
 elif which git >/dev/null 2>&1; then
-    askPass='/usr/lib/git-core/git-gui--askpass "Unlock Thunderbird"'
+    askPass="/usr/lib/git-core/git-gui--askpass $unlockString"
 else echo "ERROR: No valid (zenity or git) askpass program available\n"
      fi
 ```
@@ -214,14 +221,20 @@ This is actually not a really important bit, however, I wanted the app
 directories to start with **capital** letters. Also I wanted the encrypted data
 to be stored in a *hidden* folder.
 
-In any case, this portion of the script uses a bash specific expansion.
+In any case, this portion of the script uses a bash specific expansion. At this
+point we can also make the `unlockString` a little neater.
 
 ```bash
 #!/usr/bin/bash
 # bash specific
 tempName=( $1 )
 appName=$(echo "${tempName[@]^}")
+unlockString="Unlock $appName"
+```
 
+Now that we have the name, we simply modify the directories.
+
+```bash
 cryptDir="$HOME/Encfs/.$appName"
 appDir="$HOME/.decrypt/$appName"
 ```
@@ -304,7 +317,7 @@ It is also reproduced here.
 # unlockEncfsApp.sh $appname
 
 # Copyright (c) 2018 Rohit Goswami <rohit dot goswami at yahoo dot com>
- 
+
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
 # "Software"), to deal in the Software without restriction, including
@@ -312,10 +325,10 @@ It is also reproduced here.
 # distribute, sublicense, and/or sell copies of the Software, and to
 # permit persons to whom the Software is furnished to do so, subject to
 # the following conditions:
- 
+
 # The above copyright notice and this permission notice shall be
 # included in all copies or substantial portions of the Software.
- 
+
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 # EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -327,18 +340,29 @@ It is also reproduced here.
 #
 # Program Implementation
 #
+
+# Get a capitalized App name
+# bash specific
+tempName=( $1 )
+appName=$(echo "${tempName[@]^}")
+unlockString="Unlock $appName"
+
+# Determine the appropriate ASKPASS program
+
 if which zenity >/dev/null 2>&1; then
-    askPass='zenity --password --title="Unlock Thunderbird"'
+    askPass="zenity --password --title=$unlockString"
 elif which git >/dev/null 2>&1; then
-    askPass='/usr/lib/git-core/git-gui--askpass "Unlock Thunderbird"'
+    askPass="/usr/lib/git-core/git-gui--askpass $unlockString"
 else echo "ERROR: No valid (zenity or git) askpass program available\n"
      fi
 
-tempName=( $1 )
-appName=$(echo "${tempName[@]^}")
+#
+# TODO work on the logic when the folder is mounted
+#
 
+# Create the directories
 cryptDir="$HOME/Encfs/.$appName"
-appdir="$home/.decrypt/$appname"
+appDir="$HOME/.decrypt/$appName"
 
 if [ ! -d $appDir ]; then
     mkdir -p $appDir
@@ -353,10 +377,16 @@ else
 fi
 
 if [ ! -d $cryptDir ]; then
-    mkdir -p $cryptDir    
+    mkdir -p $cryptDir
 fi
 
+# Mount the stash
+
+# TODO handle cases where the stash is created for the first time
+
 encfs --extpass="$askPass" $cryptDir $appDir
+
+# Run the program is the stash was mounted
 
 RESULT=$?
 if [ $RESULT -eq 0 ]; then
@@ -366,6 +396,7 @@ else
   echo failed
   rm -rf $appDir
 fi
+
 ```
 
 ## Future Directions
