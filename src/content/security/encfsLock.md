@@ -15,7 +15,7 @@ xnos-number-sections: On
 ## Introduction
 One of the problems of a shared system, is that sometimes multiple applications
 are used by multiple people. Normally this would be solved by the excellent
-multi-user support inherent to *nix systems. After all, *nix and  derivatives
+multi-user support inherent to Linux systems. After all, Unix and derivatives
 were [designed to be](https://www.wikiwand.com/en/History_of_Unix) used by
 multiple users at the same time.
 
@@ -69,7 +69,7 @@ The requirements are:
 ASKPASS program
 
 : These are most famously known for weird `ssh` errors. However, here we will
-  focus on [zenity](https://www.wikiwand.com/en/Zenity) and [git](https://git-scm.com/) as a fallback. Where available
+  focus on [zenity](https://www.wikiwand.com/en/Zenity) and [git](https://git-scm.com/) as a fallback.
 
 And that's it. Other variations of this method might use [shoes](shoesrb.com/)
 for more GUI goodness. Other `askpass` programs and helpers may also be used,
@@ -95,7 +95,7 @@ Additionally we would like the following features:
 Before getting to the creation of a script, I first like to experiment with the
 native shell. In this case this simply involved checking the following:
 
-``` sh
+```bash
 # Testing the mount
 encfs ~/.cryptTest ~/cryptTest
 ```
@@ -115,7 +115,7 @@ included.
 Always remember to start the script with it and to only put it once, right at
 the top of the file.
 
-``` shell
+```bash
 #!/usr/bin/bash
 ```
 
@@ -124,7 +124,7 @@ the top of the file.
 Because scripts can quickly get clunky without intending too, we will first add
 a simple variable which is suitable for running the external authentication.
 
-``` shell
+```bash
 askPass='zenity --password --title="Unlock Thunderbird"'
 ```
 
@@ -135,14 +135,14 @@ fallback.
 [Git](https://git-scm.com/) is more or less available everywhere, and it just so
 happens to have a pretty neat `askpass` tool as well.
 
-``` shell
+```bash
 askPass='/usr/lib/git-core/git-gui--askpass "Unlock Thunderbird"'
 ```
 
 However, it would be better to wrap them both up in a way to pick one or the
 other based on the availability. So, we write a simple test.
 
-``` shell
+```bash
 if which zenity >/dev/null 2>&1; then
     askPass='zenity --password --title="Unlock Thunderbird"'
 elif which git >/dev/null 2>&1; then
@@ -163,7 +163,7 @@ mount point when the stash is unmounted, however, this causes a terminal input
 demand which needed to be suppressed, hence the directories are created prior to
 running Encfs.
 
-``` shell
+```bash
 cryptDir="$HOME/Encfs/.$1"
 appDir="$HOME/.decrypt/$1"
 
@@ -185,7 +185,7 @@ These are dealt with in the [Improvements](#improvements) section of this docume
 
 Now we are in a position to simply mount our stash and run the program.
 
-``` shell
+```bash
 encfs --extpass="$askPass" $cryptDir $appDir
 $1
 ```
@@ -213,7 +213,7 @@ to be stored in a *hidden* folder.
 
 In any case, this portion of the script uses a bash specific expansion.
 
-``` shell
+```bash
 #!/usr/bin/bash
 # bash specific
 tempName=( $1 )
@@ -231,7 +231,7 @@ point is currently mounted.
 
 If it is mounted, we will unmount it.
 
-``` shell
+```bash
 if [ ! -d $appDir ]; then
     mkdir -p $appDir
 elif [[ $(findmnt -M "$appDir") ]]; then
@@ -248,7 +248,7 @@ Additionally, for cases where the stash does not yet exist, we will need to
 create the other directory as well. We shall also kill the application if the
 stash is to be mounted (for security). This portion was aided by [this stack exchange thread](https://stackoverflow.com/questions/9422461/check-if-directory-mounted-with-bash).
 
-``` shell
+```bash
 if [ ! -d $appDir ]; then
     mkdir -p $appDir
 elif [[ $(findmnt -M "$appDir") ]]; then
@@ -275,7 +275,7 @@ the flow of control via the `$?` variable.
 Quite simply, the `$?` variable holds the result of the previous command. Hence
 it can be used to control the flow. This was inspired by the answers [here](https://unix.stackexchange.com/questions/22726/how-to-conditionally-do-something-if-a-command-succeeded-or-failed).
 
-``` shell
+```bash
 # Run the program is the stash was mounted
 
 RESULT=$?
@@ -294,7 +294,7 @@ For the latest revisions check [my Dotfiles](https://github.com/HaoZeke/Dotfiles
 
 It is also reproduced here.
 
-``` shell
+```bash
 #!/usr/bin/bash
 
 # Usage
