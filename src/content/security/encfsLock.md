@@ -13,6 +13,8 @@ draft: false
 xnos-number-sections: On
 ...
 
+For those who prefer it, this post is also [on Medium](https://medium.com/@HaoZeke/locking-and-encrypting-apps-with-encfs-c1484e77f479).
+
 ## Introduction
 One of the problems of a shared system, is that sometimes multiple applications
 are used by multiple people. Normally this would be solved by the excellent
