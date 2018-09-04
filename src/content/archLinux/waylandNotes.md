@@ -124,6 +124,10 @@ focus shifts with the mouse cursor. However alternatives are required.
 `gnome-screenshot`, it is difficult to work with full screen images only. Must
 look into `scrot` and friends.
 
+`scrot` does not work with wayland. `swaygrab` has actually been removed in the
+newer AUR package at any rate.
+
+Luckily [grim](https://github.com/emersion/grim) seems to work perfectly.
 
 ## Wayland and browsers
 
