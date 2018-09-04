@@ -128,6 +128,14 @@ look into `scrot` and friends.
 newer AUR package at any rate.
 
 Luckily [grim](https://github.com/emersion/grim) seems to work perfectly.
+For partial screenshots, it needs to be paired with [slurp](https://github.com/emersion/slurp)
+and used as:
+
+```bash
+slurp | grim -g - $outputFile
+```
+
+<!-- TODO Look into https://github.com/NicholasAsimov/dotfiles/blob/master/scripts/swaygrabselection -->
 
 ## Wayland and browsers
 
