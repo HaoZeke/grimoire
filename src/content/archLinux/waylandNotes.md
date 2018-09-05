@@ -102,6 +102,13 @@ recommended file manager.
 
 Similarly, `archive-manager` has been replaced by `engrampa`.
 
+## Prettying it up
+By now we have a rather well fleshed out system which seems to run a lot of ugly
+looking GTK themed applications.
+
+Naturally, the cheapest (in terms of resource usage and dependencies) is
+`lxappearance` and `gtk-chtheme` (I came accross the second one from [here](https://askubuntu.com/questions/598943/how-to-de-uglify-i3-wm)).
+
 ## Bluetooth Managers
 For my purposes, I noted that `blueman` looked TERRIBLE. Similar to the issues
 with `thunar` it insisted in opening in a split with large blurry text.
