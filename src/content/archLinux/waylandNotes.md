@@ -91,7 +91,16 @@ GDK_BACKEND=wayland
 CLUTTER_BACKEND=wayland 
 ```
 
-To the appropriate startup script (or `.bashrc`, `.zshenv` etc.)
+To the appropriate startup script (or `.bashrc`, `.zshenv` etc.**
+
+**Update**
+Sadly `thunar` is not really production ready. At the time of this test, several
+features were broken, including directory matching and scrolling.
+
+However, it turns out the MATE desktop has better support, so `caja` is now the
+recommended file manager.
+
+Similarly, `archive-manager` has been replaced by `engrampa`.
 
 ## Bluetooth Managers
 For my purposes, I noted that `blueman` looked TERRIBLE. Similar to the issues
