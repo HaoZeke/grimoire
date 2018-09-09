@@ -28,8 +28,8 @@ locked until a password is supplied. In any case,
 encryption methods (as long as usability overshadows security) and it's a good
 practice to encrypt application data anyway. The case for encryption varies, but
 weather it's to make life harder for hackers, or just to stop cloud storage
-providers from sniffing around, it's a good idea. Even if multiple users were
-not sharing an account, encryption prevents the `root users` or `admins` from
+providers from sniffing around, it's a good idea. Even if multiple users will
+not be sharing an account, encryption prevents the `root users` or `admins` from
 getting too frisky with your data. 
 
 The popular [gnome-keyring](https://wiki.archlinux.org/index.php/GNOME/Keyring)
@@ -60,7 +60,7 @@ The requirements are:
 
 [Bash](https://www.gnu.org/software/bash/)
 
-:  This is needed for the shell substitutions in the shell script. Usually found
+:  This is needed for the shell substitutions in the shell script. Found
    almost everywhere.
 
 [EncFS](https://github.com/vgough/encfs)
