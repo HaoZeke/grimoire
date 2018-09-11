@@ -6401,9 +6401,9 @@ metalsmith-rootpath@^1.0.4:
   dependencies:
     needle-string "^1.0.0"
 
-metalsmith-sitemap@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/metalsmith-sitemap/-/metalsmith-sitemap-1.2.0.tgz#778fb5c3c1782daeaa20ecfcde23937d05d55b1d"
+metalsmith-sitemap@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/metalsmith-sitemap/-/metalsmith-sitemap-1.2.1.tgz#4c7de644f82677f6e5d9f55d9e9e292462d8e5d0"
   dependencies:
     is "^3.0.1"
     lodash.get "^3.7.0"
@@ -6411,7 +6411,6 @@ metalsmith-sitemap@^1.2.0:
     lodash.pick "^3.1.0"
     multimatch "^2.0.0"
     sitemap "^1.1.1"
-    string "^3.3.1"
 
 metalsmith-tags@^2.0.0:
   version "2.0.0"
@@ -8901,10 +8900,6 @@ string-width@^2.0.0, string-width@^2.1.0, string-width@^2.1.1:
   dependencies:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^4.0.0"
-
-string@^3.3.1:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/string/-/string-3.3.3.tgz#5ea211cd92d228e184294990a6cc97b366a77cb0"
 
 string_decoder@^1.0.0, string_decoder@~1.0.0, string_decoder@~1.0.3:
   version "1.0.3"
