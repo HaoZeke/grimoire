@@ -186,3 +186,12 @@ along with the terminal [ncmpcpp](http://ncmpcpp.rybczak.net/) and the excellent
 QT5 [cantata](https://github.com/CDrummond/cantata) for when I need lyrics and a
 GUI. Additionally, since my shift from synapse to rofi, I shall also need
 [clerk](https://github.com/carnager/clerk) to allow me to use rofi to control `mpd`.
+
+## Telegram and SDDM
+Somehow, `sddm` was not respecting my environment variables, so telegram had
+these ugly window borders. Additionally, running telegram from the terminal and
+basically, with the environment variables (after removing `sddm`) caused a weird
+permissions FATAL error.
+
+Finally I decided to just go for the snap package. I went with the alpha release
+and everything seems to be working well.
