@@ -198,3 +198,11 @@ and everything seems to be working well.
 
 LightDM seems to do well, plus there's the beautiful Aether theme.
 
+## Caja and Udisks
+I had to manually edit some of the policies to allow the `active` user to mount
+the drives caja displayed.
+
+```bash
+sudo nvim /usr/share/polkit-1/actions/org.freedesktop.UDisks2.policy
+```
+
