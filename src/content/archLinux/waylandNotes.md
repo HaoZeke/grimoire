@@ -195,3 +195,6 @@ permissions FATAL error.
 
 Finally I decided to just go for the snap package. I went with the alpha release
 and everything seems to be working well.
+
+LightDM seems to do well, plus there's the beautiful Aether theme.
+
