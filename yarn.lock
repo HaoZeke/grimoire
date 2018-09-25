@@ -4322,9 +4322,9 @@ gulplog@^1.0.0:
   dependencies:
     glogg "^1.0.0"
 
-hamburgers@^0.9.1:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/hamburgers/-/hamburgers-0.9.3.tgz#73b3d299652a028647ca68b2957df172c76cc636"
+hamburgers@^1.1.2:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/hamburgers/-/hamburgers-1.1.3.tgz#eb583ede269d3a774aa5f613442b17ea13952b84"
 
 har-schema@^1.0.5:
   version "1.0.5"
