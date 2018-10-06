@@ -13,7 +13,7 @@
     "babel-register": "^6.26.0",
     "breakpoint-sass": "^2.7.1",
     "breakpoint-slicer": "^2.0.0",
-    "browser-sync": "^2.18.13",
+    "browser-sync": "^2.26.0",
     "browserify": "^16.0.0",
     "font-awesome": "^4.7.0",
     "gh-pages": "^1.1.0",
