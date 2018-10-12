@@ -8,7 +8,6 @@ author: [Rohit Goswami]
 layout: article
 autotoc: true
 cleveref: On
-draft: true
 xnos-number-sections: On
 ...
 
