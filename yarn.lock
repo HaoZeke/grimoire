@@ -3805,6 +3805,15 @@ glob-watcher@^4.0.0:
     just-debounce "^1.0.0"
     object.defaults "^1.1.0"
 
+glob-watcher@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/glob-watcher/-/glob-watcher-5.0.1.tgz#239aaa621b6bd843b288fdf6b155f50963c7d7ea"
+  dependencies:
+    async-done "^1.2.0"
+    chokidar "^2.0.0"
+    just-debounce "^1.0.0"
+    object.defaults "^1.1.0"
+
 glob2base@^0.0.12:
   version "0.0.12"
   resolved "https://registry.yarnpkg.com/glob2base/-/glob2base-0.0.12.tgz#9d419b3e28f12e83a362164a277055922c9c0d56"
@@ -4013,11 +4022,11 @@ gulp-concat@^2.6.1:
     through2 "^2.0.0"
     vinyl "^2.0.0"
 
-gulp-copy@^1.0.1:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/gulp-copy/-/gulp-copy-1.1.0.tgz#812ad03884c24fe04d92640beef51cfd49fc4675"
+gulp-copy@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/gulp-copy/-/gulp-copy-4.0.1.tgz#12a233fed26bded60cd5ec0b99f65be83f3b16b2"
   dependencies:
-    gulp "^3.9.1"
+    gulp "^4.0.0"
     plugin-error "^0.1.2"
     through2 "^2.0.3"
 
@@ -4282,7 +4291,7 @@ gulp-watch@^5.0.0:
     vinyl "^2.1.0"
     vinyl-file "^2.0.0"
 
-gulp@^3.9.0, gulp@^3.9.1:
+gulp@^3.9.0:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/gulp/-/gulp-3.9.1.tgz#571ce45928dd40af6514fc4011866016c13845b4"
   dependencies:
@@ -4299,6 +4308,15 @@ gulp@^3.9.0, gulp@^3.9.1:
     tildify "^1.0.0"
     v8flags "^2.0.2"
     vinyl-fs "^0.3.0"
+
+gulp@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/gulp/-/gulp-4.0.0.tgz#95766c601dade4a77ed3e7b2b6dc03881b596366"
+  dependencies:
+    glob-watcher "^5.0.0"
+    gulp-cli "^2.0.0"
+    undertaker "^1.0.0"
+    vinyl-fs "^3.0.0"
 
 gulp@gulpjs/gulp.git#4.0:
   version "4.0.0-alpha.3"
