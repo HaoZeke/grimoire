@@ -15,8 +15,8 @@ xnos-number-sections: On
 ## Motivation
 There is really nothing wrong with the [x11 window
 system](https://www.wikiwand.com/en/X_Window_System). However I read recently on
-Phoronix mentioned that wayland based systems are better for power consumption
-(less is better).
+Phoronix, that wayland based systems are better for power consumption (less is
+better).
 
 As my laptop had been wallowing in windows for a while now, I decided to give
 wayland a go. Techinically this includes notes on setting up ArchLinux but those
