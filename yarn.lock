@@ -2510,9 +2510,11 @@ debug@3.X, debug@^3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@~0.7.4:
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-0.7.4.tgz#06e1ea8082c2cb14e39806e22e2f6f757f92af39"
+debug@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.0.tgz#373687bffa678b38b1cd91f861b63850035ddc87"
+  dependencies:
+    ms "^2.1.1"
 
 debug@~2.2.0:
   version "2.2.0"
@@ -6379,14 +6381,14 @@ metalsmith-pandoc@^1.0.0:
     system-install "^1.0.0"
     which "^1.3.0"
 
-metalsmith-permalinks@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/metalsmith-permalinks/-/metalsmith-permalinks-0.5.0.tgz#0fec5b1f0687828c198d33b5d479cc1cec4b1a1f"
+metalsmith-permalinks@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/metalsmith-permalinks/-/metalsmith-permalinks-2.0.0.tgz#89d0767b52dc86593388ad5d958dfc7da9ed0898"
   dependencies:
-    debug "~0.7.4"
+    debug "^4.1.0"
     moment "^2.5.1"
-    slug-component "~1.1.0"
-    substitute "https://github.com/segmentio/substitute/archive/0.0.1.tar.gz"
+    slugify "^1.3.1"
+    substitute "https://github.com/segmentio/substitute/archive/0.1.0.tar.gz"
 
 metalsmith-robots@^1.0.1:
   version "1.0.1"
@@ -6603,6 +6605,10 @@ ms@1.0.0:
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
+
+ms@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
 
 multimatch@^2.0.0, multimatch@^2.1.0:
   version "2.1.0"
@@ -8554,10 +8560,6 @@ slash@^1.0.0:
   dependencies:
     readable-stream "~1.0.31"
 
-slug-component@~1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/slug-component/-/slug-component-1.1.0.tgz#224290a04591bf9ac08b9c622d3a14f43e3a0df7"
-
 slug@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/slug/-/slug-0.8.0.tgz#6ca45b836d03abdd54b7372f1f89c9bf8d902cf8"
@@ -8569,6 +8571,10 @@ slug@^0.9.1:
   resolved "https://registry.yarnpkg.com/slug/-/slug-0.9.1.tgz#af08f608a7c11516b61778aa800dce84c518cfda"
   dependencies:
     unicode ">= 0.3.1"
+
+slugify@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.3.1.tgz#f572127e8535329fbc6c1edb74ab856b61ad7de2"
 
 snake-case@^1.1.0:
   version "1.1.2"
@@ -9010,9 +9016,9 @@ subarg@^1.0.0:
   dependencies:
     minimist "^1.1.0"
 
-"substitute@https://github.com/segmentio/substitute/archive/0.0.1.tar.gz":
-  version "0.0.1"
-  resolved "https://github.com/segmentio/substitute/archive/0.0.1.tar.gz#432866985b03c3b0d3f71ac63d1ae1a18dfaf47d"
+"substitute@https://github.com/segmentio/substitute/archive/0.1.0.tar.gz":
+  version "0.1.0"
+  resolved "https://github.com/segmentio/substitute/archive/0.1.0.tar.gz#8fc8aa4d0fc6d26812a2b7f54022f647f7629d99"
 
 sum-up@^1.0.1:
   version "1.0.3"
