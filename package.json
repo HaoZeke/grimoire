@@ -75,7 +75,7 @@
     "umbrellajs": "^2.9.0",
     "uncss": "^0.16.1",
     "van11y-accessible-accordion-aria": "^2.0.1",
-    "webpack": "^3.9.1",
+    "webpack": "^4.21.0",
      "webpack-dev-middleware": "^2.0.0",
      "webpack-hot-middleware": "^2.21.0",
      "webpack-stream": "^4.0.0",
