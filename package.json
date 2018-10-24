@@ -6,7 +6,7 @@
   "author": "Rohit Goswami <rohit1995@mail.ru>",
   "dependencies": {
     "animate-sass": "^0.8.2",
-    "autoprefixer": "^8.0.0",
+    "autoprefixer": "^9.3.1",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.3.0",
     "babel-preset-env": "^1.6.1",
