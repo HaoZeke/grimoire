@@ -9839,9 +9839,9 @@ value-or-function@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/value-or-function/-/value-or-function-3.0.0.tgz#1c243a50b595c1be54a754bfece8563b9ff8d813"
 
-van11y-accessible-accordion-aria@^2.0.1:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/van11y-accessible-accordion-aria/-/van11y-accessible-accordion-aria-2.0.3.tgz#1c4181524ed6bcf9d44a0f5275ddb8b7d58f8b62"
+van11y-accessible-accordion-aria@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/van11y-accessible-accordion-aria/-/van11y-accessible-accordion-aria-3.0.1.tgz#1cedefb0e25348e72f00cf6656f325445bab691a"
 
 verror@1.10.0:
   version "1.10.0"
