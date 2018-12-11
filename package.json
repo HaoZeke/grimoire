@@ -68,7 +68,7 @@
     "nunjucks-markdown": "^2.0.1",
     "postcss-font-magician": "^2.1.0",
     "postcss-scss": "^1.0.2",
-    "reflex-grid": "^2.0.1",
+    "reflex-grid": "^2.0.4",
     "rucksack-css": "^1.0.2",
     "surge": "^0.20.0",
     "typi": "^3.1.2",
