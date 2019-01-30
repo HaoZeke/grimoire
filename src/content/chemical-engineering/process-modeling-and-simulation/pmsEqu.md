@@ -96,7 +96,7 @@ $$ y_4^C=y_2+\frac{h}{3}(f_2+4f_3+f_4) $$
 
 ### Newton Raphson
 
-$$ x_{i+1}=x_i+\frac{f(x_i)}{f'(x_i)} $$
+$$ x_{i+1}=x_i-\frac{f(x_i)}{f'(x_i)} $$
 
 ### Regula Falsi
 
