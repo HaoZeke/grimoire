@@ -1,0 +1,69 @@
+---
+title: Multihead Xorg
+metaTitle: true
+date: Wed Feb 20 2019
+blurb: Modelines, Monitors and Xorg
+tags: [applications, archlinux, writing]
+author: [Rohit Goswami]
+layout: article
+autotoc: true
+cleveref: On
+draft: true
+xnos-number-sections: On
+...
+
+* Overview
+This details my trials with a multihead setup.
+
+** Modelines
+These are obtained easily by inspecting the Xorg logs, found at
+~/var/log/Xorg.0.log~ typically.
+#+BEGIN_SRC bash
+# Use cat with less
+cat /var/log/Xorg.0.log | less
+# This is much neater
+bat /var/log/Xorg.0.log
+# Or without the contexts
+cat /var/log/Xorg.0.log | grep "Modeline"
+#+END_SRC
+For this particular usecase, the third variant with ~grep~ prints the following
+out:
+#+BEGIN_SRC bash
+[    94.931] (II) RADEON(0): Modeline "1920x1200_60.0"x60.0  154.00  1920 1968 2000 2080  1200 1203 1209 1235 +hsync -vsync (74.0 kHz UP)
+[    94.931] (II) RADEON(0): Modeline "1920x1200"x60.0  154.00  1920 1968 2000 2080  1200 1203 1209 1235 +hsync -vsync (74.0 kHz eP)
+[    94.931] (II) RADEON(0): Modeline "1920x1080"x60.0  148.50  1920 2008 2052 2200  1080 1084 1089 1125 -hsync -vsync (67.5 kHz e)
+[    94.931] (II) RADEON(0): Modeline "1600x1200"x60.0  162.00  1600 1664 1856 2160  1200 1201 1204 1250 +hsync +vsync (75.0 kHz e)
+[    94.931] (II) RADEON(0): Modeline "1680x1050"x59.9  119.00  1680 1728 1760 1840  1050 1053 1059 1080 +hsync -vsync (64.7 kHz e)
+[    94.931] (II) RADEON(0): Modeline "1280x1024"x60.0  108.00  1280 1328 1440 1688  1024 1025 1028 1066 +hsync +vsync (64.0 kHz e)
+[    94.931] (II) RADEON(0): Modeline "1280x960"x60.0  108.00  1280 1376 1488 1800  960 961 964 1000 +hsync +vsync (60.0 kHz e)
+[    94.931] (II) RADEON(0): Modeline "1024x768"x60.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    94.931] (II) RADEON(0): Modeline "800x600"x60.3   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    94.931] (II) RADEON(0): Modeline "640x480"x59.9   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    94.931] (II) RADEON(0): Modeline "720x400"x70.1   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[    94.969] (II) RADEON(0): Modeline "1366x768_59.8"x59.8   85.50  1366 1436 1579 1792  768 771 774 798 +hsync +vsync (47.7 kHz UP)
+[    94.969] (II) RADEON(0): Modeline "1366x768"x59.8   85.50  1366 1436 1579 1792  768 771 774 798 +hsync +vsync (47.7 kHz eP)
+[    94.969] (II) RADEON(0): Modeline "1280x1024"x60.0  108.00  1280 1328 1440 1688  1024 1025 1028 1066 +hsync +vsync (64.0 kHz e)
+[    94.970] (II) RADEON(0): Modeline "1280x720"x60.0   74.25  1280 1390 1430 1650  720 725 730 750 +hsync +vsync (45.0 kHz e)
+[    94.970] (II) RADEON(0): Modeline "1024x768"x60.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    94.970] (II) RADEON(0): Modeline "800x600"x60.3   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    94.970] (II) RADEON(0): Modeline "640x480"x59.9   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    94.970] (II) RADEON(0): Modeline "720x400"x70.1   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+#+END_SRC
+From here, seek out your preferred modeline settings and pin them in the
+~/etc/X11/xorg.conf.d/~ folder, I used ~10-monitor.conf~ as the filename.
+#+BEGIN_SRC conf
+Section "Monitor"
+    Identifier  "DVI-0"
+    Modeline    "1920x1200_60.0"  154.00  1920 1968 2000 2080  1200 1203 1209 1235 +hsync -vsync
+    Option      "PreferredMode" "1920x1200_60.0"
+    Option      "Primary" "true"
+EndSection
+
+Section "Monitor"
+    Identifier  "VGA-0"
+    Modeline    "1366x768_59.8"   85.50  1366 1436 1579 1792  768 771 774 798 +hsync +vsync
+    Option      "PreferredMode" "1366x768_59.8"
+    Option      "LeftOf" "DVI-0"
+EndSection
+#+END_SRC
+Some sanitization is required, but in general it is self explanatory.
