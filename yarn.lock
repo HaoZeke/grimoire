@@ -3244,7 +3244,7 @@ extend-shallow@^2.0.1:
   dependencies:
     is-extendable "^0.1.0"
 
-extend-shallow@^3.0.0:
+extend-shallow@^3.0.0, extend-shallow@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend-shallow/-/extend-shallow-3.0.2.tgz#26a71aaf073b39fb2127172746131c2704028db8"
   dependencies:
@@ -5461,11 +5461,12 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jstransformer-nunjucks@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/jstransformer-nunjucks/-/jstransformer-nunjucks-0.5.0.tgz#81cfa0885a549a0cbb717ad75bd959865f6d01c8"
+jstransformer-nunjucks@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/jstransformer-nunjucks/-/jstransformer-nunjucks-1.0.0.tgz#b7505548c6adb969bfa019b016f1e9bb1254bcc6"
+  integrity sha512-uDS5xDjRzGiKUiCR2TQoklWE3d4yz8haegge59KKXPaH/y2rFKcN4mgZ6EHj2GTk6F2G7r4aw1RHplOr5pXpog==
   dependencies:
-    extend-shallow "^2.0.1"
+    extend-shallow "^3.0.2"
     nunjucks "^3.0.0"
 
 just-debounce@^1.0.0:
