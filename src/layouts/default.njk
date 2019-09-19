@@ -1,58 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-{% include 'head.njk' %}
-{% block head %} {% endblock %}
+  <title></title>
 </head>
-
 <body>
-<main class="mainGrid page">
-{% include 'header.njk' %}
-{% include 'nav.njk' %}
-{% include 'toc.njk' %}
-<article class="gridBody">
-<div class="content">
-
-{% block main %}
-
-<h2> Introduction </h2>
-Hi, I'm Rohit Goswami. I'm a research associate at IIT Kanpur (ChemE Dept),
-where I work with the <a href="https://cnsjks.netlify.com/">Jayant Singh Group</a>.
-This is my attempt at keeping a record of the subjects I take, in the form of
-notes with references and equations. I also post details of some of my projects
-sporadically. Elsewhere on the web, I'm better known by handle, `HaoZeke`. My
-sporadically updated CV may
-be <a href="https://github.com/HaoZeke/CV/blob/master/RG_Latest-cv.pdf">found
-here</a>.
-
-<h4> Structure </h4>
-The site is divided into a multitude of collections and tags, accessible from the left navbar and from within posts.
-<h4> Rationale </h4>
-Each collection represents a coherent subject wise layout, while tags are meant to showcase the interdisciplinary aspects of each post.
-
-  <ul>
-      {% for name,data in collections | dictsort %}
-    <h6>{{ name | replace('-', ' ') | capitalize }}</h6>
-    {% for page in data %}
-        <li>
-        <a href="{{rootPath}}/{{page.path}}/index.html" title="{{page.title}}">
-          <strong>{{page.title}}</strong>
-        </a>
-          <div class="date">{{ page.blurb }}</div>
-      </li>
-    {% endfor %}
-    {% endfor %}
-  </ul>
-{% endblock %}
-
-</div>
-
-</article>
-
-{% include 'footer.njk' %}
-</main>
-
-{% block scripts %} {% endblock %}
-<script src="{{ rootPath }}js/bundle.js"></script>
+  {% include 'head.njk' %} {% block head %} {% endblock %}
+  <main class="mainGrid page">
+    {% include 'header.njk' %} {% include 'nav.njk' %} {% include
+    'toc.njk' %}
+    <article class="gridBody">
+      <div class="content">
+        {% block main %}
+        <h2>Introduction</h2>Hi, I'm Rohit Goswami. I'm a senior
+        project associate at IIT Kanpur, where I work with the
+        <a href=
+        "https://femtolab.science/people/rohit">FemtoLab</a> under
+        the stellar <a href="https://femtolab.science">Prof.
+        Debabrata Goswami</a>. This is my attempt at keeping a
+        record of the subjects I take, in the form of notes with
+        references and equations. I also post details of some of my
+        projects sporadically. Elsewhere on the web, I'm better
+        known by handle, `HaoZeke`. My sporadically updated CV may
+        be <a href=
+        "https://github.com/HaoZeke/CV/blob/master/RG_Latest-cv.pdf">
+        found here</a>.
+        <h4>Structure</h4>The site is divided into a multitude of
+        collections and tags, accessible from the left navbar and
+        from within posts.
+        <h4>Rationale</h4>Each collection represents a coherent
+        subject wise layout, while tags are meant to showcase the
+        interdisciplinary aspects of each post.
+        <ul>
+          {% for name,data in collections | dictsort %}
+          <h6>{{ name | replace('-', ' ') | capitalize }}</h6>{%
+          for page in data %}
+          <li>
+            <a href="{{rootPath}}/{{page.path}}/index.html" title=
+            "{{page.title}}"><strong>{{page.title}}</strong></a>
+            <div class="date">
+              {{ page.blurb }}
+            </div>
+          </li>{% endfor %} {% endfor %}
+        </ul>{% endblock %}
+      </div>
+    </article>{% include 'footer.njk' %}
+  </main>{% block scripts %} {% endblock %}
+  <script src="{{%20rootPath%20}}js/bundle.js"></script>
 </body>
 </html>
