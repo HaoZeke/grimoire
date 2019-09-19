@@ -1,0 +1,206 @@
+---
+title: Building LineageOS for an unsupported device
+metaTitle: true
+date: Thu Jul 30 2018
+blurb: Notes on my migration from the Xperia Z5 to the Mi A2 Lite
+tags: [applications, android, writing]
+draft: false
+author: [Rohit Goswami]
+layout: article
+autotoc: true
+cleveref: On
+xnos-number-sections: On
+---
+
+# TODO: Split this and put more images
+
+** Motivation
+Basically, I got a new phone. Not too many developers for it yet, and I
+haven't documented my process previously in a coherent way anyway.
+
+Most build "guides" scattered across the internet are only useful while
+building for a device which is already maintained.
+
+** History
+I have been a long time developer, having started with the Xperia X10 Mini Pro.
+I have bought Sony devices ever since, due to their perceived open source
+friendly attitude. This brought me in contact with amazing devs like [[https://forum.xda-developers.com/member.php?u=3816568][Myself5]]
+and [[https://forum.xda-developers.com/member.php?u=3037651][zacharias.maladroit]] on XDA, as well as the other Xperia devs.
+
+My work (as [[https://forum.xda-developers.com/member.php?u=1964056][HaoZeke]]) for my last phone (Xperia Z5 Dual, a.k.a =sumire=)
+included, a kernel, F2FS support, an AOSP based custom ROM ([[https://forum.xda-developers.com/xperia-z5/development/e6683-aosp-pixel-nougat-rom-t3497690][the PixN ROM]]), a
+[[https://forum.xda-developers.com/xperia-z5/development/dual-single-haozeke-s-lineageos-t3557646][customized LineageOS]], an [[https://forum.xda-developers.com/xperia-z5/development/dual-single-haozeke-s-crdroid-los-based-t3641616][optimized crDroid build]] (my current daily driver), and
+even a [[https://forum.xda-developers.com/devdb/project/dl/?id=26670][recovery image with F2FS]] (TWRP). For my efforts in bringing the the Z5
+Dual up to the LineageOS quality guidelines (mostly by fixing encryption,
+bringing the dual sim set up to speed and setting up the device wiki), I was
+named a [[https://wiki.lineageos.org/devices/sumire][LineageOS co-mantainer]] for the device.
+
+** Build Setup
+# TODO: Describe the docker thing
+** Selecting Similar Devices
+In my particular case, a quick look around [[https://www.gsmarena.com/][GSMArena]] convinced me that the device
+I am trying to build for (~daisy~) is similar to an existing (supported) device
+(~tissot~). In other words, the Mi A2 Lite is similar to the Mi A1.
+
+Similarity above is basically in terms of the CPU, and the manufacturer. Also,
+maintained simply means that there exist device trees (and vendor configs) for
+the device.
+
+Here is a reproduction of the relevant parts [[https://www.gsmarena.com/compare.php3?idPhone1=9247&idPhone2=8776][of this GSMArena link]] showing a
+full comparison of the 2 phones (Mi A2 Lite vs Mi A1).
+
+#+DOWNLOADED: file:///home/haozeke/Pictures/cpuDevXiaomi.png @ 2018-10-14 08:12:40
+[[file:img/Importing%20Device%20Trees/cpuDevXiaomi_2018-10-14_08-12-40.png]]
+
+** Looking For Device Trees
+In particular for my device (henceforth known by its code-name ~daisy~) had a
+close match with an older device (~tissot~). With this I then scoured the usual
+sources, which are:
+
+- LineageOS ::
+     The most obvious place to search for a device by code-name is the official
+     GitHub organization.
+- OmniROM ::
+     This group has been out of the limelight for a while now but since they are
+     still the main source for building TWRP (the only viable recovery image),
+     it helps to check their GitHub organization.
+** Importing Device Trees
+At any rate, armed with this knowledge, I next identified the trees I would
+need.
+
+The necessary device trees and stuff are the things usually populated by
+commands like ~lunch~, which writes a ~roomservice.xml~ file in your
+~.repo/local_manifests/~.
+
+Basically we seek to reproduce the functionality of a typical device
+~roomservice.xml~ file, like the one generated for our reference device,
+~tissot~:
+
+#+BEGIN_SRC xml
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <project name="LineageOS/android_device_xiaomi_tissot" path="device/xiaomi/tissot" remote="github" />
+  <project name="LineageOS/android_device_xiaomi_msm8953-common" path="device/xiaomi/msm8953-common" remote="github" />
+  <project name="LineageOS/android_kernel_xiaomi_msm8953" path="kernel/xiaomi/msm8953" remote="github" />
+  <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" />
+</manifest>
+#+END_SRC
+
+At this point, this seems like a simple enough device to setup, since it has no
+extra vendor packages like the Sony devices. To prove that, consider the file
+needed for building for ~dogo~ (Xperia ZR) and ~honami~ (Xperia Z1):
+
+#+BEGIN_SRC xml
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <project name="CyanogenMod/android_device_sony_dogo" path="device/sony/dogo" remote="github" />
+  <project name="CyanogenMod/android_device_sony_fusion3-common" path="device/sony/fusion3-common" remote="github" />
+  <project name="CyanogenMod/android_device_sony_common" path="device/sony/common" remote="github" />
+  <project name="CyanogenMod/android_device_qcom_common" path="device/qcom/common" remote="github" />
+  <project name="CyanogenMod/android_kernel_sony_apq8064" path="kernel/sony/apq8064" remote="github" />
+  <project name="CyanogenMod/android_hardware_sony_thermanager" path="hardware/sony/thermanager" remote="github" />
+  <project name="CyanogenMod/android_external_stlport" path="external/stlport" remote="github" />
+  <project name="CyanogenMod/android_device_sony_honami" path="device/sony/honami" remote="github" />
+  <project name="CyanogenMod/android_device_sony_rhine-common" path="device/sony/rhine-common" remote="github" />
+  <project name="CyanogenMod/android_device_sony_msm8974-common" path="device/sony/msm8974-common" remote="github" />
+  <project name="CyanogenMod/android_kernel_sony_msm" path="kernel/sony/msm" remote="github" />
+  <project name="CyanogenMod/android_hardware_sony_camera" path="hardware/sony/camera" remote="github" />
+  <project name="CyanogenMod/android_hardware_sony_macaddrsetup" path="hardware/sony/macaddrsetup" remote="github" />
+  <project name="CyanogenMod/android_hardware_sony_timekeep" path="hardware/sony/timekeep" remote="github" />
+</manifest>
+#+END_SRC
+
+Naturally the Xiaomi device seems to have less hardware dependencies. At this
+point we note the following about the XML file entries:
+
+1. Each entry is a ~project~ in a ~manifest~ block.
+2. The ~name~ refers to the repository name.
+3. The ~path~ key is the directory of sync which is relative to the source.
+4. ~remote~ is defined elsewhere, typically at-least ~github~ will be defined.
+5. Though it is not shown here, ~revision~ is often specified while pulling from
+   non-standard sources.
+
+Furthermore we note that the file may be decomposed to fit the following
+structure:
+
+#+BEGIN_SRC xml
+<!-- Device Specific -->
+<!-- Device Common (chipset) -->
+<!-- Device Kernel (often shared by a chipset) -->
+<!-- Rom Additions -->
+<!-- Hardware Additions -->
+#+END_SRC
+
+At this point we postulate the following target ~xml~ file:
+
+#+BEGIN_SRC xml
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <project name="LineageOS/android_device_xiaomi_daisy" path="device/xiaomi/daisy" remote="github" />
+  <project name="LineageOS/android_device_xiaomi_msm8953-common" path="device/xiaomi/msm8953-common" remote="github" />
+  <project name="LineageOS/android_kernel_xiaomi_msm8953" path="kernel/xiaomi/msm8953" remote="github" />
+  <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" />
+</manifest>
+#+END_SRC
+
+However that's *not going to work**, obviously. Eventually if everything goes
+well and your build is stable and feature complete, and you take the time and
+effort to contribute the build to a project (like LOS), yes some poor newbie
+will get a ~roomservice.xml~ like that by using ~lunch~.
+
+For the remainder of this document and post collection, it is important to
+realize that the ~roomservice.xml~ file should be reserved for use by ~lunch~,
+and that ~repo~ picks up /all valid/ ~xml~ in ~.repo/local_manifests~.
+
+Hence we shall now do the following:
+
+#+BEGIN_SRC bash
+cd $SOURCE_LOCATION
+# Change this to your device
+export DEVICE_NAME=daisy
+rm .repo/local_manifests/roomservice.xml
+# Generate a valid skeleton
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<manifest>\n\n</manifest>" > .repo/local_manifests/$DEVICE_NAME.xml
+#+END_SRC
+
+Now we shall populate the blank ~xml~ file with our own personal test
+repositories. Mine looks like this:
+
+#+BEGIN_SRC xml
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+<!-- Remotes -->
+<remote name="bitbucket"
+        fetch="https://bitbucket.org/" />
+<remote  name="omnirom"
+         review="gerrit.omnirom.org"
+         fetch="https://github.com/omnirom" />
+<remote  name="gitlab"  fetch="https://gitlab.com" />
+<!-- Daisy Tree Stuff -->
+<project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" />
+<!-- Kernel -->
+<project name="hzDroidBits/android_kernel_xiaomi_msm8953" path="kernel/xiaomi/msm8953" remote="github" revision="lineage-15.1" />
+<!-- The original is provided by Xiaomi. Lineage might also have an interesting take. -->
+<!-- Actually the Lineage code is maybe a better bet. -->
+<!-- <project name="MiCode/Xiaomi_Kernel_OpenSource" path="kernel/xiaomi/msm8953" remote="github" revision="daisy-o-oss" /> -->
+<!-- Device -->
+<project name="hzDroidBits/android_device_xiaomi_msm8953-common" path="device/xiaomi/msm8953-common" remote="github" revision="lineage-15.1" />
+<project name="hzDroidBits/android_device_xiaomi_daisy" path="device/xiaomi/daisy" remote="github" revision="lineage-15.1" />
+<!-- Older Source -->
+<!-- Tissot also has Lineage Trees -->
+<!-- <project name="TheScarastic/android_device_xiaomi_msm8953-common" path="device/xiaomi/msm8953-common" remote="github" revision="lineage-15.1" /> -->
+<!-- <project name="TheScarastic/android_device_xiaomi_tissot" path="device/xiaomi/daisy" remote="github" revision="lineage-15.1" /> -->
+<!--Vendors-->
+<project name="TheScarastic/proprietary_vendor_xiaomi" path="vendor/xiaomi" remote="github" revision="lineage-16.0" />
+</manifest>
+#+END_SRC
+
+My tree includes some remotes which will eventually be used to pull in
+tool-chains and other goodies.
+
+#+BEGIN_QUOTE
+It is often best to setup an organization for your android ROM needs (excluding
+the kernel) as most of them need minor changes and will eventually be merged -- HaoZeke
+#+END_QUOTE
+
+# TODO: Use metalsmith to take external frontmatter conditionally https://www.npmjs.com/package/metalsmith-metafiles
