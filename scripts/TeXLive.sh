@@ -24,8 +24,8 @@ fi
 
 # Dirty hack till the site is updated properly
 # From https://tex.stackexchange.com/questions/429714/tlmgr-remote-repository-is-newer-than-local-2017-2018
-# tlmgr option repository ftp://tug.org/historic/systems/texlive/2017/tlnet-final
-# sudo tlmgr option repository ftp://tug.org/historic/systems/texlive/2017/tlnet-final
+tlmgr option repository ftp://tug.org/historic/systems/texlive/2019/tlnet-final
+sudo tlmgr option repository ftp://tug.org/historic/systems/texlive/2019/tlnet-final
 
 # Just including texlua so the cache check above works
 # Needed for any use of texlua even if not testing LuaTeX
