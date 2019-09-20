@@ -6,8 +6,7 @@
 <body>
   {% include 'head.njk' %} {% block head %} {% endblock %}
   <main class="mainGrid page">
-    {% include 'header.njk' %} {% include 'nav.njk' %} {% include
-    'toc.njk' %}
+    {% include 'header.njk' %} {% include 'nav.njk' %} {% include 'toc.njk' %}
     <article class="gridBody">
       <div class="content">
         {% block main %}
@@ -45,6 +44,6 @@
       </div>
     </article>{% include 'footer.njk' %}
   </main>{% block scripts %} {% endblock %}
-  <script src="{{%20rootPath%20}}js/bundle.js"></script>
+  <script src="{{rootPath}}js/bundle.js"></script>
 </body>
 </html>
