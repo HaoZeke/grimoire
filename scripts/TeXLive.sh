@@ -41,13 +41,12 @@ tlmgr install   \
   biber         \
   beamer        \
   xetex         \
-  pdflatex      \
   latexmk       \
   etoolbox      \
-  lmodern       \
   beamertheme-metropolis \
   amsmath
 
+# pdflatex lmodern
 # Keep no backups (not required, simply makes cache bigger)
 tlmgr option -- autobackup 0
 
