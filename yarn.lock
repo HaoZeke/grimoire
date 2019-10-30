@@ -6318,9 +6318,9 @@ metalsmith-collections@^0.9.0:
     read-metadata "^1.0.0"
     uniq "^1.0.1"
 
-metalsmith-drafts@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/metalsmith-drafts/-/metalsmith-drafts-0.0.1.tgz#727858ba266934a37a287013beca9b6033272f77"
+metalsmith-drafts@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/metalsmith-drafts/-/metalsmith-drafts-0.1.0.tgz#aff2553d3987512ac57e7074196c36746b3d4c49"
 
 metalsmith-headings-identifier@^0.0.11:
   version "0.0.11"
