@@ -79,7 +79,7 @@
      "webpack-dev-middleware": "^2.0.0",
      "webpack-hot-middleware": "^2.21.0",
      "webpack-stream": "^4.0.0",
-    "yargs": "^11.0.0"
+    "yargs": "^15.0.1"
   },
   "main": "gulpfile.babel.js",
   "repository": "https://github.com/HaoZeke/Grimoire",
