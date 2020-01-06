@@ -1,6 +1,6 @@
 ---
 layout: article
-draft: false
+draft: true
 mathjax: false
 title: Notes on Git Novice
 subtitle: "A Software Carpentries Community Discussion"
