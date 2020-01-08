@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  {% include 'head.njk' %} {% block head %} {% endblock %}
 </head>
 <body>
-  {% include 'head.njk' %} {% block head %} {% endblock %}
   <main class="mainGrid page">
     {% include 'header.njk' %} {% include 'nav.njk' %} {% include
     'toc.njk' %}

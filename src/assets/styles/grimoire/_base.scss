@@ -163,13 +163,14 @@ body {
 .page {
   footer {
     @include between("s", "xl") {
-      max-width: 50vw;
+      max-width: 70vw;
     }
     align-self: center;
     grid-column: 2;
     grid-row: 3;
     justify-self: center;
     margin: 0.5rem;
+    font-size: smaller;
     padding: 0.25rem;
 
     blockquote {
@@ -225,7 +226,7 @@ code.hasJax {
 }
 
 .catBlurb {
-  font-size: 0.8rem;
+  font-size: small;
 }
 
 .category {
