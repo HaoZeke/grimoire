@@ -1,35 +1,35 @@
 // Node
 
 // Normalize
-@import 'normalize';
+@import "normalize";
 
 // Breakpoint Stuff
-@import 'breakpoint';
-@import 'breakpoint-slicer';
+@import "breakpoint";
+@import "breakpoint-slicer";
 
 // Node Variables
-@import 'variables/animVars';
-@import 'variables/hamVars';
+@import "variables/animVars";
+@import "variables/hamVars";
 
 // Libraries
-@import 'hamburgers';
-@import 'animate';
-@import 'typi';
-@import 'luxbar';
-@import 'font-awesome';
-@import 'reflex'; // Light grid
+@import "hamburgers";
+@import "animate";
+@import "typi";
+@import "luxbar";
+@import "font-awesome";
+@import "reflex"; // Light grid
 
 // Node Overrides
-@import 'variables/luxVars';
+@import "variables/luxVars";
 
 // Theme Imports
-@import 'variables/colors';
-@import 'mixins';
-@import 'base';
-@import 'components/typo';
-@import 'components/buttons';
-@import 'components/nav';
-@import 'components/postNav';
-@import 'components/tagHome';
-@import 'components/icons';
-@import 'components/articles';
+@import "variables/colors";
+@import "mixins";
+@import "base";
+@import "components/typo";
+@import "components/buttons";
+@import "components/nav";
+@import "components/postNav";
+@import "components/tagHome";
+@import "components/icons";
+@import "components/articles";

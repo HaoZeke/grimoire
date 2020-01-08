@@ -24,20 +24,23 @@
         <a href=
         "https://github.com/HaoZeke/CV/blob/master/RG_Latest-cv.pdf">
           found here</a>, and my <a href="dotdoom.grimoire.science">emacs-config is here</a>.
-        <h4>Structure</h4>The site is divided into a multitude of
+        <h3>Structure</h3>The site is divided into a multitude of
         collections and tags, accessible from the left navbar and
         from within posts.
-        <h4>Rationale</h4>Each collection represents a coherent
+        <h3>Rationale</h3>Each collection represents a coherent
         subject wise layout, while tags are meant to showcase the
         interdisciplinary aspects of each post.
-        <ul>
+        <ul class="catList">
           {% for name,data in collections | dictsort %}
-          <h6>{{ name | replace('-', ' ') | capitalize }}</h6>{%
+          <h3 class="category">{{ name | replace('-', ' ') | capitalize }}</h3>{%
           for page in data %}
           <li>
+            <strong>
             <a href="{{rootPath}}/{{page.path}}/index.html" title=
-            "{{page.title}}"><strong>{{page.title}}</strong></a>
-            <div class="date">
+            "{{page.title}}">{{page.title}}</a> 
+            </strong>
+            <!-- <code>{{page.date}}</code> -->
+            <div class="catBlurb">
               {{ page.blurb }}
             </div>
           </li>{% endfor %} {% endfor %}
