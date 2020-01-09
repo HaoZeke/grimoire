@@ -113,12 +113,15 @@ body {
 }
 
 .gridBody {
-  @include between("s", "xl") {
+  @include between("l", "xl") {
+    max-width: 60vw;
+  }
+  @include between("s", "l") {
     max-width: 70vw;
-    .mascot {
-      img {
-        width: 50%;
-      }
+  }
+  .mascot {
+    img {
+      width: 50%;
     }
   }
   align-self: center;
