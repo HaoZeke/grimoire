@@ -12,7 +12,7 @@
 <h1>{{ title }}</h1>
 <h3>{{ subtitle }}</h3>
   <div class="meta">
-    {% if date %}Published: {{ date }}{% endif %}
+    {% if date %}Published: <time>{{ date }}</time>{% endif %}
   </div>
 {% endif %}
 
