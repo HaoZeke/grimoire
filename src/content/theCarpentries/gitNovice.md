@@ -7,7 +7,7 @@ subtitle: "A Software Carpentries Community Discussion"
 blurb: A critique of the curriculum as part of my instructor checkout.
 tags: [software, carpentries, git, curriculum, review]
 author: [Rohit Goswami]
-date: 2019-10-01
+publishDate: 2019-10-01
 cleveref: On
 xnos-number-sections: On
 autotoc: true

@@ -1,7 +1,7 @@
 ---
-title: Building LineageOS for an unsupported device
 metaTitle: true
-date: Thu Jul 30 2018
+title: Building LineageOS for an unsupported device
+publishDate: 2018-07-30
 blurb: Notes on my migration from the Xperia Z5 to the Mi A2 Lite
 tags: [applications, android, writing]
 draft: false

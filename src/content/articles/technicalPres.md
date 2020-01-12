@@ -1,9 +1,10 @@
 ---
+metaTitle: true
 title: "On Technical Presentations"
 subtitle: "A living guide"
 blurb: "Seminar and short presentation tactics"
 author: [Rohit Goswami]
-date: 23-6-18
+publishDate: 2018-06-23
 tags: [Powerpoint, Presentations, Mendeley]
 fontsize: 20pt
 cleveref: On
@@ -11,21 +12,18 @@ cleveref: On
 xnos-number-sections: On
 # TeX section wise numbering and include esdiff
 header-includes:
-    - \numberwithin{figure}{section}
-    - \numberwithin{equation}{section}
-    - \numberwithin{table}{section}
+  - \numberwithin{figure}{section}
+  - \numberwithin{equation}{section}
+  - \numberwithin{table}{section}
 draft: false
 layout: article
 katex: true
 autotoc: true
-metaTitle: true
-...
-
+---
 
 # Introduction
 
 I've structured this guide to distinguish between actionable aid and ideas as best possible. Hence material aids refer to things you need to go through or understand. The intangible aids are suggestions, basically, along with a rough guide to using these.
-
 
 ## Workflow
 
@@ -41,9 +39,8 @@ Additionally this article includes general observations to produce a good presen
 
 # Material Aid
 
-Basically you'll want to prep a reference file and collect data. 
+Basically you'll want to prep a reference file and collect data.
 I'll also briefly mention usage patterns.
-
 
 ## Papers and Books
 
@@ -63,12 +60,12 @@ If you need to add more references then you need to search on Google Scholar and
 
 In case you decide to go for a Powerpoint presentation, you can find some nice free templates [here on SlidesCarnival](https://www.slidescarnival.com/).
 
-In that case you'll want to either manually add the references by choosing one of the text styles with google scholar (I prefer the APA but they're all good**.
+In that case you'll want to either manually add the references by choosing one of the text styles with google scholar (I prefer the APA but they're all good\*\*.
 
-*Please* ensure you learn how to use the **align** submenu of the
+_Please_ ensure you learn how to use the **align** submenu of the
 **arrange**button. [Home tab]
 
-*Always* keep the **ruler** and **gridlines** on during the design phase.
+_Always_ keep the **ruler** and **gridlines** on during the design phase.
 [View tab]
 
 ### Mendeley
@@ -88,62 +85,62 @@ Based on my experiences presenting I would suggest the following:
 
 ### General Observations
 
-* Focus on clarifying the basics
-* Choose a few topics to focus on (or even one)
-* Mention clearly multiple use cases, and stress you're only uncovering the tip of the iceberg
-* Stay away from derivations
-* Try for at-least one picture a slide
-* Don't cram too much text
-* Don't put full sentences
-* Make a modular presentation so you can skip entire sections or include them without breaking the flow
-* Introduce the flow of the presentation, highlighting aspects you might brush over briefly (maybe not for college)
+- Focus on clarifying the basics
+- Choose a few topics to focus on (or even one)
+- Mention clearly multiple use cases, and stress you're only uncovering the tip of the iceberg
+- Stay away from derivations
+- Try for at-least one picture a slide
+- Don't cram too much text
+- Don't put full sentences
+- Make a modular presentation so you can skip entire sections or include them without breaking the flow
+- Introduce the flow of the presentation, highlighting aspects you might brush over briefly (maybe not for college)
 
 ### Program Specific Details
 
-* With beamer especially, the headings are really useful
-* You may structure content under a single heading over many slides by using a Title - Number format
-* With Powerpoint, try to maintain a basic structural layout, expect for a few call-out slides
+- With beamer especially, the headings are really useful
+- You may structure content under a single heading over many slides by using a Title - Number format
+- With Powerpoint, try to maintain a basic structural layout, expect for a few call-out slides
 
 ### Citations
 
-* Stick to a consistent reference pattern, either on the slide itself (`\footcite` style, i.e footnotes) or at the end (master reference style)
-* If you need `\nocite` citations (citations used multiply, like books) put those at the end (master reference)
-* Review articles may also be master refs, but remember to reference images too
-* Technical articles mentioned only once are typically footcited
+- Stick to a consistent reference pattern, either on the slide itself (`\footcite` style, i.e footnotes) or at the end (master reference style)
+- If you need `\nocite` citations (citations used multiply, like books) put those at the end (master reference)
+- Review articles may also be master refs, but remember to reference images too
+- Technical articles mentioned only once are typically footcited
 
 ## Researching
 
 More an art than an exploratory methodology, I would still suggest the following for presenting (at-least in college):
 
-* Use the introductory chapters from the books
-* Use the Review articles for future trends
-* Focus on a few technical aspects
-* Don't cram too many details
-* Don't be overly specific
-* Put only pretty equations
-* A picture says a thousand words, but an equation conveys whole realms of knowledge
-* Remember to prompt basic questions and answer them within the presentation (gently)
+- Use the introductory chapters from the books
+- Use the Review articles for future trends
+- Focus on a few technical aspects
+- Don't cram too many details
+- Don't be overly specific
+- Put only pretty equations
+- A picture says a thousand words, but an equation conveys whole realms of knowledge
+- Remember to prompt basic questions and answer them within the presentation (gently)
 
 Furthermore I ought to stress the avoidance of the following:
 
-* Googling (unless as a last resort)
+- Googling (unless as a last resort)
 
 Google above refers to the base search including crap like Quora, StackExchange etc. Google only when you don't know the field to search
 
 Also in general:
 
-* Always read the wiki references
-* Try to gauge the momentum of the field
-* Don't hype old tech
-* Celebrate tech maturity instead
+- Always read the wiki references
+- Try to gauge the momentum of the field
+- Don't hype old tech
+- Celebrate tech maturity instead
 
 This is actually a bit of a living (evolving) guide (insofar as non binding suggestions are a guide).
 
 **Rohit Goswami**
- 
-*BTech Year IV | HBTU Kanpur | ChemE Dept.*
+
+_BTech Year IV | HBTU Kanpur | ChemE Dept._
 
 <p align="left">
 S: rohit.646<br>
 E: r95g10[at]gmail.com
-</p> 
+</p>

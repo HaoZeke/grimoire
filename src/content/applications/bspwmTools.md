@@ -1,7 +1,7 @@
 ---
-title: Living with bspwm
 metaTitle: true
-date: Thu Jul 12 2018 
+title: Living with bspwm
+publishDate: 2018-07-12
 blurb: A romance in binary space partitioning.
 tags: [applications, tricks, writing]
 author: [Rohit Goswami]
@@ -10,9 +10,10 @@ autotoc: true
 cleveref: On
 draft: false
 xnos-number-sections: On
-...
+---
 
 ## Get the window name
+
 Setting rules for `bspwm` is actually very straightforward, assuming one knows
 the exact window title.
 

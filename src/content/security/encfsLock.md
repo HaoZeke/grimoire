@@ -1,7 +1,7 @@
 ---
-title: Locking and Encrypting Apps with Encfs
 metaTitle: true
-date: Thu Aug 16 2018 
+title: Locking and Encrypting Apps with Encfs
+publishDate: 2018-08-16
 blurb: Per application password and encryption for Linux.
 tags: [applications, tricks, writing, security, lock]
 author: [Rohit Goswami]
@@ -11,11 +11,12 @@ cleveref: On
 code: true
 draft: false
 xnos-number-sections: On
-...
+---
 
 For those who prefer it, this post is also [on Medium](https://medium.com/@HaoZeke/locking-and-encrypting-apps-with-encfs-c1484e77f479).
 
 ## Introduction
+
 One of the problems of a shared system, is that sometimes multiple applications
 are used by multiple people. Normally this would be solved by the excellent
 multi-user support inherent to Linux systems. After all, Unix and derivatives
@@ -30,7 +31,7 @@ practice to encrypt application data anyway. The case for encryption varies, but
 weather it's to make life harder for hackers, or just to stop cloud storage
 providers from sniffing around, it's a good idea. Even if multiple users will
 not be sharing an account, encryption prevents the `root users` or `admins` from
-getting too frisky with your data. 
+getting too frisky with your data.
 
 The popular [gnome-keyring](https://wiki.archlinux.org/index.php/GNOME/Keyring)
 and other security authentication methods are not a good fit for this since most
@@ -60,19 +61,19 @@ The requirements are:
 
 [Bash](https://www.gnu.org/software/bash/)
 
-:  This is needed for the shell substitutions in the shell script. Found
-   almost everywhere.
+: This is needed for the shell substitutions in the shell script. Found
+almost everywhere.
 
 [EncFS](https://github.com/vgough/encfs)
 
 : This handles the encryption portion. Though everything covered here will
-  require only the base program itself, new users would probably benefit from
-  having one of the GUI interfaces to `encfs` as well. I prefer [Gnome Encfs Manager](https://launchpad.net/gencfsm).
+require only the base program itself, new users would probably benefit from
+having one of the GUI interfaces to `encfs` as well. I prefer [Gnome Encfs Manager](https://launchpad.net/gencfsm).
 
 An ASKPASS program
 
 : These are most famously known for weird `ssh` errors. However, here we will
-  focus on [zenity](https://www.wikiwand.com/en/Zenity) and [git](https://git-scm.com/) as a fallback.
+focus on [zenity](https://www.wikiwand.com/en/Zenity) and [git](https://git-scm.com/) as a fallback.
 
 And that's it. Other variations of this method might use [shoes](shoesrb.com/)
 for more GUI goodness. Other `askpass` programs and helpers may also be used,
@@ -89,6 +90,7 @@ Our basic structure is simple.
 Additionally we would like the following features:
 
 <!-- 3. A GUI for obtaining the password (allowing for a non-terminal execution) -->
+
 3. Execution without the terminal (GUI, no terminal user queries)
 4. An automated way of generating a new stash for applications
 5. A sanitized name for the mount points
@@ -104,7 +106,7 @@ encfs ~/.cryptTest ~/cryptTest
 ```
 
 - This prompted me to create the directory if it didn't exist, which would not be
-handled properly from within a shell script.
+  handled properly from within a shell script.
 
 Additionally the MAN page for `encfs` showed me that support for external
 authentication managers is granted via the `--extpass` flag.
@@ -123,6 +125,7 @@ the top of the file.
 ```
 
 ### Setting Variables
+
 Initially we might simply set an unlock string as follows:
 
 ```bash
@@ -183,15 +186,15 @@ appDir="$HOME/.decrypt/$1"
 
 if [ ! -d $appDir ]; then
     mkdir -p $appDir
-fi 
+fi
 ```
 
 #### Caveats
 
 The above snippet does not deal with situations where:
 
-* The stash is already mounted
-* The stash does not exist
+- The stash is already mounted
+- The stash does not exist
 
 These are dealt with in the [Improvements](#improvements) section of this document.
 
@@ -208,8 +211,8 @@ $1
 
 At this stage the script is not equipped to deal with situations where:
 
-* The mount operation fails (wrong password)
-* The config files are encrypted
+- The mount operation fails (wrong password)
+- The config files are encrypted
 
 The script runs the program without testing the result of the mount, which will
 lead to much frustration and weird errors. These are fixed in [Handling Authentication](#handling-authentication).
@@ -223,7 +226,7 @@ section.
 
 This is actually not a really important bit, however, I wanted the app
 directories to start with **capital** letters. Also I wanted the encrypted data
-to be stored in a *hidden* folder.
+to be stored in a _hidden_ folder.
 
 In any case, this portion of the script uses a bash specific expansion. At this
 point we can also make the `unlockString` a little neater.
@@ -282,7 +285,7 @@ else
 fi
 
 if [ ! -d $cryptDir ]; then
-    mkdir -p $cryptDir 
+    mkdir -p $cryptDir
 fi
 ```
 

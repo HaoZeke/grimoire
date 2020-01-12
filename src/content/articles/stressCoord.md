@@ -1,8 +1,9 @@
 ---
+metaTitle: true
 title: "Viscous Stress Tensor"
 subtitle: "Components in Various Coordinate Systems"
 author: [Rohit Goswami]
-date: 2017-10-23
+publishDate: 2017-10-23
 tags: [Pandoc, Transport Phenomena]
 fontsize: 20pt
 cleveref: On
@@ -10,16 +11,17 @@ cleveref: On
 xnos-number-sections: On
 # TeX section wise numbering and include esdiff
 header-includes:
-    - \numberwithin{figure}{section}
-    - \numberwithin{equation}{section}
-    - \numberwithin{table}{section}
+  - \numberwithin{figure}{section}
+  - \numberwithin{equation}{section}
+  - \numberwithin{table}{section}
 draft: false
 layout: article
 katex: true
 autotoc: true
-...
+---
 
 # Viscous Stress Tensor
+
 ## Vector Tensor Notation
 
 $$ \tau=-\mu(\nabla \mathbf{v}+(\nabla \mathbf{v})^\intercal)+\left(\frac{2}{3}\mu-\kappa\right)\left(\nabla\cdot \vec{v}\right)\delta $$ {#eq:fulltau}

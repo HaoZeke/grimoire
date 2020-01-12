@@ -1,7 +1,7 @@
 ---
-title: Configuration Management
 metaTitle: true
-date: Tue Jul 10 2018 
+title: Configuration Management
+publishDate: 2018-07-10
 blurb: Testing SaltStack, Fabric, Ansible, Chef and Puppet.
 tags: [configuration, reviews, writing]
 author: [Rohit Goswami]
@@ -10,7 +10,7 @@ autotoc: true
 cleveref: On
 draft: true
 xnos-number-sections: On
-...
+---
 
 The basic problem with working from various locations and with a bunch of
 computers is that, well, `dotfiles` are not enough.
@@ -27,13 +27,14 @@ configuration management, in terms of getting the right packages in a uniform
 and consistent way.
 
 The most popular ones as of this writing seem to be:
-* [Ansible](https://www.ansible.com/)
-* [SaltStack](https://saltstack.com/)
-* [Chef](https://www.chef.io/chef/)
-* [Puppet](https://puppet.com/)
-* [Fabric](http://www.fabfile.org/)
 
-As an [archLinux](https://www.archlinux.org/) user, even most *nix systems don't usually have the right set of
+- [Ansible](https://www.ansible.com/)
+- [SaltStack](https://saltstack.com/)
+- [Chef](https://www.chef.io/chef/)
+- [Puppet](https://puppet.com/)
+- [Fabric](http://www.fabfile.org/)
+
+As an [archLinux](https://www.archlinux.org/) user, even most \*nix systems don't usually have the right set of
 packages which means this sort of higher level package management is imperative.
 
 ## SaltStack

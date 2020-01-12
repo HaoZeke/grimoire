@@ -1,17 +1,19 @@
 ---
+metaTitle: true
 layout: article
 draft: false
 mathjax: true
 title: Rationalizing the Study of Moments
 subtitle: "Collection Overview"
 blurb: A rationale for understanding statistics for engineering.
-tags: [Chemical Engineering, Statistical Design of Experiments, Math, Probability]
+tags:
+  [Chemical Engineering, Statistical Design of Experiments, Math, Probability]
 author: [Rohit Goswami]
-date: 2018-02-17
 cleveref: On
 xnos-number-sections: On
 autotoc: true
-...
+publishDate: 2018-02-17
+---
 
 # Introduction
 
@@ -31,7 +33,7 @@ This collection is largely inspired from @bronshtein2015handbook, @polyanin2006h
 
 This series consists of:
 
-* [Mathematical preliminaries](https://grimoire.science/mathematical-preliminaries/)
-* [Moments and their interpretations](https://grimoire.science/moments-and-their-interpretation/)
+- [Mathematical preliminaries](https://grimoire.science/mathematical-preliminaries/)
+- [Moments and their interpretations](https://grimoire.science/moments-and-their-interpretation/)
 
 ## References

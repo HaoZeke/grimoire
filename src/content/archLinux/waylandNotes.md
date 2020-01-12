@@ -1,7 +1,7 @@
 ---
-title: Working with Wayland and Sway
 metaTitle: true
-date: Thu Jul 30 2018 
+title: Working with Wayland and Sway
+publishDate: 2018-07-30
 blurb: Notes on my migration to wayland
 tags: [applications, archlinux, writing]
 author: [Rohit Goswami]
@@ -10,9 +10,10 @@ autotoc: true
 cleveref: On
 code: true
 xnos-number-sections: On
-...
+---
 
 ## Motivation
+
 There is really nothing wrong with the [x11 window
 system](https://www.wikiwand.com/en/X_Window_System). However I read recently on
 Phoronix, that wayland based systems are better for power consumption (less is
@@ -25,6 +26,7 @@ installation guide. Mostly these notes are to remind me why I chose a particular
 package or configuration.
 
 ## Sound
+
 Thankfully, `wayland` and `x11` both don't have anything to do with the sound
 setup (mostly). Hence I kept to a tried and tested
 [pulseaudio](https://wiki.archlinux.org/index.php/PulseAudio) setup to handle
@@ -40,6 +42,7 @@ quiet
 ```
 
 ## Window Managers
+
 Of course the most well known of the wayland window managers is probably GNOME
 now that it supports wayland, however before GNOME there was the toy DE, Weston.
 
@@ -47,6 +50,7 @@ None of the above are tiling window managers, so naturally they were discarded.
 I decided to use the excellent sway window manager.
 
 ### Switching to Sway
+
 Migrating from a rather customized bspwm + shxkd + lxde (session management only)
 setup was surprisingly easy. I once tested i3, which sway cites as a major
 influence, but I had found it to be lacking, mostly due to a lack of gaps
@@ -77,6 +81,7 @@ choosing to use `xwayland` or if it really doesn't support `wayland`. (eg.
 Thunar prefers `xwayland` but can be made to run natively)
 
 ## File Managers
+
 Thunar has been my de-facto linux file manager across a host of DMs and even
 distros and I was hoping that it would work out of the box. However, most GNOME
 applications seem to have scant little support for wayland.
@@ -88,10 +93,10 @@ However, with the `ldd` trick above I realized it was just not running as a
 ```bash
 # Force GTK to use wayland
 GDK_BACKEND=wayland
-CLUTTER_BACKEND=wayland 
+CLUTTER_BACKEND=wayland
 ```
 
-To the appropriate startup script (or `.bashrc`, `.zshenv` etc.**
+To the appropriate startup script (or `.bashrc`, `.zshenv` etc.\*\*
 
 **Update**
 Sadly `thunar` is not really production ready. At the time of this test, several
@@ -103,6 +108,7 @@ recommended file manager.
 Similarly, `archive-manager` has been replaced by `engrampa`.
 
 ## Prettying it up
+
 By now we have a rather well fleshed out system which seems to run a lot of ugly
 looking GTK themed applications.
 
@@ -110,6 +116,7 @@ Naturally, the cheapest (in terms of resource usage and dependencies) is
 `lxappearance` and `gtk-chtheme` (I came accross the second one from [here](https://askubuntu.com/questions/598943/how-to-de-uglify-i3-wm)).
 
 ## Bluetooth Managers
+
 For my purposes, I noted that `blueman` looked TERRIBLE. Similar to the issues
 with `thunar` it insisted in opening in a split with large blurry text.
 `bluedevil` had way too many dependencies which made no sense. There seemed to
@@ -119,14 +126,16 @@ elegant yet featureful `blueberry`.
 <!-- TODO Add images -->
 
 ## Finding a Bar
+
 Though `sway` comes with it's own inbuilt `sway-bar`, the statusline
 configuration is rather limited. Luckily, the cross compatibility with `i3` can
 be exploited here. However, for performance and ease of configuration I opted to
 forgo `i3status` and go with the performant [i3status-rust](https://github.com/greshake/i3status-rust).
 
 Tray icon support still seems pretty limited.
- 
+
 ## Ditching the mouse
+
 Most of the mouse alternatives I use, like
 [keynav](https://github.com/jordansissel/keynav) and it's enhanced forks all
 rely on [xdotool](https://github.com/jordansissel/xdotool). For usage on my
@@ -136,6 +145,7 @@ focus shifts with the mouse cursor. However alternatives are required.
 <!-- TODO add more details here-->
 
 ## Screenshots
+
 `swaygrab`exists but generally is rather ham handed, coming from
 `gnome-screenshot`, it is difficult to work with full screen images only. Must
 look into `scrot` and friends.
@@ -158,7 +168,7 @@ slurp | grim -g - $outputFile
 Most browsers work pretty happily with `xwayland`, the `xorg` compatibility
 layer. However that just seemed asinine. To the best of my knowledge most of the
 system packages ([except Fedora](https://www.reddit.com/r/Fedora/comments/8n84j0/newest_firefox_supports_wayland/))
-of `firefox` are not built with `wayland` support even though it is[pretty much feature-complete](https://www.phoronix.com/scan.php?page=news_item&px=Firefox-59-Wayland-Possibility). 
+of `firefox` are not built with `wayland` support even though it is[pretty much feature-complete](https://www.phoronix.com/scan.php?page=news_item&px=Firefox-59-Wayland-Possibility).
 
 At any rate, the only `firefox-wayland` package on ArchLinux were to be built
 from the mercurial source. After many hours of my laptop running out of memory
@@ -169,14 +179,16 @@ package managers on a \*nix system (notably, I am strongly against
 [anaconda](https://anaconda.org)), there wasn't a choice.
 
 However, though the `flatpak` package installed and did use wayland (with
-`qt-wayland` installed) it seems insanely buggy and slow. (Sat Sep  1 17:02:39
-2018) Crashes were frequent and undocumented (digging into the flatpak logs
-seemed like a waste of time). Currently I'm just going to stick with the normal
-AUR `firefox-nightly`.
+`qt-wayland` installed) it seems insanely buggy and slow. (Sat Sep 1 17:02:39
+
+2018. Crashes were frequent and undocumented (digging into the flatpak logs
+      seemed like a waste of time). Currently I'm just going to stick with the normal
+      AUR `firefox-nightly`.
 
 ## Music
+
 Typically I use `pianobar`. However for local music, I used to prefer
-`audacious` for being the lightest music player around. 
+`audacious` for being the lightest music player around.
 
 However, since there is no tray support for appindicators yet in sway, it seems
 pointless to use any sort of GUI based system.
@@ -188,6 +200,7 @@ GUI. Additionally, since my shift from synapse to rofi, I shall also need
 [clerk](https://github.com/carnager/clerk) to allow me to use rofi to control `mpd`.
 
 ## Telegram and SDDM
+
 Somehow, `sddm` was not respecting my environment variables, so telegram had
 these ugly window borders. Additionally, running telegram from the terminal and
 basically, with the environment variables (after removing `sddm`) caused a weird
@@ -199,10 +212,10 @@ and everything seems to be working well.
 LightDM seems to do well, plus there's the beautiful Aether theme.
 
 ## Caja and Udisks
+
 I had to manually edit some of the policies to allow the `active` user to mount
 the drives caja displayed.
 
 ```bash
 sudo nvim /usr/share/polkit-1/actions/org.freedesktop.UDisks2.policy
 ```
-

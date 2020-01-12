@@ -1,7 +1,7 @@
 ---
-title: Killing Sway
 metaTitle: true
-date: Fri Oct 12 2018
+title: Killing Sway
+publishDate: 2018-10-12
 blurb: Rationale for leaving Sway and Wayland
 tags: [applications, archlinux, writing]
 author: [Rohit Goswami]
@@ -10,7 +10,7 @@ autotoc: true
 cleveref: On
 draft: true
 xnos-number-sections: On
-...
+---
 
 ** Context
 For the past few months I have been sporadically working on a document which was
