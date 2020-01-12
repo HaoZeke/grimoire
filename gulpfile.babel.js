@@ -36,6 +36,7 @@ import msroot from "metalsmith-rootpath";
 import msmath from "metalsmith-mathjax";
 import mstags from "metalsmith-tags";
 import msatoc from "metalsmith-autotoc";
+import msdate from "metalsmith-date-formatter";
 import msaddExt from "metalsmith-layouts-add-extension";
 import mslogger from "metalsmith-logger";
 import msmap from "metalsmith-sitemap";
