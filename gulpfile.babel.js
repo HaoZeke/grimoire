@@ -307,6 +307,11 @@ export function metal(cb) {
           // Use a pathroot
           msroot(),
 
+          // Use a good date formatter
+          msdate({
+            dates: ["date", "publishDate", "modifiedDate"]
+          }),
+
           // Template engine
           mslay({
             engine: "nunjucks",
