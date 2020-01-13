@@ -2,6 +2,7 @@
 metaTitle: true
 title: Living with bspwm
 publishDate: 2018-07-12
+modifiedDate: 2018-07-12
 blurb: A romance in binary space partitioning.
 tags: [applications, tricks, writing]
 author: [Rohit Goswami]

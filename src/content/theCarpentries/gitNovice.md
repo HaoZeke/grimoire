@@ -8,6 +8,7 @@ blurb: A critique of the curriculum as part of my instructor checkout.
 tags: [software, carpentries, git, curriculum, review]
 author: [Rohit Goswami]
 publishDate: 2019-10-01
+modifiedDate: 2019-10-01
 cleveref: On
 xnos-number-sections: On
 autotoc: true

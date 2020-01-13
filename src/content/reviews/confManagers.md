@@ -2,6 +2,7 @@
 metaTitle: true
 title: Configuration Management
 publishDate: 2018-07-10
+modifiedDate: 2018-07-10
 blurb: Testing SaltStack, Fabric, Ansible, Chef and Puppet.
 tags: [configuration, reviews, writing]
 author: [Rohit Goswami]

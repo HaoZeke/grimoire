@@ -4,6 +4,7 @@ title: "JGEEBILS"
 subtitle: "Biology research interests."
 author: [Rohit Goswami, Prof. Debabrata Goswami]
 publishDate: 2017-02-20
+modifiedDate: 2017-02-20
 tags: [Pandoc, Biology]
 draft: false
 layout: article

@@ -2,6 +2,7 @@
 metaTitle: true
 title: ArchLinux Package Reviews
 publishDate: 2018-07-30
+modifiedDate: 2018-07-30
 blurb: Capsule reviews for stuff I use.
 tags: [applications, tricks, writing]
 author: [Rohit Goswami]

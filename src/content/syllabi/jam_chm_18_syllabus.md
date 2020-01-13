@@ -9,6 +9,7 @@ blurb: Graduate exam syllabi.
 tags: [local, India, college, syllabus]
 author: [Rohit Goswami]
 publishDate: 2017-02-05
+modifiedDate: 2017-02-05
 cleveref: On
 xnos-number-sections: On
 autotoc: true

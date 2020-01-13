@@ -9,6 +9,7 @@ blurb: Semester VII
 tags: [local, HBTU, college, semester, syllabus]
 author: [Rohit Goswami]
 publishDate: 2017-12-3
+modifiedDate: 2017-12-3
 cleveref: On
 xnos-number-sections: On
 autotoc: true

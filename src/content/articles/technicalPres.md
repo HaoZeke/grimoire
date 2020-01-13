@@ -5,6 +5,7 @@ subtitle: "A living guide"
 blurb: "Seminar and short presentation tactics"
 author: [Rohit Goswami]
 publishDate: 2018-06-23
+modifiedDate: 2018-06-23
 tags: [Powerpoint, Presentations, Mendeley]
 fontsize: 20pt
 cleveref: On

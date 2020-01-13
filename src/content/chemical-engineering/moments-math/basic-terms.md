@@ -10,6 +10,7 @@ tags:
   [Chemical Engineering, Statistical Design of Experiments, Math, Probability]
 author: [Rohit Goswami]
 publishDate: 2018-02-17
+modifiedDate: 2018-02-17
 cleveref: On
 xnos-number-sections: On
 autotoc: true

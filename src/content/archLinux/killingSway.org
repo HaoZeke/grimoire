@@ -2,6 +2,7 @@
 metaTitle: true
 title: Killing Sway
 publishDate: 2018-10-12
+modifiedDate: 2018-10-12
 blurb: Rationale for leaving Sway and Wayland
 tags: [applications, archlinux, writing]
 author: [Rohit Goswami]

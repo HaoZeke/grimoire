@@ -2,6 +2,7 @@
 metaTitle: true
 title: Cracks
 publishDate: 2018-06-21
+modifiedDate: 2018-06-21
 blurb: Slipping through a fractured reality.
 tags: [flash-fiction, musings, writing]
 author: [Rohit Goswami]

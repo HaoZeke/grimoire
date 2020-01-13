@@ -2,6 +2,7 @@
 metaTitle: true
 title: Locking and Encrypting Apps with Encfs
 publishDate: 2018-08-16
+modifiedDate: 2018-08-16
 blurb: Per application password and encryption for Linux.
 tags: [applications, tricks, writing, security, lock]
 author: [Rohit Goswami]

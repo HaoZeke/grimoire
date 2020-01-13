@@ -9,6 +9,7 @@ blurb: Semester VII Transport Phenomena Syllabus,
 tags: [local, HBTU, college, semester, syllabus]
 author: [Rohit Goswami]
 publishDate: 2017-12-03
+modifiedDate: 2017-12-03
 cleveref: On
 xnos-number-sections: On
 autotoc: true

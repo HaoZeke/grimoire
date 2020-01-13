@@ -2,6 +2,7 @@
 metaTitle: true
 title: Multihead Xorg
 publishDate: 2019-02-20
+modifiedDate: 2019-02-20
 blurb: Modelines, Monitors and Xorg
 tags: [applications, archlinux, writing]
 author: [Rohit Goswami]

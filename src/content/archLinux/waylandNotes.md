@@ -2,6 +2,7 @@
 metaTitle: true
 title: Working with Wayland and Sway
 publishDate: 2018-07-30
+modifiedDate: 2018-07-30
 blurb: Notes on my migration to wayland
 tags: [applications, archlinux, writing]
 author: [Rohit Goswami]
