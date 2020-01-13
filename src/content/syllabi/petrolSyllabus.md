@@ -8,8 +8,8 @@ subtitle: "Only relevant for HBTU students."
 blurb: Semester VII
 tags: [local, HBTU, college, semester, syllabus]
 author: [Rohit Goswami]
-publishDate: 3-12-2017
-modifiedDate: 3-12-2017
+publishDate: 2017-12-3
+modifiedDate: 2017-12-3
 cleveref: On
 xnos-number-sections: On
 autotoc: true

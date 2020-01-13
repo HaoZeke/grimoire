@@ -30,7 +30,7 @@
         subject wise layout, while tags are meant to showcase the
         interdisciplinary aspects of each post.
         <ul class="catList">
-          {% for name,data in collections | dictsort %}
+          {% for name,data in collections | dictsort | sort(false, true, 'modifiedDate') %}
           <h3 class="category">{{ name | replace('-', ' ') | capitalize }}</h3>{%
           for page in data %}
           <li>
@@ -38,7 +38,9 @@
             <a href="{{rootPath}}/{{page.path}}/index.html" title=
             "{{page.title}}">{{page.title}}</a> 
             </strong>
-            <!-- <code>{{page.date}}</code> -->
+            <div class="catTime">{% if page.updateDate
+            %}<time>{{page.modifiedDate}}</time>{% else
+            %}<time>{{page.publishDate}}</time>{% endif %}</div>
             <div class="catBlurb">
               {{ page.blurb }}
             </div>

@@ -1,6 +1,14 @@
 {% extends 'default.njk' %}
 
 {% block main %}
+{% if metaTitle %}
+<h1>{{ title }}</h1>
+<h3>{{ subtitle }}</h3>
+  <div class="meta">
+    {% if publishDate %}Published: <time>{{ publishDate }}</time>{% endif %}    {% if modifiedDate!==publishDate %}Updated: <time>{{ modifiedDate }}</time> {% endif %}
+  </div>
+{% endif %}
+
 <section>
         <ul class="catList">
           <h3 class="category">{{ tag }}</h3>
