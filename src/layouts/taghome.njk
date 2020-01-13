@@ -2,6 +2,14 @@
 
 {% block main %}
 
+{% if metaTitle %}
+<h1>{{ title }}</h1>
+<h3>{{ subtitle }}</h3>
+  <div class="meta">
+    {% if publishDate %}Published: <time>{{ publishDate }}</time>{% endif %}    {% if modifiedDate %}Updated: <time>{{ modifiedDate }}</time> {% endif %}
+  </div>
+{% endif %}
+
 {{contents | safe }}
 
 <section>
