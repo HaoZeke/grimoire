@@ -36,8 +36,8 @@
           <li>
             <strong>
             <a href="{{rootPath}}/{{page.path}}/index.html" title=
-            "{{page.title}}">{{page.title}}</a> 
-            </strong>
+            "{{page.title}}">{{page.title}}</a>
+            </strong> {% if page.subtitle %}- {{page.subtitle}} {% endif %}
             <div class="catTime">{% if page.updateDate
             %}<time>{{page.modifiedDate}}</time>{% else
             %}<time>{{page.publishDate}}</time>{% endif %}</div>
