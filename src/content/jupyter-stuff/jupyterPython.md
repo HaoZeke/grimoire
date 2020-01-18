@@ -89,9 +89,8 @@ registration and de-registration:
 ```bash
 poetry shell
 which jupyter # Should be the local one
-jupyter kernelspec install /home/username/.cache/pypoetry/virtualenvs/something-string-py3.8/ --user
 # Remember that this time you need the whole path
-jupyter hub
+jupyter lab
 ```
 
 This is now your server which you must point every other access-mechanism to,
