@@ -58,7 +58,7 @@ exit
 which python
 # /usr/bin/python3.8 or whatever
 # Register
-python -m ipykernel uninstall --name=something-string-py3.8
+python -m ipykernel install --user --name=something-string-py3.8
 # Now we can select it normally from JupyterHub
 ```
 
