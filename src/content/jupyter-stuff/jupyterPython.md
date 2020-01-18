@@ -81,6 +81,24 @@ The best way to fix this is to either manage the paths such that only the
 `poetry` python is ever visible to everything, or to just set custom shell
 environments, which will be detailed later.
 
+## Virtual Jupyter
+
+Another approach is to make sure you only use the `jupyter` binary to handle
+registration and de-registration:
+
+```bash
+poetry shell
+which jupyter # Should be the local one
+jupyter kernelspec install /home/username/.cache/pypoetry/virtualenvs/something-string-py3.8/ --user
+# Remember that this time you need the whole path
+jupyter hub
+```
+
+This is now your server which you must point every other access-mechanism to,
+like `ein`. This is a cleaner approach in the sense that you no longer need to
+keep a system-wide install of `jupyterhub` but now you have more restrictions on
+starting the server.
+
 <!-- ## Bonus: Sample Workflow -->
 
 <!-- I have two distinct collaborators who insist on using the same kind of -->
