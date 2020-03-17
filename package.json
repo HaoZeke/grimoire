@@ -65,7 +65,7 @@
     "metalsmith-sitemap": "^1.2.0",
     "metalsmith-tags": "^2.0.0",
     "normalize.scss": "^0.1.0",
-    "nunjucks": "^3.0.1",
+    "nunjucks": "^3.2.1",
     "nunjucks-markdown": "^2.0.1",
     "postcss-font-magician": "^2.1.0",
     "postcss-scss": "^1.0.2",
